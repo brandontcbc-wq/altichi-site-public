@@ -1285,6 +1285,18 @@
       .metric-row { grid-template-columns: 80px 1fr; }
       .metric-bar-wrap { display: none; }
     }
+
+    @media (max-width: 600px) {
+      .project-card [style*="display:flex"][style*="gap:6px"],
+      .project-card [style*="display:flex"][style*="gap:8px"] {
+        flex-direction: column;
+      }
+      .project-card [style*="display:inline-flex"][style*="border-radius:6px"] {
+        width: 100% !important;
+        white-space: normal !important;
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
 <body class="theme-light">
@@ -1816,19 +1828,19 @@
           <div class="project-desc">Directed <strong>multimillion-dollar SaaS implementations</strong> supporting <strong>probability-based risk modeling</strong> across transmission, distribution, and storage pipeline assets for <strong>major U.S. pipeline operators</strong>. Led cross-functional squads of 8 through requirements, UAT, and production deployment to ensure the safety, integrity, and maintenance of pipeline infrastructure in full compliance with <strong>PHMSA regulations</strong>, the federal framework governing U.S. hazardous liquid and gas pipeline operations.</div>
           <!-- Pipeline asset cards — click to expand -->
           <div style="display:flex;gap:6px;margin:14px 0 12px;flex-wrap:wrap;" id="pipeline-cards">
-            <div onclick="acOpenModal('pipeline','transmission')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <div onclick="acOpenModal('pipeline','transmission')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
               <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M2 9 H16" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><rect x="6" y="5" width="3" height="8" rx="1" fill="#2563EB" opacity="0.3"/><circle cx="2" cy="9" r="2" fill="#2563EB"/><circle cx="16" cy="9" r="2" fill="#2563EB"/></svg>
               <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#1D4ED8;">Transmission</span>
               <span style="font-size:11px;color:#64748B;">High-pressure long-haul</span>
               <span style="font-family:var(--font-mono);font-size:11px;color:#2563EB;">↗</span>
             </div>
-            <div onclick="acOpenModal('pipeline','distribution')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #7C3AED;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #7C3AED22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <div onclick="acOpenModal('pipeline','distribution')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #7C3AED;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #7C3AED22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
               <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M9 2 V9 M5 9 H13" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><circle cx="5" cy="13" r="2" fill="#7C3AED" opacity="0.7"/><circle cx="9" cy="13" r="2" fill="#7C3AED" opacity="0.7"/><circle cx="13" cy="13" r="2" fill="#7C3AED" opacity="0.7"/></svg>
               <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#5B21B6;">Distribution</span>
               <span style="font-size:11px;color:#64748B;">Local delivery networks</span>
               <span style="font-family:var(--font-mono);font-size:11px;color:#7C3AED;">↗</span>
             </div>
-            <div onclick="acOpenModal('pipeline','storage')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#ECFEFF;border:1px solid #A5F3FC;border-left:3px solid #0891B2;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #0891B222'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <div onclick="acOpenModal('pipeline','storage')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#ECFEFF;border:1px solid #A5F3FC;border-left:3px solid #0891B2;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #0891B222'" onmouseout="this.style.transform='';this.style.boxShadow=''">
               <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><ellipse cx="9" cy="5" rx="6" ry="2.5" fill="#0891B2" opacity="0.25" stroke="#0891B2" stroke-width="1.3"/><path d="M3 5 V13 C3 14.4 5.7 15.5 9 15.5 S15 14.4 15 13 V5" stroke="#0891B2" stroke-width="1.3" fill="none"/><ellipse cx="9" cy="13" rx="6" ry="2.5" stroke="#0891B2" stroke-width="1.3" fill="none"/></svg>
               <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#0E7490;">Storage</span>
               <span style="font-size:11px;color:#64748B;">Strategic reserves</span>
@@ -1956,13 +1968,13 @@
           <div class="project-desc">Implemented <strong>Multi-Factor Authentication (MFA)</strong> and <strong>Single Sign-On (SSO)</strong> across enterprise portals, and led the integration of a <strong>secure payment API with CIBC</strong>, one of Canada's largest Schedule I chartered banks, enabling students to transact directly within institutional platforms.</div>
 
           <div style="display:flex;gap:6px;margin:14px 0 12px;flex-wrap:wrap;">
-            <div onclick="acOpenModal('info','sec-auth')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#ECFEFF;border:1px solid #A5F3FC;border-left:3px solid #0891B2;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #0891B222'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <div onclick="acOpenModal('info','sec-auth')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#ECFEFF;border:1px solid #A5F3FC;border-left:3px solid #0891B2;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #0891B222'" onmouseout="this.style.transform='';this.style.boxShadow=''">
               <span style="font-size:1rem;line-height:1;">🔐</span>
               <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#0E7490;">MFA &amp; SSO</span>
               <span style="font-size:11px;color:#64748B;">Enterprise auth hardening</span>
               <span style="font-family:var(--font-mono);font-size:11px;color:#0891B2;">↗</span>
             </div>
-            <div onclick="acOpenModal('info','sec-cibc')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <div onclick="acOpenModal('info','sec-cibc')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
               <span style="font-size:1rem;line-height:1;">🏦</span>
               <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#1D4ED8;">CIBC Payment API</span>
               <span style="font-size:11px;color:#64748B;">Secure banking integration</span>
@@ -2008,13 +2020,13 @@
           <div class="project-desc">Led a strategic vendor integration program on the <strong>Canvas LMS platform</strong>, used across hundreds of universities and colleges worldwide, coordinating directly with third-party vendors to deliver integrations aligned to institutional priorities and roadmap planning.</div>
 
           <div style="display:flex;gap:6px;margin:14px 0 12px;flex-wrap:wrap;">
-            <div onclick="acOpenModal('info','lms-canvas')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #7C3AED;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #7C3AED22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <div onclick="acOpenModal('info','lms-canvas')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #7C3AED;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #7C3AED22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
               <span style="font-size:1rem;line-height:1;">🎓</span>
               <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#5B21B6;">Canvas LMS</span>
               <span style="font-size:11px;color:#64748B;">Global platform context</span>
               <span style="font-family:var(--font-mono);font-size:11px;color:#7C3AED;">↗</span>
             </div>
-            <div onclick="acOpenModal('info','lms-vendors')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <div onclick="acOpenModal('info','lms-vendors')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
               <span style="font-size:1rem;line-height:1;">🔗</span>
               <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#1D4ED8;">Vendor Integrations</span>
               <span style="font-size:11px;color:#64748B;">Turnitin, Power BI, SMS</span>
