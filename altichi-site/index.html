@@ -236,6 +236,7 @@
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
       font-size: clamp(15px, 1.1vw, 18px);
+      -webkit-text-size-adjust: 100%;
     }
 
     /* Dark / Slate: smooth nebula glow, zero grid */
@@ -420,7 +421,7 @@
     .section-heading {
       font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em;
       font-size: clamp(2.2rem, 3.5vw, 3.2rem); line-height: 1.1; margin-bottom: 16px; color: var(--text-primary);
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-optical-sizing: auto;
       text-rendering: optimizeLegibility;
     }
 
@@ -1298,6 +1299,51 @@
       }
     }
     /* ── PROJECT DESC HIGHLIGHTS — uniform blue ── */
+    /* ── ELEVATED BADGE CARDS — scalable ── */
+    .badge-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 14px;
+    }
+    .badge-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border-width: 1.5px;
+      border-style: solid;
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: default;
+      width: auto;
+      white-space: nowrap;
+    }
+    .badge-card:hover { transform: translateY(-2px); }
+    .badge-card svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      shape-rendering: geometricPrecision;
+    }
+    .badge-card .badge-label {
+      font-family: var(--font-mono);
+      font-size: clamp(10px, 0.85vw, 13px);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+    .badge-card .badge-sub {
+      font-family: var(--font-mono);
+      font-size: clamp(8px, 0.65vw, 10px);
+      margin-top: 1px;
+      opacity: 0.7;
+    }
+    @media (max-width: 600px) {
+      .badge-card { white-space: normal; }
+    }
+
     .bio-stat-blue-only {
       font-family: var(--font-display); font-weight: 800;
       font-size: 1em;
@@ -1346,7 +1392,7 @@
           <div id="hero-photo" style="position:relative;display:inline-block;">
             <img src="assets/headshot.png"
               alt="Brandon T. Chihota"
-              style="width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:center top;
+              style="width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:center top;image-rendering:high-quality;
                      border:3px solid white;
                      box-shadow:0 0 0 3px #7C3AED44, 0 8px 32px rgba(124,58,237,0.2);">
             <div style="position:absolute;bottom:2px;right:2px;background:#10B981;width:16px;height:16px;
@@ -1364,7 +1410,7 @@
               <span class="hero-photo-inline">
                 <img src="assets/headshot.png"
                      alt="Brandon T. Chihota"
-                     style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;
+                     style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;image-rendering:high-quality;
                             border:3px solid white;
                             box-shadow:0 0 0 3px #7C3AED44, 0 8px 32px rgba(124,58,237,0.2);
                             display:block;">
@@ -1768,30 +1814,30 @@
             <div class="project-title">Multi-Institution Student Systems Modernization</div>
             <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#2563EB08;border-left:3px solid #2563EB;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">7 higher education institutions were running disconnected legacy systems with no unified student data platform, creating operational bottlenecks affecting 10,000+ students and staff across two countries.</span></div>
           <div class="project-desc">Led <span class="bio-stat-blue-only">enterprise Student Management System (SMS) transformation</span> across <span class="bio-stat-blue-only">7+ higher education institutions</span> supporting <span class="bio-stat-blue-only">10,000+ students and staff</span> across U.S. and Canadian operations. Managed <span class="bio-stat-blue-only">project budgets up to $100K</span> and cross-functional delivery teams of 5 to 10, reducing core operational workflows by up to <span class="bio-stat-blue-only">70%</span> across implementation cycles spanning <span class="bio-stat-blue-only">4 weeks to 3 months</span>.</div>
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 16px;">
-              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;box-shadow:0 2px 12px #93C5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #93C5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #93C5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="16" rx="4" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#2563EB"/><path d="M10 16h2M20 16h2" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.05em;">SaaS Impl.</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">Delivery</div></div>
+            <div class="badge-grid">
+              <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="4" y="8" width="24" height="16" rx="4" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#2563EB"/><path d="M10 16h2M20 16h2" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">SaaS Impl.</div><div class="badge-sub" style="color:#1E40AF;">Delivery</div></div>
             </div>
-              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #C4B5FD;border-radius:12px;box-shadow:0 2px 12px #C4B5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #C4B5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #C4B5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 6L28 12L16 18L4 12L16 6Z" fill="#7C3AED" opacity="0.2" stroke="#7C3AED" stroke-width="2" stroke-linejoin="round"/><path d="M8 15v6c0 2.5 3.6 4 8 4s8-1.5 8-4v-6" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.05em;">Edtech</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Higher Ed</div></div>
+              <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 6L28 12L16 18L4 12L16 6Z" fill="#7C3AED" opacity="0.2" stroke="#7C3AED" stroke-width="2" stroke-linejoin="round"/><path d="M8 15v6c0 2.5 3.6 4 8 4s8-1.5 8-4v-6" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Edtech</div><div class="badge-sub" style="color:#6D28D9;">Higher Ed</div></div>
             </div>
-              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h4m12 0h4M14 10l-4 6 4 6M18 10l4 6-4 6" stroke="#0891B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">API Integ.</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Integration</div></div>
+              <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M6 16h4m12 0h4M14 10l-4 6 4 6M18 10l4 6-4 6" stroke="#0891B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">API Integ.</div><div class="badge-sub" style="color:#155E75;">Integration</div></div>
             </div>
-              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="8" y="14" width="16" height="12" rx="3" stroke="#0891B2" stroke-width="2"/><path d="M11 14v-3a5 5 0 0110 0v3" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="20" r="2" fill="#0891B2"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">SSO / MFA</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Auth</div></div>
+              <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="8" y="14" width="16" height="12" rx="3" stroke="#0891B2" stroke-width="2"/><path d="M11 14v-3a5 5 0 0110 0v3" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="20" r="2" fill="#0891B2"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">SSO / MFA</div><div class="badge-sub" style="color:#155E75;">Auth</div></div>
             </div>
-              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #C4B5FD;border-radius:12px;box-shadow:0 2px 12px #C4B5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #C4B5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #C4B5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="11" y="4" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.7"/><rect x="11" y="12" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.4"/><rect x="11" y="20" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.2"/><circle cx="21" cy="16" r="4" fill="#7C3AED"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.05em;">Figma</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Design</div></div>
+              <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="11" y="4" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.7"/><rect x="11" y="12" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.4"/><rect x="11" y="20" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.2"/><circle cx="21" cy="16" r="4" fill="#7C3AED"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Figma</div><div class="badge-sub" style="color:#6D28D9;">Design</div></div>
             </div>
-              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="18" width="5" height="10" rx="2" fill="#0891B2"/><rect x="13" y="12" width="5" height="16" rx="2" fill="#0891B2" opacity="0.7"/><rect x="20" y="6" width="5" height="22" rx="2" fill="#0891B2" opacity="0.4"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">Power BI</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Analytics</div></div>
+              <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="6" y="18" width="5" height="10" rx="2" fill="#0891B2"/><rect x="13" y="12" width="5" height="16" rx="2" fill="#0891B2" opacity="0.7"/><rect x="20" y="6" width="5" height="22" rx="2" fill="#0891B2" opacity="0.4"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Power BI</div><div class="badge-sub" style="color:#155E75;">Analytics</div></div>
             </div>
             </div>
           </div>
@@ -1881,26 +1927,26 @@
               <div id="pipeline-modal-content"></div>
             </div>
           </div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 16px;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;box-shadow:0 2px 12px #93C5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #93C5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #93C5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4L28 26H4L16 4Z" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="13" x2="16" y2="19" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="23" r="1.5" fill="#2563EB"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.05em;">Risk Modeling</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">Analysis</div></div>
+<div class="badge-grid">
+            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 4L28 26H4L16 4Z" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="13" x2="16" y2="19" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="23" r="1.5" fill="#2563EB"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Risk Modeling</div><div class="badge-sub" style="color:#1E40AF;">Analysis</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 22a6 6 0 010-12 8 8 0 0116 2 5 5 0 010 10H8Z" fill="#0891B2" opacity="0.15" stroke="#0891B2" stroke-width="2"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">Cloud Hosted</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">AWS</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M8 22a6 6 0 010-12 8 8 0 0116 2 5 5 0 010 10H8Z" fill="#0891B2" opacity="0.15" stroke="#0891B2" stroke-width="2"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Cloud Hosted</div><div class="badge-sub" style="color:#155E75;">AWS</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #C4B5FD;border-radius:12px;box-shadow:0 2px 12px #C4B5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #C4B5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #C4B5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="4" width="20" height="24" rx="3" stroke="#7C3AED" stroke-width="2"/><path d="M11 12h10M11 17h10M11 22h6" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.05em;">Regulated</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">PHMSA</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="6" y="4" width="20" height="24" rx="3" stroke="#7C3AED" stroke-width="2"/><path d="M11 12h10M11 17h10M11 22h6" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Regulated</div><div class="badge-sub" style="color:#6D28D9;">PHMSA</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;box-shadow:0 2px 12px #93C5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #93C5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #93C5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 6L26 16L16 26" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 16l10-10" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.05em;">Jira</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">PM Tool</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 6L26 16L16 26" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 16l10-10" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Jira</div><div class="badge-sub" style="color:#1E40AF;">PM Tool</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="10" cy="10" r="4" fill="#0891B2" opacity="0.7"/><circle cx="22" cy="10" r="4" fill="#0891B2" opacity="0.5"/><circle cx="10" cy="22" r="4" fill="#0891B2" opacity="0.5"/><circle cx="22" cy="22" r="4" fill="#0891B2" opacity="0.3"/><path d="M14 10h4M10 14v4M18 22h4M22 14v4" stroke="#0891B2" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">Mavenlink</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Projects</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="10" cy="10" r="4" fill="#0891B2" opacity="0.7"/><circle cx="22" cy="10" r="4" fill="#0891B2" opacity="0.5"/><circle cx="10" cy="22" r="4" fill="#0891B2" opacity="0.5"/><circle cx="22" cy="22" r="4" fill="#0891B2" opacity="0.3"/><path d="M14 10h4M10 14v4M18 22h4M22 14v4" stroke="#0891B2" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Mavenlink</div><div class="badge-sub" style="color:#155E75;">Projects</div></div>
             </div>
           </div>
         </div>
@@ -1973,26 +2019,26 @@
           </div>
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#7C3AED08;border-left:3px solid #7C3AED;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#7C3AED;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">Students and prospective applicants across 7+ institutions had no 24/7 self-service support channel, placing unsustainable load on staff and creating inconsistent information experiences across campuses.</span></div>
           <div class="project-desc">Led the <span class="bio-stat-blue-only">organization's first AI implementation</span> from strategic inception through scaled multi-institution deployment. Coordinated directly with the <span class="bio-stat-blue-only">Executive Director of Digital Transformation</span>, the <span class="bio-stat-blue-only">Executive Director of IT &amp; Infrastructure</span>, and the <span class="bio-stat-blue-only">Vice President of Operations, Enterprise Systems &amp; Digital Transformation</span> to conduct a structured <span class="bio-stat-blue-only">build vs. buy evaluation</span>, proceeding with a third-party proof of concept before determining the path to scale. Managed the <span class="bio-stat-blue-only">full implementation lifecycle</span> including cross-departmental knowledge base development to train the LLM across student, faculty, and public inquiry domains. Established a <span class="bio-stat-blue-only">dual monitoring framework</span> pairing a dedicated accuracy review team with hallucination safeguards, and led go-live communications, staff training, and a continuous improvement roadmap to deliver a <span class="bio-stat-blue-only">24/7 high-availability solution</span> scalable across all institutions.</div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 16px;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;box-shadow:0 2px 12px #93C5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #93C5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #93C5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="5" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="2"/><circle cx="16" cy="6" r="2.5" fill="#2563EB"/><circle cx="16" cy="26" r="2.5" fill="#2563EB"/><circle cx="6" cy="16" r="2.5" fill="#2563EB"/><circle cx="26" cy="16" r="2.5" fill="#2563EB"/><path d="M16 8.5v5M16 18.5v5M8.5 16h5M18.5 16h5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.05em;">AI / LLM</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">Generative</div></div>
+<div class="badge-grid">
+            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="5" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="2"/><circle cx="16" cy="6" r="2.5" fill="#2563EB"/><circle cx="16" cy="26" r="2.5" fill="#2563EB"/><circle cx="6" cy="16" r="2.5" fill="#2563EB"/><circle cx="26" cy="16" r="2.5" fill="#2563EB"/><path d="M16 8.5v5M16 18.5v5M8.5 16h5M18.5 16h5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">AI / LLM</div><div class="badge-sub" style="color:#1E40AF;">Generative</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #C4B5FD;border-radius:12px;box-shadow:0 2px 12px #C4B5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #C4B5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #C4B5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="14" width="11" height="14" rx="2" stroke="#7C3AED" stroke-width="2"/><path d="M15 20h4a4 4 0 000-8h-4" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><path d="M9 4v10M12 7L9 4 6 7" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.05em;">Build vs Buy</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Strategy</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="4" y="14" width="11" height="14" rx="2" stroke="#7C3AED" stroke-width="2"/><path d="M15 20h4a4 4 0 000-8h-4" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><path d="M9 4v10M12 7L9 4 6 7" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Build vs Buy</div><div class="badge-sub" style="color:#6D28D9;">Strategy</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="6" width="20" height="20" rx="4" stroke="#0891B2" stroke-width="2"/><path d="M11 13h10M11 17h7M11 21h8" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">Knowledge Base</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">LLM Train</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="6" y="6" width="20" height="20" rx="4" stroke="#0891B2" stroke-width="2"/><path d="M11 13h10M11 17h7M11 21h8" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Knowledge Base</div><div class="badge-sub" style="color:#155E75;">LLM Train</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;box-shadow:0 2px 12px #93C5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #93C5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #93C5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="#2563EB" stroke-width="2"/><path d="M10 18L13 14L16 18L20 11L23 15" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.05em;">Dual Monitor</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">QA</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="11" stroke="#2563EB" stroke-width="2"/><path d="M10 18L13 14L16 18L20 11L23 15" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Dual Monitor</div><div class="badge-sub" style="color:#1E40AF;">QA</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="#0891B2" stroke-width="2"/><path d="M16 9v7l5 3" stroke="#0891B2" stroke-width="2.5" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">24/7 Avail.</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Always On</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="11" stroke="#0891B2" stroke-width="2"/><path d="M16 9v7l5 3" stroke="#0891B2" stroke-width="2.5" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">24/7 Avail.</div><div class="badge-sub" style="color:#155E75;">Always On</div></div>
             </div>
           </div>
         </div>
@@ -2004,7 +2050,7 @@
               <div class="project-num" data-n="04">Security</div>
               <div class="project-title" style="margin-bottom:0;">Secure Portal & Authentication Enhancements</div>
             </div>
-            <svg width="70" height="70" viewBox="0 0 70 70" fill="none" style="flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg">
+            <svg width="70" height="70" style="shape-rendering:geometricPrecision;" viewBox="0 0 70 70" fill="none" style="flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="sh1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
                 <linearGradient id="sh2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#0891B2"/></linearGradient>
@@ -2037,22 +2083,22 @@
               <span style="font-family:var(--font-mono);font-size:11px;color:#2563EB;">↗</span>
             </div>
           </div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 16px;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="8" y="14" width="16" height="12" rx="3" stroke="#0891B2" stroke-width="2"/><path d="M11 14v-3a5 5 0 0110 0v3" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="20" r="2" fill="#0891B2"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">SSO / MFA</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Auth</div></div>
+<div class="badge-grid">
+            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="8" y="14" width="16" height="12" rx="3" stroke="#0891B2" stroke-width="2"/><path d="M11 14v-3a5 5 0 0110 0v3" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="20" r="2" fill="#0891B2"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">SSO / MFA</div><div class="badge-sub" style="color:#155E75;">Auth</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #C4B5FD;border-radius:12px;box-shadow:0 2px 12px #C4B5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #C4B5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #C4B5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="11" y="4" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.7"/><rect x="11" y="12" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.4"/><rect x="11" y="20" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.2"/><circle cx="21" cy="16" r="4" fill="#7C3AED"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.05em;">Figma</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Design</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="11" y="4" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.7"/><rect x="11" y="12" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.4"/><rect x="11" y="20" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.2"/><circle cx="21" cy="16" r="4" fill="#7C3AED"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Figma</div><div class="badge-sub" style="color:#6D28D9;">Design</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="10" width="24" height="16" rx="3" stroke="#0891B2" stroke-width="2"/><path d="M4 15h24" stroke="#0891B2" stroke-width="2"/><rect x="8" y="19" width="6" height="3" rx="1" fill="#0891B2" opacity="0.6"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">CIBC API</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Payments</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="4" y="10" width="24" height="16" rx="3" stroke="#0891B2" stroke-width="2"/><path d="M4 15h24" stroke="#0891B2" stroke-width="2"/><rect x="8" y="19" width="6" height="3" rx="1" fill="#0891B2" opacity="0.6"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">CIBC API</div><div class="badge-sub" style="color:#155E75;">Payments</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;box-shadow:0 2px 12px #93C5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #93C5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #93C5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4L6 8v8c0 6 4.5 10.5 10 12 5.5-1.5 10-6 10-12V8L16 4Z" fill="#2563EB" opacity="0.12" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/><path d="M11 16l4 4 6-7" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.05em;">Security</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">Hardening</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 4L6 8v8c0 6 4.5 10.5 10 12 5.5-1.5 10-6 10-12V8L16 4Z" fill="#2563EB" opacity="0.12" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/><path d="M11 16l4 4 6-7" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Security</div><div class="badge-sub" style="color:#1E40AF;">Hardening</div></div>
             </div>
           </div>
         </div>
@@ -2064,7 +2110,7 @@
               <div class="project-num" data-n="05">Integrations</div>
               <div class="project-title" style="margin-bottom:0;">LMS & Data Integration Programs</div>
             </div>
-            <svg width="70" height="70" viewBox="0 0 70 70" fill="none" style="flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg">
+            <svg width="70" height="70" style="shape-rendering:geometricPrecision;" viewBox="0 0 70 70" fill="none" style="flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="dg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient>
                 <linearGradient id="dg2" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
@@ -2101,22 +2147,22 @@
               <span style="font-family:var(--font-mono);font-size:11px;color:#2563EB;">↗</span>
             </div>
           </div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 16px;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="4" stroke="#0891B2" stroke-width="2"/><path d="M10 16h12M16 10v12" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">Canvas LMS</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Platform</div></div>
+<div class="badge-grid">
+            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="4" y="4" width="24" height="24" rx="4" stroke="#0891B2" stroke-width="2"/><path d="M10 16h12M16 10v12" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Canvas LMS</div><div class="badge-sub" style="color:#155E75;">Platform</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #C4B5FD;border-radius:12px;box-shadow:0 2px 12px #C4B5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #C4B5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #C4B5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4a12 12 0 110 24A12 12 0 0116 4Z" stroke="#7C3AED" stroke-width="2"/><path d="M12 16l3 3 5-6" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.05em;">Turnitin</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Integrity</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 4a12 12 0 110 24A12 12 0 0116 4Z" stroke="#7C3AED" stroke-width="2"/><path d="M12 16l3 3 5-6" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Turnitin</div><div class="badge-sub" style="color:#6D28D9;">Integrity</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px #A5F3FC44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #A5F3FC66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #A5F3FC44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="18" width="5" height="10" rx="2" fill="#0891B2"/><rect x="13" y="12" width="5" height="16" rx="2" fill="#0891B2" opacity="0.7"/><rect x="20" y="6" width="5" height="22" rx="2" fill="#0891B2" opacity="0.4"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.05em;">Power BI</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Analytics</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="6" y="18" width="5" height="10" rx="2" fill="#0891B2"/><rect x="13" y="12" width="5" height="16" rx="2" fill="#0891B2" opacity="0.7"/><rect x="20" y="6" width="5" height="22" rx="2" fill="#0891B2" opacity="0.4"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Power BI</div><div class="badge-sub" style="color:#155E75;">Analytics</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;box-shadow:0 2px 12px #93C5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #93C5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #93C5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="10" cy="10" r="4" stroke="#0891B2" stroke-width="2"/><circle cx="22" cy="22" r="4" stroke="#0891B2" stroke-width="2"/><path d="M14 10h4a4 4 0 014 4v4" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.05em;">Vendor Mgmt</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">Integrations</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="10" cy="10" r="4" stroke="#0891B2" stroke-width="2"/><circle cx="22" cy="22" r="4" stroke="#0891B2" stroke-width="2"/><path d="M14 10h4a4 4 0 014 4v4" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Vendor Mgmt</div><div class="badge-sub" style="color:#1E40AF;">Integrations</div></div>
             </div>
           </div>
         </div>
@@ -2128,45 +2174,45 @@
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#FF990008;border-left:3px solid #FF9900;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#FF9900;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A university application needed a production-grade cloud infrastructure capable of surviving component failures without downtime, with no existing AWS architecture in place to build from.</span></div>
           <div class="project-desc">Designed and built a <span class="bio-stat-blue-only">fault-tolerant AWS architecture</span> for a university admissions web application using <span class="bio-stat-blue-only">Amazon EC2</span> compute instances, an <span class="bio-stat-blue-only">Application Load Balancer (ALB)</span> for traffic distribution, <span class="bio-stat-blue-only">Auto Scaling</span> to four instances under load testing conditions, and <span class="bio-stat-blue-only">Amazon RDS</span> for managed relational database services, validating <span class="bio-stat-blue-only">high availability</span> under simulated peak traffic.</div>
           <!-- AWS service badges — elevated card style -->
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 16px;">
+          <div class="badge-grid">
             <!-- EC2 -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:12px;box-shadow:0 2px 12px rgba(255,153,0,0.12);transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(255,153,0,0.22)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(255,153,0,0.12)'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="17" rx="4" fill="#FF9900"/><rect x="8" y="2" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="19" y="2" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="8" y="24" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="19" y="24" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="10" y="12" width="12" height="8" rx="2" fill="white" opacity="0.9"/></svg>
+            <div class="badge-card" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border-color:#FED7AA;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="2" y="8" width="28" height="17" rx="4" fill="#FF9900"/><rect x="8" y="2" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="19" y="2" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="8" y="24" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="19" y="24" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="10" y="12" width="12" height="8" rx="2" fill="white" opacity="0.9"/></svg>
               <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#C2410C;letter-spacing:0.06em;">EC2</div><div style="font-family:var(--font-mono);font-size:9px;color:#92400E;margin-top:1px;">Compute</div></div>
             </div>
             <!-- S3 -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:12px;box-shadow:0 2px 12px rgba(255,153,0,0.12);transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(255,153,0,0.22)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(255,153,0,0.12)'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3L29 9.5V22.5L16 29L3 22.5V9.5L16 3Z" fill="#FF9900" opacity="0.15" stroke="#FF9900" stroke-width="2"/><path d="M3 9.5L16 16L29 9.5" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="16" x2="16" y2="29" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/></svg>
+            <div class="badge-card" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border-color:#FED7AA;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 3L29 9.5V22.5L16 29L3 22.5V9.5L16 3Z" fill="#FF9900" opacity="0.15" stroke="#FF9900" stroke-width="2"/><path d="M3 9.5L16 16L29 9.5" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="16" x2="16" y2="29" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/></svg>
               <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#C2410C;letter-spacing:0.06em;">S3</div><div style="font-family:var(--font-mono);font-size:9px;color:#92400E;margin-top:1px;">Storage</div></div>
             </div>
             <!-- RDS -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #C4B5FD;border-radius:12px;box-shadow:0 2px 12px rgba(124,58,237,0.1);transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(124,58,237,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(124,58,237,0.1)'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><ellipse cx="16" cy="10" rx="12" ry="5" fill="#7C3AED" opacity="0.7"/><path d="M4 10v12c0 2.76 5.37 5 12 5s12-2.24 12-5V10" stroke="#7C3AED" stroke-width="2" fill="none"/><ellipse cx="16" cy="22" rx="12" ry="5" stroke="#7C3AED" stroke-width="2" fill="none"/><ellipse cx="16" cy="16" rx="12" ry="5" stroke="#7C3AED" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><ellipse cx="16" cy="10" rx="12" ry="5" fill="#7C3AED" opacity="0.7"/><path d="M4 10v12c0 2.76 5.37 5 12 5s12-2.24 12-5V10" stroke="#7C3AED" stroke-width="2" fill="none"/><ellipse cx="16" cy="22" rx="12" ry="5" stroke="#7C3AED" stroke-width="2" fill="none"/><ellipse cx="16" cy="16" rx="12" ry="5" stroke="#7C3AED" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
               <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.06em;">RDS</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Database</div></div>
             </div>
             <!-- ALB -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;box-shadow:0 2px 12px rgba(37,99,235,0.1);transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(37,99,235,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(37,99,235,0.1)'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="12" width="28" height="8" rx="4" fill="#2563EB" opacity="0.8"/><circle cx="8" cy="16" r="3" fill="white"/><circle cx="16" cy="16" r="3" fill="white"/><circle cx="24" cy="16" r="3" fill="white"/><path d="M8 12V6M16 12V6M24 12V6" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/><path d="M8 20v6M16 20v6M24 20v6" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>
+            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="2" y="12" width="28" height="8" rx="4" fill="#2563EB" opacity="0.8"/><circle cx="8" cy="16" r="3" fill="white"/><circle cx="16" cy="16" r="3" fill="white"/><circle cx="24" cy="16" r="3" fill="white"/><path d="M8 12V6M16 12V6M24 12V6" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/><path d="M8 20v6M16 20v6M24 20v6" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>
               <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.06em;">ALB</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">Load Balancer</div></div>
             </div>
             <!-- Auto Scaling -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:12px;box-shadow:0 2px 12px rgba(22,163,74,0.1);transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(22,163,74,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(22,163,74,0.1)'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#16A34A" stroke-width="2"/><path d="M10 16h12M16 10v12" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="16" r="4" fill="#16A34A" opacity="0.15"/></svg>
+            <div class="badge-card" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border-color:#86EFAC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="12" stroke="#16A34A" stroke-width="2"/><path d="M10 16h12M16 10v12" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="16" r="4" fill="#16A34A" opacity="0.15"/></svg>
               <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#166534;letter-spacing:0.06em;">Auto Scaling</div><div style="font-family:var(--font-mono);font-size:9px;color:#15803D;margin-top:1px;">Elasticity</div></div>
             </div>
             <!-- IAM -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#FFF1F2,#FFE4E6);border:1.5px solid #FECDD3;border-radius:12px;box-shadow:0 2px 12px rgba(190,18,60,0.1);transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(190,18,60,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(190,18,60,0.1)'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="11" r="6" stroke="#BE123C" stroke-width="2"/><path d="M4 28c0-6.6 5.4-10 12-10s12 3.4 12 10" stroke="#BE123C" stroke-width="2" stroke-linecap="round"/><path d="M22 18l3 3 5-5" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="badge-card" style="background:linear-gradient(135deg,#FFF1F2,#FFE4E6);border-color:#FECDD3;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="11" r="6" stroke="#BE123C" stroke-width="2"/><path d="M4 28c0-6.6 5.4-10 12-10s12 3.4 12 10" stroke="#BE123C" stroke-width="2" stroke-linecap="round"/><path d="M22 18l3 3 5-5" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#BE123C;letter-spacing:0.06em;">IAM</div><div style="font-family:var(--font-mono);font-size:9px;color:#9F1239;margin-top:1px;">Identity</div></div>
             </div>
             <!-- CloudWatch -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:12px;box-shadow:0 2px 12px rgba(8,145,178,0.1);transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(8,145,178,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(8,145,178,0.1)'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#0891B2" stroke-width="2"/><path d="M7 18L11 13L15 18L19 11L23 15" stroke="#0891B2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="12" stroke="#0891B2" stroke-width="2"/><path d="M7 18L11 13L15 18L19 11L23 15" stroke="#0891B2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.06em;">CloudWatch</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Monitoring</div></div>
             </div>
             <!-- Cloud9 -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #DDD6FE;border-radius:12px;box-shadow:0 2px 12px rgba(124,58,237,0.1);transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(124,58,237,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(124,58,237,0.1)'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 20C6 13 10 7 16 7C22 7 26 13 26 20" stroke="#7C3AED" stroke-width="2.2" stroke-linecap="round"/><path d="M10 20C10 15.6 12.7 12 16 12C19.3 12 22 15.6 22 20" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" opacity="0.6"/><circle cx="16" cy="22" r="3" fill="#7C3AED"/></svg>
+            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#DDD6FE;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M6 20C6 13 10 7 16 7C22 7 26 13 26 20" stroke="#7C3AED" stroke-width="2.2" stroke-linecap="round"/><path d="M10 20C10 15.6 12.7 12 16 12C19.3 12 22 15.6 22 20" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" opacity="0.6"/><circle cx="16" cy="22" r="3" fill="#7C3AED"/></svg>
               <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.06em;">Cloud9</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Cloud IDE</div></div>
             </div>
           </div>
@@ -2179,22 +2225,22 @@
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A monolithic banking application needed to be decomposed into independently deployable services with automated delivery pipelines — applying real-world DevOps practices in a cloud-native environment.</span></div>
           <div class="project-desc">Building a <span class="bio-stat-blue-only">cloud-native microservices platform</span> on AWS using <span class="bio-stat-blue-only">containerized services</span> and <span class="bio-stat-blue-only">CI/CD pipelines</span> to support scalable, automated software delivery across independently deployable services. Developing hands-on <span class="bio-stat-blue-only">containerization</span> experience with <span class="bio-stat-blue-only">Docker</span>, including packaging and running a functional <span class="bio-stat-blue-only">Python banking application</span> as a containerized workload, applying real-world <span class="bio-stat-blue-only">DevOps practices</span> to cloud infrastructure design.</div>
           <!-- Service icon badges — elevated -->
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 16px;">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;box-shadow:0 2px 12px #93C5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #93C5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #93C5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="3" y="13" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.8"/><rect x="11" y="13" width="6" height="6" rx="1.5" fill="#2496ED"/><rect x="19" y="13" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.8"/><rect x="11" y="6" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.6"/><rect x="19" y="6" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.4"/><path d="M28 15c1-2 .4-5-2-6l-2 1c-.6-2-2-3-3-3l-.5 3c-.4-3-3-4-4-2" stroke="#2496ED" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M2 20c4 4 12 4 16 2 4-2 6-4 6-4" stroke="#2496ED" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.05em;">Docker</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">Containers</div></div>
+          <div class="badge-grid">
+            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="3" y="13" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.8"/><rect x="11" y="13" width="6" height="6" rx="1.5" fill="#2496ED"/><rect x="19" y="13" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.8"/><rect x="11" y="6" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.6"/><rect x="19" y="6" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.4"/><path d="M28 15c1-2 .4-5-2-6l-2 1c-.6-2-2-3-3-3l-.5 3c-.4-3-3-4-4-2" stroke="#2496ED" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M2 20c4 4 12 4 16 2 4-2 6-4 6-4" stroke="#2496ED" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Docker</div><div class="badge-sub" style="color:#1E40AF;">Containers</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #C4B5FD;border-radius:12px;box-shadow:0 2px 12px #C4B5FD44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #C4B5FD66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #C4B5FD44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="6" cy="16" r="4" fill="#7C3AED" opacity="0.8"/><circle cx="26" cy="16" r="4" fill="#7C3AED" opacity="0.8"/><path d="M10 16h12" stroke="#7C3AED" stroke-width="2" stroke-dasharray="3 2"/><path d="M21 11l5 5-5 5" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.05em;">CI/CD</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Pipelines</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="6" cy="16" r="4" fill="#7C3AED" opacity="0.8"/><circle cx="26" cy="16" r="4" fill="#7C3AED" opacity="0.8"/><path d="M10 16h12" stroke="#7C3AED" stroke-width="2" stroke-dasharray="3 2"/><path d="M21 11l5 5-5 5" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">CI/CD</div><div class="badge-sub" style="color:#6D28D9;">Pipelines</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#FEFCE8,#FEF9C3);border:1.5px solid #FDE047;border-radius:12px;box-shadow:0 2px 12px #FDE04744;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #FDE04766'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #FDE04744'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4C10 4 8 6 8 9v3h8v2H6C3.5 14 2 16 2 20l.5 4C3 27 5 28 8 28h3v-4c0-2.5 2-4 4-4h7c2 0 3-1.5 3-3V9c0-3-2-5-9-5z" fill="#3776AB" opacity="0.8"/><path d="M16 28c6 0 8-2 8-5v-3h-8v-2h10c2.5 0 4-2 4-6l-.5-4C29 5 27 4 24 4h-3v4c0 2.5-2 4-4 4H10c-2 0-3 1.5-3 3v5c0 3 2 5 9 5z" fill="#FFD43B" opacity="0.8"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#854D0E;letter-spacing:0.05em;">Python</div><div style="font-family:var(--font-mono);font-size:9px;color:#713F12;margin-top:1px;">Language</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#FEFCE8,#FEF9C3);border-color:#FDE047;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 4C10 4 8 6 8 9v3h8v2H6C3.5 14 2 16 2 20l.5 4C3 27 5 28 8 28h3v-4c0-2.5 2-4 4-4h7c2 0 3-1.5 3-3V9c0-3-2-5-9-5z" fill="#3776AB" opacity="0.8"/><path d="M16 28c6 0 8-2 8-5v-3h-8v-2h10c2.5 0 4-2 4-6l-.5-4C29 5 27 4 24 4h-3v4c0 2.5-2 4-4 4H10c-2 0-3 1.5-3 3v5c0 3 2 5 9 5z" fill="#FFD43B" opacity="0.8"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#854D0E;">Python</div><div class="badge-sub" style="color:#713F12;">Language</div></div>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:12px;box-shadow:0 2px 12px #FED7AA44;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px #FED7AA66'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px #FED7AA44'">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M4 20l3-9 3 9M5.5 17h4" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/><path d="M15 20V8l5 8 5-8v12" stroke="#FF9900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#C2410C;letter-spacing:0.05em;">AWS</div><div style="font-family:var(--font-mono);font-size:9px;color:#92400E;margin-top:1px;">Platform</div></div>
+            <div class="badge-card" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border-color:#FED7AA;">
+              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M4 20l3-9 3 9M5.5 17h4" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/><path d="M15 20V8l5 8 5-8v12" stroke="#FF9900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              <div class="badge-text"><div class="badge-label" style="color:#C2410C;">AWS</div><div class="badge-sub" style="color:#92400E;">Platform</div></div>
             </div>
           </div>
         </div>
