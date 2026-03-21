@@ -1,16 +1,29 @@
 [build]
-  publish = "."
+  publish = "altichi-site"
 
-# Security & SEO headers for all pages
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
+    # Clickjacking protection
     X-Frame-Options = "DENY"
+    # Prevent MIME sniffing
     X-Content-Type-Options = "nosniff"
+    # Referrer privacy
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # Disable unused browser features
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()"
+    # Force HTTPS for 1 year, include subdomains
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # Prevent cross-origin attacks
+    Cross-Origin-Opener-Policy = "same-origin-allow-popups"
+    Cross-Origin-Resource-Policy = "same-origin"
+    # Content Security Policy — allows Google Fonts, self scripts/styles only
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+    # XSS protection legacy browsers
+    X-XSS-Protection = "1; mode=block"
 
-# Long cache for assets (images, etc.)
+# Long cache for static assets
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -35,3 +48,16 @@
   to = "https://altichi.com/:splat"
   status = 301
   force = true
+
+# Force HTTPS
+[[redirects]]
+  from = "http://altichi.com/*"
+  to = "https://altichi.com/:splat"
+  status = 301
+  force = true
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
