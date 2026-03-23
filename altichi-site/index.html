@@ -367,29 +367,64 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
+      nav { padding: 16px 20px !important; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
     }
     @media (max-width: 600px) {
-      .content-section { padding: 56px 20px; }
-      .hero { padding: 96px 20px 56px !important; }
+      /* Consistent 20px horizontal padding across every section */
+      .content-section { padding: 48px 20px !important; }
+      .hero { padding: 88px 20px 48px !important; }
+      section { width: 100%; box-sizing: border-box; }
+
+      /* Typography */
       .hero-bio { font-size: 1rem; }
-      .section-label { font-size: 10px; margin-bottom: 32px; }
+      .section-label { font-size: 10px; margin-bottom: 28px; }
+      .section-heading { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+
+      /* Skills */
       .skills-grid { grid-template-columns: 1fr; gap: 16px; }
-      .skill-card { padding: 24px 20px; }
-      .skill-icon svg { width: 44px; height: 44px; }
-      .skill-title { font-size: 1.05rem; }
-      .skill-desc { font-size: 0.9rem; }
-      .project-card { padding: 22px 18px; }
-      .project-title { font-size: 1.2rem; }
-      .project-desc { font-size: 0.9rem; }
-      .metric-value { font-size: 1.9rem; }
-      .metric-title { font-size: 0.95rem; }
-      .metric-context { font-size: 0.85rem; }
-      .metric-row { gap: 14px; padding: 16px 0; }
-      .rt-role { font-size: 0.9rem; }
+      .skill-card { padding: 20px 18px; }
+      .skill-icon svg { width: 40px; height: 40px; }
+      .skill-title { font-size: 1rem; }
+      .skill-desc { font-size: 0.88rem; }
+
+      /* Projects */
+      .project-card { padding: 20px 18px; width: 100%; box-sizing: border-box; }
+      .project-title { font-size: 1.15rem; }
+      .project-desc { font-size: 0.88rem; }
+      .bio-tech-grid { gap: 6px; }
+
+      /* Metrics */
+      .metric-value { font-size: 1.8rem; }
+      .metric-title { font-size: 0.9rem; }
+      .metric-context { font-size: 0.82rem; }
+      .metric-row { gap: 12px; padding: 14px 0; }
+
+      /* Timeline */
+      .rt-role { font-size: 0.88rem; }
       .rt-org { font-size: 10px; }
+      .roadmap-timeline { padding-left: 16px; }
+      .rt-station { grid-template-columns: 90px 1fr; gap: 12px; }
+
+      /* Bio cards */
+      .bio-blog-card { padding: 16px 16px; }
+      .bio-blog-title { font-size: 0.95rem; }
+      .bio-blog-body { font-size: 0.82rem; }
+
+      /* Contact */
+      .contact-wrap { padding: 40px 20px 80px !important; }
+
+      /* Footer */
+      footer { padding: 20px 20px !important; flex-direction: column; gap: 8px; }
+
+      /* Blog */
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-card { padding: 20px 18px; }
+
+      /* Prevent horizontal overflow */
+      img, svg { max-width: 100%; }
+      .hero-name { font-size: clamp(2.4rem, 10vw, 4rem) !important; white-space: normal !important; }
     }
 
     /* ── LAYOUT HELPERS ── */
@@ -645,8 +680,8 @@
 
     /* ── TECH STAT GRID (mirrors Proven at Scale metrics) ── */
     .bio-tech-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
       margin-top: 10px;
     }
@@ -654,23 +689,28 @@
       background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 12px 10px;
+      padding: 12px 16px 14px;
       text-align: center;
       transition: transform 0.2s, box-shadow 0.2s;
+      min-width: 80px;
+      flex: 0 0 auto;
     }
     .bio-tech-stat:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--primary-glow); }
     body.theme-light .bio-tech-stat { background: #F8FAFF; border-color: #E2E8F0; }
     .bio-tech-stat-val {
       font-family: var(--font-display); font-weight: 800;
-      font-size: 1.4rem; line-height: 1;
+      font-size: clamp(1.1rem, 1.4vw, 1.7rem);
+      line-height: 1.2;
+      padding-bottom: 2px;
       -webkit-font-smoothing: antialiased;
+      overflow: visible;
     }
     .bio-tech-stat-label {
-      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
-      color: var(--text-muted); letter-spacing: 0.1em;
+      font-family: var(--font-mono); font-size: clamp(8px, 0.65vw, 10px); font-weight: 700;
+      color: #1E293B; letter-spacing: 0.08em;
       text-transform: uppercase; margin-top: 5px;
     }
-    body.theme-light .bio-tech-stat-label { color: #94A3B8; }
+    body.theme-light .bio-tech-stat-label { color: #1E293B; }
 
     /* ── HERO CERT CARDS (replaces cert-badges) ── */
     .hero-certs-grid {
@@ -1035,7 +1075,7 @@
       font-size: 12px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--text-secondary);
+      color: #0F172A;
       font-weight: 600;
       display: flex;
       flex-direction: column;
@@ -1044,7 +1084,7 @@
       text-align: right;
     }
     .rt-date span { white-space: nowrap; display: block; line-height: 1.7; }
-    body.theme-light .rt-date { color: #475569; }
+    body.theme-light .rt-date { color: #0F172A; }
 
     /* Card — right column, uniform style */
     .rt-card {
@@ -1091,10 +1131,10 @@
     }
     .rt-org {
       font-family: var(--font-mono); font-size: clamp(11px, 0.9vw, 13px); font-weight: 600;
-      margin-bottom: 10px; letter-spacing: 0.04em;
+      margin-bottom: 10px; letter-spacing: 0.04em; color: #0F172A;
     }
     body.theme-light .rt-role { color: #0F172A; }
-    body.theme-light .rt-org  { color: #64748B; }
+    body.theme-light .rt-org  { color: #0F172A; }
 
     .rt-tags { display: flex; flex-wrap: wrap; gap: 5px; }
     .rt-tag {
@@ -1102,18 +1142,18 @@
       padding: 2px 9px; border-radius: 4px;
       border: 1px solid #E2E8F0;
       background: var(--bg-surface);
-      color: var(--text-secondary);
+      color: #0F172A;
       letter-spacing: 0.01em;
     }
     /* Uniform tag colors — all blue-grey, no color chaos */
     .rt-blue, .rt-violet, .rt-cyan, .rt-green {
       background: var(--bg-surface);
-      color: var(--text-secondary);
+      color: #0F172A;
       border: 1px solid var(--border);
     }
     body.theme-light .rt-blue,
     body.theme-light .rt-violet,
-    body.theme-light .rt-cyan   { background: #F8FAFF; color: #475569; border-color: #CBD5E1; }
+    body.theme-light .rt-cyan   { background: #F8FAFF; color: #0F172A; border-color: #CBD5E1; }
     body.theme-light .rt-green  { background: #F0FDF4; color: #166534; border-color: #86EFAC; }
     /* Remove colored dots from tags */
     .rt-tag::before { display: none; }
@@ -1280,7 +1320,7 @@
     @media (max-width: 700px) {
       .hero { padding: 96px 20px 56px; }
       .content-section { padding: 56px 20px; }
-      .contact-wrap { padding: 40px 20px 80px; }
+      .contact-wrap { padding: 40px 20px 80px !important; }
       .project-card.featured { grid-template-columns: 1fr; }
       .theme-switcher { bottom: 16px; right: 16px; }
       .metric-row { grid-template-columns: 80px 1fr; }
@@ -1814,31 +1854,31 @@
             <div class="project-title">Multi-Institution Student Systems Modernization</div>
             <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#2563EB08;border-left:3px solid #2563EB;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">7 higher education institutions were running disconnected legacy systems with no unified student data platform, creating operational bottlenecks affecting 10,000+ students and staff across two countries.</span></div>
           <div class="project-desc">Led <span class="bio-stat-blue-only">enterprise Student Management System (SMS) transformation</span> across <span class="bio-stat-blue-only">7+ higher education institutions</span> supporting <span class="bio-stat-blue-only">10,000+ students and staff</span> across U.S. and Canadian operations. Managed <span class="bio-stat-blue-only">project budgets up to $100K</span> and cross-functional delivery teams of 5 to 10, reducing core operational workflows by up to <span class="bio-stat-blue-only">70%</span> across implementation cycles spanning <span class="bio-stat-blue-only">4 weeks to 3 months</span>.</div>
-            <div class="badge-grid">
-              <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="4" y="8" width="24" height="16" rx="4" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#2563EB"/><path d="M10 16h2M20 16h2" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">SaaS Impl.</div><div class="badge-sub" style="color:#1E40AF;">Delivery</div></div>
-            </div>
-              <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 6L28 12L16 18L4 12L16 6Z" fill="#7C3AED" opacity="0.2" stroke="#7C3AED" stroke-width="2" stroke-linejoin="round"/><path d="M8 15v6c0 2.5 3.6 4 8 4s8-1.5 8-4v-6" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Edtech</div><div class="badge-sub" style="color:#6D28D9;">Higher Ed</div></div>
-            </div>
-              <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M6 16h4m12 0h4M14 10l-4 6 4 6M18 10l4 6-4 6" stroke="#0891B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">API Integ.</div><div class="badge-sub" style="color:#155E75;">Integration</div></div>
-            </div>
-              <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="8" y="14" width="16" height="12" rx="3" stroke="#0891B2" stroke-width="2"/><path d="M11 14v-3a5 5 0 0110 0v3" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="20" r="2" fill="#0891B2"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">SSO / MFA</div><div class="badge-sub" style="color:#155E75;">Auth</div></div>
-            </div>
-              <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="11" y="4" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.7"/><rect x="11" y="12" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.4"/><rect x="11" y="20" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.2"/><circle cx="21" cy="16" r="4" fill="#7C3AED"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Figma</div><div class="badge-sub" style="color:#6D28D9;">Design</div></div>
-            </div>
-              <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="6" y="18" width="5" height="10" rx="2" fill="#0891B2"/><rect x="13" y="12" width="5" height="16" rx="2" fill="#0891B2" opacity="0.7"/><rect x="20" y="6" width="5" height="22" rx="2" fill="#0891B2" opacity="0.4"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Power BI</div><div class="badge-sub" style="color:#155E75;">Analytics</div></div>
-            </div>
+            <div class="bio-tech-grid">
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2563EB,#4F7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SaaS</div>
+                <div class="bio-tech-stat-label">Implementation</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ed</div>
+                <div class="bio-tech-stat-label">Edtech</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">API</div>
+                <div class="bio-tech-stat-label">Integration</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SSO</div>
+                <div class="bio-tech-stat-label">Auth / MFA</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Fig</div>
+                <div class="bio-tech-stat-label">Figma</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">PBI</div>
+                <div class="bio-tech-stat-label">Power BI</div>
+              </div>
             </div>
           </div>
           <div class="proj-metrics">
@@ -1927,28 +1967,28 @@
               <div id="pipeline-modal-content"></div>
             </div>
           </div>
-<div class="badge-grid">
-            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 4L28 26H4L16 4Z" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="13" x2="16" y2="19" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="23" r="1.5" fill="#2563EB"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Risk Modeling</div><div class="badge-sub" style="color:#1E40AF;">Analysis</div></div>
+<div class="bio-tech-grid">
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2563EB,#4F7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Risk</div>
+                <div class="bio-tech-stat-label">Modeling</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#FF9900,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AWS</div>
+                <div class="bio-tech-stat-label">Cloud Hosted</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Reg</div>
+                <div class="bio-tech-stat-label">PHMSA</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2563EB,#4F7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Jira</div>
+                <div class="bio-tech-stat-label">PM Tool</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">MVL</div>
+                <div class="bio-tech-stat-label">Mavenlink</div>
+              </div>
             </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M8 22a6 6 0 010-12 8 8 0 0116 2 5 5 0 010 10H8Z" fill="#0891B2" opacity="0.15" stroke="#0891B2" stroke-width="2"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Cloud Hosted</div><div class="badge-sub" style="color:#155E75;">AWS</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="6" y="4" width="20" height="24" rx="3" stroke="#7C3AED" stroke-width="2"/><path d="M11 12h10M11 17h10M11 22h6" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Regulated</div><div class="badge-sub" style="color:#6D28D9;">PHMSA</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 6L26 16L16 26" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 16l10-10" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Jira</div><div class="badge-sub" style="color:#1E40AF;">PM Tool</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="10" cy="10" r="4" fill="#0891B2" opacity="0.7"/><circle cx="22" cy="10" r="4" fill="#0891B2" opacity="0.5"/><circle cx="10" cy="22" r="4" fill="#0891B2" opacity="0.5"/><circle cx="22" cy="22" r="4" fill="#0891B2" opacity="0.3"/><path d="M14 10h4M10 14v4M18 22h4M22 14v4" stroke="#0891B2" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Mavenlink</div><div class="badge-sub" style="color:#155E75;">Projects</div></div>
-            </div>
-          </div>
         </div>
 
         <!-- 03 -->
@@ -2019,28 +2059,28 @@
           </div>
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#7C3AED08;border-left:3px solid #7C3AED;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#7C3AED;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">Students and prospective applicants across 7+ institutions had no 24/7 self-service support channel, placing unsustainable load on staff and creating inconsistent information experiences across campuses.</span></div>
           <div class="project-desc">Led the <span class="bio-stat-blue-only">organization's first AI implementation</span> from strategic inception through scaled multi-institution deployment. Coordinated directly with the <span class="bio-stat-blue-only">Executive Director of Digital Transformation</span>, the <span class="bio-stat-blue-only">Executive Director of IT &amp; Infrastructure</span>, and the <span class="bio-stat-blue-only">Vice President of Operations, Enterprise Systems &amp; Digital Transformation</span> to conduct a structured <span class="bio-stat-blue-only">build vs. buy evaluation</span>, proceeding with a third-party proof of concept before determining the path to scale. Managed the <span class="bio-stat-blue-only">full implementation lifecycle</span> including cross-departmental knowledge base development to train the LLM across student, faculty, and public inquiry domains. Established a <span class="bio-stat-blue-only">dual monitoring framework</span> pairing a dedicated accuracy review team with hallucination safeguards, and led go-live communications, staff training, and a continuous improvement roadmap to deliver a <span class="bio-stat-blue-only">24/7 high-availability solution</span> scalable across all institutions.</div>
-<div class="badge-grid">
-            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="5" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="2"/><circle cx="16" cy="6" r="2.5" fill="#2563EB"/><circle cx="16" cy="26" r="2.5" fill="#2563EB"/><circle cx="6" cy="16" r="2.5" fill="#2563EB"/><circle cx="26" cy="16" r="2.5" fill="#2563EB"/><path d="M16 8.5v5M16 18.5v5M8.5 16h5M18.5 16h5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">AI / LLM</div><div class="badge-sub" style="color:#1E40AF;">Generative</div></div>
+<div class="bio-tech-grid">
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2563EB,#4F7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI</div>
+                <div class="bio-tech-stat-label">LLM</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">B/B</div>
+                <div class="bio-tech-stat-label">Build vs Buy</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">KB</div>
+                <div class="bio-tech-stat-label">Knowledge Base</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2563EB,#4F7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">QA</div>
+                <div class="bio-tech-stat-label">Dual Monitor</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">24/7</div>
+                <div class="bio-tech-stat-label">Availability</div>
+              </div>
             </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="4" y="14" width="11" height="14" rx="2" stroke="#7C3AED" stroke-width="2"/><path d="M15 20h4a4 4 0 000-8h-4" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><path d="M9 4v10M12 7L9 4 6 7" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Build vs Buy</div><div class="badge-sub" style="color:#6D28D9;">Strategy</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="6" y="6" width="20" height="20" rx="4" stroke="#0891B2" stroke-width="2"/><path d="M11 13h10M11 17h7M11 21h8" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Knowledge Base</div><div class="badge-sub" style="color:#155E75;">LLM Train</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="11" stroke="#2563EB" stroke-width="2"/><path d="M10 18L13 14L16 18L20 11L23 15" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Dual Monitor</div><div class="badge-sub" style="color:#1E40AF;">QA</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="11" stroke="#0891B2" stroke-width="2"/><path d="M16 9v7l5 3" stroke="#0891B2" stroke-width="2.5" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">24/7 Avail.</div><div class="badge-sub" style="color:#155E75;">Always On</div></div>
-            </div>
-          </div>
         </div>
 
         <!-- 04 -->
@@ -2083,24 +2123,24 @@
               <span style="font-family:var(--font-mono);font-size:11px;color:#2563EB;">↗</span>
             </div>
           </div>
-<div class="badge-grid">
-            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="8" y="14" width="16" height="12" rx="3" stroke="#0891B2" stroke-width="2"/><path d="M11 14v-3a5 5 0 0110 0v3" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="20" r="2" fill="#0891B2"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">SSO / MFA</div><div class="badge-sub" style="color:#155E75;">Auth</div></div>
+<div class="bio-tech-grid">
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SSO</div>
+                <div class="bio-tech-stat-label">Auth / MFA</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Fig</div>
+                <div class="bio-tech-stat-label">Figma</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CIBC</div>
+                <div class="bio-tech-stat-label">Payments</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#10B981,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Sec</div>
+                <div class="bio-tech-stat-label">Hardening</div>
+              </div>
             </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="11" y="4" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.7"/><rect x="11" y="12" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.4"/><rect x="11" y="20" width="10" height="8" rx="3" fill="#7C3AED" opacity="0.2"/><circle cx="21" cy="16" r="4" fill="#7C3AED"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Figma</div><div class="badge-sub" style="color:#6D28D9;">Design</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="4" y="10" width="24" height="16" rx="3" stroke="#0891B2" stroke-width="2"/><path d="M4 15h24" stroke="#0891B2" stroke-width="2"/><rect x="8" y="19" width="6" height="3" rx="1" fill="#0891B2" opacity="0.6"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">CIBC API</div><div class="badge-sub" style="color:#155E75;">Payments</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 4L6 8v8c0 6 4.5 10.5 10 12 5.5-1.5 10-6 10-12V8L16 4Z" fill="#2563EB" opacity="0.12" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/><path d="M11 16l4 4 6-7" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Security</div><div class="badge-sub" style="color:#1E40AF;">Hardening</div></div>
-            </div>
-          </div>
         </div>
 
         <!-- 05 -->
@@ -2147,24 +2187,24 @@
               <span style="font-family:var(--font-mono);font-size:11px;color:#2563EB;">↗</span>
             </div>
           </div>
-<div class="badge-grid">
-            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="4" y="4" width="24" height="24" rx="4" stroke="#0891B2" stroke-width="2"/><path d="M10 16h12M16 10v12" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Canvas LMS</div><div class="badge-sub" style="color:#155E75;">Platform</div></div>
+<div class="bio-tech-grid">
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">LMS</div>
+                <div class="bio-tech-stat-label">Canvas</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">TII</div>
+                <div class="bio-tech-stat-label">Turnitin</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">PBI</div>
+                <div class="bio-tech-stat-label">Power BI</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2563EB,#4F7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Vnd</div>
+                <div class="bio-tech-stat-label">Vendors</div>
+              </div>
             </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 4a12 12 0 110 24A12 12 0 0116 4Z" stroke="#7C3AED" stroke-width="2"/><path d="M12 16l3 3 5-6" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">Turnitin</div><div class="badge-sub" style="color:#6D28D9;">Integrity</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="6" y="18" width="5" height="10" rx="2" fill="#0891B2"/><rect x="13" y="12" width="5" height="16" rx="2" fill="#0891B2" opacity="0.7"/><rect x="20" y="6" width="5" height="22" rx="2" fill="#0891B2" opacity="0.4"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#0E7490;">Power BI</div><div class="badge-sub" style="color:#155E75;">Analytics</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="10" cy="10" r="4" stroke="#0891B2" stroke-width="2"/><circle cx="22" cy="22" r="4" stroke="#0891B2" stroke-width="2"/><path d="M14 10h4a4 4 0 014 4v4" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Vendor Mgmt</div><div class="badge-sub" style="color:#1E40AF;">Integrations</div></div>
-            </div>
-          </div>
         </div>
 
         <!-- 06 CLOUD -->
@@ -2174,48 +2214,40 @@
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#FF990008;border-left:3px solid #FF9900;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#FF9900;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A university application needed a production-grade cloud infrastructure capable of surviving component failures without downtime, with no existing AWS architecture in place to build from.</span></div>
           <div class="project-desc">Designed and built a <span class="bio-stat-blue-only">fault-tolerant AWS architecture</span> for a university admissions web application using <span class="bio-stat-blue-only">Amazon EC2</span> compute instances, an <span class="bio-stat-blue-only">Application Load Balancer (ALB)</span> for traffic distribution, <span class="bio-stat-blue-only">Auto Scaling</span> to four instances under load testing conditions, and <span class="bio-stat-blue-only">Amazon RDS</span> for managed relational database services, validating <span class="bio-stat-blue-only">high availability</span> under simulated peak traffic.</div>
           <!-- AWS service badges — elevated card style -->
-          <div class="badge-grid">
-            <!-- EC2 -->
-            <div class="badge-card" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border-color:#FED7AA;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="2" y="8" width="28" height="17" rx="4" fill="#FF9900"/><rect x="8" y="2" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="19" y="2" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="8" y="24" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="19" y="24" width="5" height="6" rx="2" fill="#FF9900" opacity="0.5"/><rect x="10" y="12" width="12" height="8" rx="2" fill="white" opacity="0.9"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#C2410C;letter-spacing:0.06em;">EC2</div><div style="font-family:var(--font-mono);font-size:9px;color:#92400E;margin-top:1px;">Compute</div></div>
+          <div class="bio-tech-grid">
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#FF9900,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">EC2</div>
+                <div class="bio-tech-stat-label">Compute</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#FF9900,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">S3</div>
+                <div class="bio-tech-stat-label">Storage</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">RDS</div>
+                <div class="bio-tech-stat-label">Database</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2563EB,#4F7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ALB</div>
+                <div class="bio-tech-stat-label">Load Balancer</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#10B981,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ASG</div>
+                <div class="bio-tech-stat-label">Auto Scaling</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#EF4444,#F97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">IAM</div>
+                <div class="bio-tech-stat-label">Identity</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CW</div>
+                <div class="bio-tech-stat-label">CloudWatch</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">C9</div>
+                <div class="bio-tech-stat-label">Cloud9</div>
+              </div>
             </div>
-            <!-- S3 -->
-            <div class="badge-card" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border-color:#FED7AA;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 3L29 9.5V22.5L16 29L3 22.5V9.5L16 3Z" fill="#FF9900" opacity="0.15" stroke="#FF9900" stroke-width="2"/><path d="M3 9.5L16 16L29 9.5" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="16" x2="16" y2="29" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#C2410C;letter-spacing:0.06em;">S3</div><div style="font-family:var(--font-mono);font-size:9px;color:#92400E;margin-top:1px;">Storage</div></div>
-            </div>
-            <!-- RDS -->
-            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><ellipse cx="16" cy="10" rx="12" ry="5" fill="#7C3AED" opacity="0.7"/><path d="M4 10v12c0 2.76 5.37 5 12 5s12-2.24 12-5V10" stroke="#7C3AED" stroke-width="2" fill="none"/><ellipse cx="16" cy="22" rx="12" ry="5" stroke="#7C3AED" stroke-width="2" fill="none"/><ellipse cx="16" cy="16" rx="12" ry="5" stroke="#7C3AED" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.06em;">RDS</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Database</div></div>
-            </div>
-            <!-- ALB -->
-            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="2" y="12" width="28" height="8" rx="4" fill="#2563EB" opacity="0.8"/><circle cx="8" cy="16" r="3" fill="white"/><circle cx="16" cy="16" r="3" fill="white"/><circle cx="24" cy="16" r="3" fill="white"/><path d="M8 12V6M16 12V6M24 12V6" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/><path d="M8 20v6M16 20v6M24 20v6" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#1D4ED8;letter-spacing:0.06em;">ALB</div><div style="font-family:var(--font-mono);font-size:9px;color:#1E40AF;margin-top:1px;">Load Balancer</div></div>
-            </div>
-            <!-- Auto Scaling -->
-            <div class="badge-card" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border-color:#86EFAC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="12" stroke="#16A34A" stroke-width="2"/><path d="M10 16h12M16 10v12" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="16" r="4" fill="#16A34A" opacity="0.15"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#166534;letter-spacing:0.06em;">Auto Scaling</div><div style="font-family:var(--font-mono);font-size:9px;color:#15803D;margin-top:1px;">Elasticity</div></div>
-            </div>
-            <!-- IAM -->
-            <div class="badge-card" style="background:linear-gradient(135deg,#FFF1F2,#FFE4E6);border-color:#FECDD3;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="11" r="6" stroke="#BE123C" stroke-width="2"/><path d="M4 28c0-6.6 5.4-10 12-10s12 3.4 12 10" stroke="#BE123C" stroke-width="2" stroke-linecap="round"/><path d="M22 18l3 3 5-5" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#BE123C;letter-spacing:0.06em;">IAM</div><div style="font-family:var(--font-mono);font-size:9px;color:#9F1239;margin-top:1px;">Identity</div></div>
-            </div>
-            <!-- CloudWatch -->
-            <div class="badge-card" style="background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border-color:#A5F3FC;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="16" cy="16" r="12" stroke="#0891B2" stroke-width="2"/><path d="M7 18L11 13L15 18L19 11L23 15" stroke="#0891B2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#0E7490;letter-spacing:0.06em;">CloudWatch</div><div style="font-family:var(--font-mono);font-size:9px;color:#155E75;margin-top:1px;">Monitoring</div></div>
-            </div>
-            <!-- Cloud9 -->
-            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#DDD6FE;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M6 20C6 13 10 7 16 7C22 7 26 13 26 20" stroke="#7C3AED" stroke-width="2.2" stroke-linecap="round"/><path d="M10 20C10 15.6 12.7 12 16 12C19.3 12 22 15.6 22 20" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" opacity="0.6"/><circle cx="16" cy="22" r="3" fill="#7C3AED"/></svg>
-              <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:11px;font-weight:800;color:#5B21B6;letter-spacing:0.06em;">Cloud9</div><div style="font-family:var(--font-mono);font-size:9px;color:#6D28D9;margin-top:1px;">Cloud IDE</div></div>
-            </div>
-          </div>
         </div>
 
         <!-- 07 CLOUD -->
@@ -2225,24 +2257,24 @@
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A monolithic banking application needed to be decomposed into independently deployable services with automated delivery pipelines — applying real-world DevOps practices in a cloud-native environment.</span></div>
           <div class="project-desc">Building a <span class="bio-stat-blue-only">cloud-native microservices platform</span> on AWS using <span class="bio-stat-blue-only">containerized services</span> and <span class="bio-stat-blue-only">CI/CD pipelines</span> to support scalable, automated software delivery across independently deployable services. Developing hands-on <span class="bio-stat-blue-only">containerization</span> experience with <span class="bio-stat-blue-only">Docker</span>, including packaging and running a functional <span class="bio-stat-blue-only">Python banking application</span> as a containerized workload, applying real-world <span class="bio-stat-blue-only">DevOps practices</span> to cloud infrastructure design.</div>
           <!-- Service icon badges — elevated -->
-          <div class="badge-grid">
-            <div class="badge-card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><rect x="3" y="13" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.8"/><rect x="11" y="13" width="6" height="6" rx="1.5" fill="#2496ED"/><rect x="19" y="13" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.8"/><rect x="11" y="6" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.6"/><rect x="19" y="6" width="6" height="6" rx="1.5" fill="#2496ED" opacity="0.4"/><path d="M28 15c1-2 .4-5-2-6l-2 1c-.6-2-2-3-3-3l-.5 3c-.4-3-3-4-4-2" stroke="#2496ED" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M2 20c4 4 12 4 16 2 4-2 6-4 6-4" stroke="#2496ED" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#1D4ED8;">Docker</div><div class="badge-sub" style="color:#1E40AF;">Containers</div></div>
+          <div class="bio-tech-grid">
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2496ED,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Dock</div>
+                <div class="bio-tech-stat-label">Docker</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CI/CD</div>
+                <div class="bio-tech-stat-label">Pipelines</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#3776AB,#FFD43B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Py</div>
+                <div class="bio-tech-stat-label">Python</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#FF9900,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AWS</div>
+                <div class="bio-tech-stat-label">Platform</div>
+              </div>
             </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><circle cx="6" cy="16" r="4" fill="#7C3AED" opacity="0.8"/><circle cx="26" cy="16" r="4" fill="#7C3AED" opacity="0.8"/><path d="M10 16h12" stroke="#7C3AED" stroke-width="2" stroke-dasharray="3 2"/><path d="M21 11l5 5-5 5" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#5B21B6;">CI/CD</div><div class="badge-sub" style="color:#6D28D9;">Pipelines</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#FEFCE8,#FEF9C3);border-color:#FDE047;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M16 4C10 4 8 6 8 9v3h8v2H6C3.5 14 2 16 2 20l.5 4C3 27 5 28 8 28h3v-4c0-2.5 2-4 4-4h7c2 0 3-1.5 3-3V9c0-3-2-5-9-5z" fill="#3776AB" opacity="0.8"/><path d="M16 28c6 0 8-2 8-5v-3h-8v-2h10c2.5 0 4-2 4-6l-.5-4C29 5 27 4 24 4h-3v4c0 2.5-2 4-4 4H10c-2 0-3 1.5-3 3v5c0 3 2 5 9 5z" fill="#FFD43B" opacity="0.8"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#854D0E;">Python</div><div class="badge-sub" style="color:#713F12;">Language</div></div>
-            </div>
-            <div class="badge-card" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border-color:#FED7AA;">
-              <svg viewBox="0 0 32 32" fill="none" style="shape-rendering:geometricPrecision;"><path d="M4 20l3-9 3 9M5.5 17h4" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/><path d="M15 20V8l5 8 5-8v12" stroke="#FF9900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-              <div class="badge-text"><div class="badge-label" style="color:#C2410C;">AWS</div><div class="badge-sub" style="color:#92400E;">Platform</div></div>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -2475,7 +2507,7 @@
         <div class="contact-heading">Let's Build Something.</div>
         <p class="contact-sub">AltiChi is the home base for Brandon's work in project management, product delivery, and cloud computing. Based in Toronto, open to remote and hybrid opportunities.</p>
         <div class="contact-links">
-          <a href="mailto:brandontc.bc@gmail.com" class="btn btn-primary">Email Me ↗</a>
+          <a href="/cdn-cgi/l/email-protection#d8baaab9b6bcb7b6acbbf6babb98bfb5b9b1b4f6bbb7b5" class="btn btn-primary">Email Me ↗</a>
           <a href="https://www.linkedin.com/in/brandon-t-chihota" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn ↗</a>
         </div>
       </div>
@@ -2488,13 +2520,13 @@
       &copy; 2026 Brandon T. Chihota &nbsp;&middot;&nbsp; AltiChi
     </div>
     <div style="display:flex;gap:20px;align-items:center;">
-      <a href="mailto:brandontc.bc@gmail.com" style="font-family:var(--font-mono);font-size:10px;color:#94A3B8;text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#94A3B8'">Email</a>
+      <a href="/cdn-cgi/l/email-protection#f19383909f959e9f8592df9392b1969c90989ddf929e9c" style="font-family:var(--font-mono);font-size:10px;color:#94A3B8;text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#94A3B8'">Email</a>
       <a href="https://www.linkedin.com/in/brandon-t-chihota" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:10px;color:#94A3B8;text-decoration:none;letter-spacing:0.04em;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#94A3B8'">LinkedIn</a>
       <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="font-family:var(--font-mono);font-size:10px;color:#94A3B8;text-decoration:none;letter-spacing:0.04em;" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#94A3B8'">Back to top &#8593;</a>
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Mobile nav
     function toggleMenu() {
       var drawer = document.getElementById('nav-drawer');
@@ -2628,4 +2660,4 @@
     </div>
   </div>
   <!-- Sticky mobile CTA -->
-  <div id="sticky-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9000;padding:12px 16px 20px;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-top:1px solid #E2E8F0;box-shadow
+  <div id="sticky-c
