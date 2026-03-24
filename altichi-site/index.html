@@ -372,59 +372,99 @@
       .nav-hamburger { display: flex; }
     }
     @media (max-width: 600px) {
-      /* Consistent 20px horizontal padding across every section */
+      /* ── LAYOUT: Consistent 20px horizontal padding ── */
       .content-section { padding: 48px 20px !important; }
       .hero { padding: 88px 20px 48px !important; }
-      section { width: 100%; box-sizing: border-box; }
+      .contact-wrap { padding: 40px 20px 80px !important; }
+      section { width: 100%; box-sizing: border-box; overflow-x: hidden; }
 
-      /* Typography */
-      .hero-bio { font-size: 1rem; }
-      .section-label { font-size: 10px; margin-bottom: 28px; }
-      .section-heading { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+      /* ── TYPOGRAPHY ── */
+      .hero-name { font-size: clamp(2.2rem, 9vw, 3.5rem) !important; white-space: normal !important; }
+      .hero-brand { font-size: 0.75rem; letter-spacing: 0.2em; }
+      .section-heading { font-size: clamp(1.7rem, 7vw, 2.2rem) !important; }
+      .section-label { font-size: 10px; margin-bottom: 24px; }
+      .hero-bio { font-size: 0.95rem; }
+      .bio-blog-title { font-size: 0.95rem; }
+      .bio-blog-body { font-size: 0.82rem; line-height: 1.7; }
+      .bio-blog-card { padding: 16px; }
 
-      /* Skills */
-      .skills-grid { grid-template-columns: 1fr; gap: 16px; }
-      .skill-card { padding: 20px 18px; }
-      .skill-icon svg { width: 40px; height: 40px; }
+      /* ── HERO SUBTITLE ── */
+      .hero-subtitle { font-size: 0.85rem; padding: 8px 12px; }
+
+      /* ── HERO CERTS ── */
+      .hero-certs-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 6px; }
+
+      /* ── HERO BUTTONS ── */
+      .hero-btns { flex-direction: column; gap: 10px; }
+      .hero-btns .btn { width: 100%; text-align: center; padding: 14px 20px; font-size: 0.9rem; }
+
+      /* ── SKILLS ── */
+      .skills-grid { grid-template-columns: 1fr; gap: 14px; }
+      .skill-card { padding: 18px 16px; }
       .skill-title { font-size: 1rem; }
-      .skill-desc { font-size: 0.88rem; }
+      .skill-desc { font-size: 0.87rem; }
 
-      /* Projects */
-      .project-card { padding: 20px 18px; width: 100%; box-sizing: border-box; }
-      .project-title { font-size: 1.15rem; }
-      .project-desc { font-size: 0.88rem; }
+      /* ── PROJECTS ── */
+      .project-card { padding: 18px 16px; width: 100%; box-sizing: border-box; }
+      .project-title { font-size: 1.1rem; }
+      .project-desc { font-size: 0.87rem; }
+      .project-num { font-size: 9px; }
       .bio-tech-grid { gap: 6px; }
+      .bio-tech-stat { padding: 10px 8px 12px; min-width: 60px; }
+      .bio-tech-stat-val { font-size: 1rem !important; }
+      .bio-tech-stat-label { font-size: 8px; }
+      .proj-metrics { gap: 12px; }
+      .proj-metric-val { font-size: 1.5rem; }
 
-      /* Metrics */
-      .metric-value { font-size: 1.8rem; }
-      .metric-title { font-size: 0.9rem; }
-      .metric-context { font-size: 0.82rem; }
-      .metric-row { gap: 12px; padding: 14px 0; }
-
-      /* Timeline */
+      /* ── TIMELINE ── */
+      .roadmap-timeline { padding-left: 14px; }
+      .rt-station { grid-template-columns: 80px 1fr; gap: 10px; }
+      .rt-date { font-size: 10px; padding-top: 14px; }
       .rt-role { font-size: 0.88rem; }
       .rt-org { font-size: 10px; }
-      .roadmap-timeline { padding-left: 16px; }
-      .rt-station { grid-template-columns: 90px 1fr; gap: 12px; }
+      .rt-card { padding: 14px 16px; }
+      .rt-tag { font-size: 9px; padding: 2px 7px; }
 
-      /* Bio cards */
-      .bio-blog-card { padding: 16px 16px; }
-      .bio-blog-title { font-size: 0.95rem; }
-      .bio-blog-body { font-size: 0.82rem; }
+      /* ── METRICS SECTION ── */
+      .metric-value { font-size: 1.7rem; }
+      .metric-title { font-size: 0.88rem; }
+      .metric-context { font-size: 0.8rem; }
+      .metric-row { gap: 10px; padding: 12px 0; }
+      .metric-bar-wrap { display: none; }
 
-      /* Contact */
-      .contact-wrap { padding: 40px 20px 80px !important; }
+      /* ── BLOG ── */
+      .blog-grid { grid-template-columns: 1fr; gap: 14px; }
+      .blog-card { padding: 18px 16px; }
+      .blog-title { font-size: 1rem; }
+      .blog-excerpt { font-size: 0.85rem; }
+      .blog-bottom { grid-template-columns: 1fr; gap: 14px; }
 
-      /* Footer */
-      footer { padding: 20px 20px !important; flex-direction: column; gap: 8px; }
+      /* ── CONTACT ── */
+      .contact-heading { font-size: clamp(1.5rem, 6vw, 2rem); }
+      .contact-sub { font-size: 0.88rem; }
+      .contact-links { flex-direction: column; gap: 10px; width: 100%; }
+      .contact-links .btn { width: 100%; text-align: center; }
 
-      /* Blog */
+      /* ── FOOTER ── */
+      footer { padding: 20px !important; flex-direction: column; gap: 8px; align-items: flex-start; }
+
+      /* ── PREVENT OVERFLOW ── */
+      * { max-width: 100%; }
+      img, svg { max-width: 100%; height: auto; }
+      pre, code { white-space: pre-wrap; word-break: break-word; }
+    }
+
+    /* ── TABLET (601–900px) ── */
+    @media (min-width: 601px) and (max-width: 900px) {
+      .content-section { padding: 56px 32px !important; }
+      .hero { padding: 100px 32px 56px !important; }
+      .section-heading { font-size: clamp(2rem, 5vw, 2.8rem); }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
       .blog-grid { grid-template-columns: 1fr; }
-      .blog-card { padding: 20px 18px; }
-
-      /* Prevent horizontal overflow */
-      img, svg { max-width: 100%; }
-      .hero-name { font-size: clamp(2.4rem, 10vw, 4rem) !important; white-space: normal !important; }
+      .hero-certs-grid { grid-template-columns: repeat(3, 1fr) !important; }
+      .rt-station { grid-template-columns: 100px 1fr; }
+      .contact-links { flex-direction: column; gap: 10px; }
+      .contact-links .btn { width: 100%; text-align: center; }
     }
 
     /* ── LAYOUT HELPERS ── */
@@ -1963,7 +2003,7 @@
           <!-- Pipeline Modal -->
           <div id="pipeline-modal" onclick="closePipelineModal()" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);z-index:9999;align-items:center;justify-content:center;padding:24px;">
             <div id="pipeline-modal-inner" onclick="event.stopPropagation()" style="background:white;border-radius:16px;padding:28px;max-width:420px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,0.2);position:relative;">
-              <button onclick="closePipelineModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:18px;cursor:pointer;color:#94A3B8;">✕</button>
+              <button onclick="closePipelineModal()" aria-label="Close modal" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:18px;cursor:pointer;color:#94A3B8;">✕</button>
               <div id="pipeline-modal-content"></div>
             </div>
           </div>
@@ -2478,7 +2518,7 @@
           <div class="b-sub">New posts on cloud, delivery, and tech leadership — straight to your inbox. No spam, ever.</div>
           <div class="input-row">
             <input class="email-input" type="email" placeholder="your@email.com" autocomplete="email" />
-            <button class="btn-sub">Subscribe</button>
+            <button class="btn-sub" aria-label="Subscribe to newsletter">Subscribe</button>
           </div>
         </div>
         <!-- Login -->
@@ -2486,7 +2526,7 @@
           <div class="b-title">Reader Access</div>
           <div class="b-sub">Sign in to save posts, leave comments, and access member-only content.</div>
           <div class="login-row">
-            <button class="btn-login main">Sign In</button>
+            <button class="btn-login main" aria-label="Login">Sign In</button>
             <button class="btn-login">Create Account</button>
           </div>
           <div class="divider"><span>or continue with</span></div>
@@ -2494,7 +2534,7 @@
             <button class="btn-login">Google</button>
             <button class="btn-login">LinkedIn</button>
           </div>
-          <div class="login-note">By signing in you agree to the <a href="#">terms</a>. Your data stays private.</div>
+          <div class="login-note">By signing in you agree to the <a href="#" aria-label="Terms">terms</a>. Your data stays private.</div>
         </div>
       </div>
     </div>
@@ -2655,7 +2695,7 @@
 
   <div id="ac-modal-overlay" onclick="acCloseModal()" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.55);backdrop-filter:blur(6px);z-index:99999;align-items:center;justify-content:center;padding:24px;">
     <div id="ac-modal-box" onclick="event.stopPropagation()" style="background:#fff;border-radius:16px;padding:32px 28px 28px;max-width:440px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,0.18);position:relative;max-height:82vh;overflow-y:auto;">
-      <button onclick="acCloseModal()" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:#F1F5F9;border:none;font-size:16px;cursor:pointer;color:#64748B;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F1F5F9'">&#x2715;</button>
+      <button onclick="acCloseModal()" aria-label="Close modal" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:#F1F5F9;border:none;font-size:16px;cursor:pointer;color:#64748B;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F1F5F9'">&#x2715;</button>
       <div id="ac-modal-content"></div>
     </div>
   </div>
