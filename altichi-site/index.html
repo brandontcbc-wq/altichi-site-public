@@ -888,6 +888,14 @@
     .skill-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
     .skill-desc { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.75; }
 
+    /* ── ARCHITECTURE DIAGRAM ── */
+    .arch-diagram { margin: 18px 0 8px; border-radius: 10px; overflow: hidden; border: 1.5px solid var(--border); background: #F8FAFC; }
+    .arch-diagram img { width: 100%; height: auto; display: block; cursor: pointer; transition: transform 0.2s; }
+    .arch-diagram img:hover { transform: scale(1.015); }
+    .arch-diagram-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 8px 12px; border-top: 1px solid var(--border); }
+    body.theme-light .arch-diagram { background: #fff; border-color: #DDE3F0; }
+    body.theme-light .arch-diagram-label { color: #64748B; }
+
     /* ── PROJECTS ── */
     .projects-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 48px; }
     .project-card {
@@ -2252,8 +2260,11 @@
           <div class="project-num" data-n="06">Cloud — AWS</div>
           <div class="project-title">Fault-Tolerant AWS Admissions Architecture</div>
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#FF990008;border-left:3px solid #FF9900;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#FF9900;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A university application needed a production-grade cloud infrastructure capable of surviving component failures without downtime, with no existing AWS architecture in place to build from.</span></div>
-          <div class="project-desc">Designed and built a <span class="bio-stat-blue-only">fault-tolerant AWS architecture</span> for a university admissions web application using <span class="bio-stat-blue-only">Amazon EC2</span> compute instances, an <span class="bio-stat-blue-only">Application Load Balancer (ALB)</span> for traffic distribution, <span class="bio-stat-blue-only">Auto Scaling</span> to four instances under load testing conditions, and <span class="bio-stat-blue-only">Amazon RDS</span> for managed relational database services, validating <span class="bio-stat-blue-only">high availability</span> under simulated peak traffic.</div>
-          <!-- AWS service badges — elevated card style -->
+          <div class="project-desc">Designed and deployed a <span class="bio-stat-blue-only">fault-tolerant AWS architecture</span> for a university admissions web application across <span class="bio-stat-blue-only">two Availability Zones</span>. Deployed <span class="bio-stat-blue-only">Amazon EC2</span> instances within private subnets behind an <span class="bio-stat-blue-only">Application Load Balancer (ALB)</span>, with <span class="bio-stat-blue-only">Auto Scaling</span> validated to four instances under simulated peak traffic. Provisioned <span class="bio-stat-blue-only">Amazon RDS</span> with <span class="bio-stat-blue-only">Multi-AZ synchronous replication</span> for database high availability, and used <span class="bio-stat-blue-only">NAT Gateways</span> for secure outbound connectivity from private subnets.</div>
+          <div class="arch-diagram">
+            <img src="assets/aws-project1-diagram.png" alt="AWS Project 1 Architecture — Multi-AZ VPC with ALB, EC2 Auto Scaling, and RDS replication" loading="lazy"/>
+            <div class="arch-diagram-label">Architecture Diagram — Multi-AZ Fault-Tolerant Design</div>
+          </div>
           <div class="bio-tech-grid">
               <div class="bio-tech-stat">
                 <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#FF9900,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">EC2</div>
@@ -2265,7 +2276,7 @@
               </div>
               <div class="bio-tech-stat">
                 <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">RDS</div>
-                <div class="bio-tech-stat-label">Database</div>
+                <div class="bio-tech-stat-label">Multi-AZ</div>
               </div>
               <div class="bio-tech-stat">
                 <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2563EB,#4F7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ALB</div>
@@ -2280,8 +2291,8 @@
                 <div class="bio-tech-stat-label">Identity</div>
               </div>
               <div class="bio-tech-stat">
-                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CW</div>
-                <div class="bio-tech-stat-label">CloudWatch</div>
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#0891B2,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">NAT</div>
+                <div class="bio-tech-stat-label">Gateway</div>
               </div>
               <div class="bio-tech-stat">
                 <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">C9</div>
@@ -2293,22 +2304,41 @@
         <!-- 07 CLOUD -->
         <div class="project-card">
           <div class="project-num" data-n="07">Cloud — DevOps</div>
-          <div class="project-title">Cloud-Native Microservices Platform</div>
-          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A monolithic banking application needed to be decomposed into independently deployable services with automated delivery pipelines — applying real-world DevOps practices in a cloud-native environment.</span></div>
-          <div class="project-desc">Building a <span class="bio-stat-blue-only">cloud-native microservices platform</span> on AWS using <span class="bio-stat-blue-only">containerized services</span> and <span class="bio-stat-blue-only">CI/CD pipelines</span> to support scalable, automated software delivery across independently deployable services. Developing hands-on <span class="bio-stat-blue-only">containerization</span> experience with <span class="bio-stat-blue-only">Docker</span>, including packaging and running a functional <span class="bio-stat-blue-only">Python banking application</span> as a containerized workload, applying real-world <span class="bio-stat-blue-only">DevOps practices</span> to cloud infrastructure design.</div>
-          <!-- Service icon badges — elevated -->
+          <div class="project-title">Cloud-Native Microservices & CI/CD Platform</div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A monolithic application needed to be decomposed into independently deployable services with automated delivery pipelines — applying real-world DevOps practices in a cloud-native environment.</span></div>
+          <div class="project-desc">Refactored a monolithic application into a <span class="bio-stat-blue-only">cloud-native microservices architecture</span> on AWS. Containerized services were deployed to <span class="bio-stat-blue-only">Amazon ECS with Fargate</span> using <span class="bio-stat-blue-only">ARM64 Graviton</span> for cost-optimized serverless compute. Implemented fully automated <span class="bio-stat-blue-only">CI/CD pipelines</span> via <span class="bio-stat-blue-only">AWS CodePipeline</span> and <span class="bio-stat-blue-only">CodeDeploy</span> with <span class="bio-stat-blue-only">blue/green deployment</span> strategy. Traffic routing handled by an <span class="bio-stat-blue-only">Application Load Balancer</span> with path-based routing to independent microservices, backed by <span class="bio-stat-blue-only">Amazon RDS MySQL</span> in private subnets. Estimated monthly cost of <span class="bio-stat-blue-only">$87.49 USD</span>.</div>
+          <div class="arch-diagram">
+            <img src="assets/aws-project2-diagram.png" alt="AWS Project 2 Architecture — ECS Fargate microservices with CI/CD pipeline and ALB routing" loading="lazy"/>
+            <div class="arch-diagram-label">Architecture Diagram — Microservices & CI/CD Pipeline</div>
+          </div>
           <div class="bio-tech-grid">
               <div class="bio-tech-stat">
                 <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2496ED,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Dock</div>
                 <div class="bio-tech-stat-label">Docker</div>
               </div>
               <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#FF9900,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ECS</div>
+                <div class="bio-tech-stat-label">Fargate</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#FF9900,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ECR</div>
+                <div class="bio-tech-stat-label">Registry</div>
+              </div>
+              <div class="bio-tech-stat">
                 <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CI/CD</div>
                 <div class="bio-tech-stat-label">Pipelines</div>
               </div>
               <div class="bio-tech-stat">
-                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#3776AB,#FFD43B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Py</div>
-                <div class="bio-tech-stat-label">Python</div>
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#10B981,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">B/G</div>
+                <div class="bio-tech-stat-label">Blue/Green</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#2563EB,#4F7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ALB</div>
+                <div class="bio-tech-stat-label">Load Balancer</div>
+              </div>
+              <div class="bio-tech-stat">
+                <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#7C3AED,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">RDS</div>
+                <div class="bio-tech-stat-label">MySQL</div>
               </div>
               <div class="bio-tech-stat">
                 <div class="bio-tech-stat-val" style="background:linear-gradient(120deg,#FF9900,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AWS</div>
