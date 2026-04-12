@@ -140,7 +140,7 @@
     }
     body.theme-light #projects .project-card::after { background: linear-gradient(90deg, #7C3AED, #EC4899); }
     body.theme-light #projects .project-num   { color: #7C3AED; }
-    body.theme-light #projects .project-title { color: #4C1D95; }
+    body.theme-light #projects .project-title { color: #3B82F6; }
     body.theme-light #projects .tag-blue   { background: #EFF6FF; color: #2563EB; border-color: #93C5FD; }
     body.theme-light #projects .tag-violet { background: #F5F3FF; color: #7C3AED; border-color: #C4B5FD; }
     body.theme-light #projects .tag-cyan   { background: #ECFEFF; color: #0891B2; border-color: #67E8F9; }
@@ -384,9 +384,9 @@
       .section-heading { font-size: clamp(1.7rem, 7vw, 2.2rem) !important; }
       .section-label { font-size: 10px; margin-bottom: 24px; }
       .hero-bio { font-size: 0.95rem; }
-      .bio-blog-title { font-size: 0.95rem; }
-      .bio-blog-body { font-size: 0.82rem; line-height: 1.7; }
-      .bio-blog-card { padding: 16px; }
+      .bio-blog-title { font-size: 1.02rem; }
+      .bio-blog-body { font-size: 0.9rem; line-height: 1.8; }
+      .bio-blog-card { padding: 20px 18px; }
 
       /* ── HERO SUBTITLE ── */
       .hero-subtitle { font-size: 0.85rem; padding: 8px 12px; }
@@ -407,7 +407,7 @@
       /* ── PROJECTS ── */
       .project-card { padding: 18px 16px; width: 100%; box-sizing: border-box; }
       .project-title { font-size: 1.1rem; }
-      .project-desc { font-size: 0.87rem; }
+      .project-desc { font-size: 0.9rem; }
       .project-num { font-size: 9px; }
       .bio-tech-grid { gap: 6px; }
       .bio-tech-stat { padding: 10px 8px 12px; min-width: 60px; }
@@ -419,11 +419,12 @@
       /* ── TIMELINE ── */
       .roadmap-timeline { padding-left: 14px; }
       .rt-station { grid-template-columns: 80px 1fr; gap: 10px; }
-      .rt-date { font-size: 10px; padding-top: 14px; }
-      .rt-role { font-size: 0.88rem; }
-      .rt-org { font-size: 10px; }
+      .rt-date { font-size: 12px; padding-top: 14px; }
+      .rt-date span:last-child { font-size: 11px; }
+      .rt-role { font-size: 0.92rem; }
+      .rt-org { font-size: 12px; }
       .rt-card { padding: 14px 16px; }
-      .rt-tag { font-size: 9px; padding: 2px 7px; }
+      .rt-tag { font-size: 11px; padding: 3px 9px; }
 
       /* ── METRICS SECTION ── */
       .metric-value { font-size: 1.7rem; }
@@ -435,8 +436,8 @@
       /* ── BLOG ── */
       .blog-grid { grid-template-columns: 1fr; gap: 14px; }
       .blog-card { padding: 18px 16px; }
-      .blog-title { font-size: 1rem; }
-      .blog-excerpt { font-size: 0.85rem; }
+      .blog-title { font-size: 1.02rem; }
+      .blog-excerpt { font-size: 0.9rem; }
       .blog-bottom { grid-template-columns: 1fr; gap: 14px; }
 
       /* ── CONTACT ── */
@@ -612,14 +613,14 @@
       background: #FAFBFF; border-color: #DDE3F0; border-left-color: #4F7FFF;
     }
     .hero-subtitle-prefix {
-      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
+      font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--primary); white-space: nowrap;
     }
     body.theme-light .hero-subtitle-prefix { color: #4F7FFF; }
     .hero-subtitle-suffix { display: none; }
     .spec-highlight {
-      font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
       color: var(--text-primary);
       display: inline-block; white-space: nowrap;
       transition: opacity 0.3s ease, transform 0.3s ease;
@@ -652,8 +653,8 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 20px 22px;
-      display: flex; flex-direction: column; gap: 8px;
+      padding: 24px 26px;
+      display: flex; flex-direction: column; gap: 10px;
       box-shadow: var(--shadow);
       transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
       cursor: default;
@@ -670,19 +671,20 @@
 
     /* Category pill — identical to .blog-cat */
     .bio-blog-cat {
-      font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
-      letter-spacing: 0.16em; padding: 4px 12px; border-radius: 100px;
-      display: inline-block; width: fit-content;
+      font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.12em; padding: 5px 14px; border-radius: 100px;
+      display: inline-block; width: fit-content; font-weight: 600;
     }
 
     /* Reuse blog color tokens */
     .bio-blog-title {
       font-family: var(--font-display); font-weight: 700;
-      font-size: clamp(0.95rem, 1.1vw, 1.1rem); line-height: 1.25; color: var(--text-primary);
+      font-size: clamp(1.05rem, 1.3vw, 1.2rem); line-height: 1.3; color: var(--text-primary);
     }
     .bio-blog-body {
-      font-size: clamp(0.82rem, 0.9vw, 0.92rem);
-      color: var(--text-secondary); line-height: 1.75;
+      font-family: var(--font-body);
+      font-size: clamp(0.92rem, 1vw, 1rem);
+      color: var(--text-secondary); line-height: 1.85;
     }
     .bio-blog-body p { margin: 0; }
     body.theme-light .bio-blog-body { color: #475569; }
@@ -888,13 +890,73 @@
     .skill-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
     .skill-desc { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.75; }
 
-    /* ── ARCHITECTURE DIAGRAM ── */
-    .arch-diagram { margin: 18px 0 8px; border-radius: 10px; overflow: hidden; border: 1.5px solid var(--border); background: #F8FAFC; }
-    .arch-diagram img { width: 100%; height: auto; display: block; cursor: pointer; transition: transform 0.2s; }
-    .arch-diagram img:hover { transform: scale(1.015); }
-    .arch-diagram-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 8px 12px; border-top: 1px solid var(--border); }
-    body.theme-light .arch-diagram { background: #fff; border-color: #DDE3F0; }
-    body.theme-light .arch-diagram-label { color: #64748B; }
+    /* ── DETAIL CHIPS (unified clickable labels) ── */
+    .detail-chips { display: flex; gap: 8px; margin: 16px 0 12px; flex-wrap: wrap; }
+    .detail-chip { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: 1.5px solid var(--border); border-radius: 8px; padding: 9px 14px; background: var(--bg-surface); transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+    .detail-chip:hover { transform: translateY(-2px); }
+    .detail-chip-icon { flex-shrink: 0; width: 18px; height: 18px; }
+    .detail-chip-label { font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.02em; }
+    .detail-chip-hint { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); }
+    .detail-chip-arrow { font-family: var(--font-mono); font-size: 13px; margin-left: auto; opacity: 0.6; }
+    .detail-chip.blue { border-left: 3px solid #2563EB; }
+    .detail-chip.blue .detail-chip-label { color: #1D4ED8; }
+    .detail-chip.blue .detail-chip-arrow { color: #2563EB; }
+    .detail-chip.blue:hover { border-color: #2563EB; box-shadow: 0 4px 14px #2563EB18; }
+    .detail-chip.violet { border-left: 3px solid #7C3AED; }
+    .detail-chip.violet .detail-chip-label { color: #5B21B6; }
+    .detail-chip.violet .detail-chip-arrow { color: #7C3AED; }
+    .detail-chip.violet:hover { border-color: #7C3AED; box-shadow: 0 4px 14px #7C3AED18; }
+    .detail-chip.cyan { border-left: 3px solid #0891B2; }
+    .detail-chip.cyan .detail-chip-label { color: #0E7490; }
+    .detail-chip.cyan .detail-chip-arrow { color: #0891B2; }
+    .detail-chip.cyan:hover { border-color: #0891B2; box-shadow: 0 4px 14px #0891B218; }
+    .detail-chip.orange { border-left: 3px solid #FF9900; }
+    .detail-chip.orange .detail-chip-label { color: #B45309; }
+    .detail-chip.orange .detail-chip-arrow { color: #FF9900; }
+    .detail-chip.orange:hover { border-color: #FF9900; box-shadow: 0 4px 14px #FF990018; }
+    body.theme-light .detail-chip { background: #fff; }
+
+    /* ── BLOG POST READER MODAL ── */
+    #blog-reader { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(8px); z-index: 99998; align-items: flex-start; justify-content: center; padding: 40px 24px; overflow-y: auto; }
+    #blog-reader.open { display: flex; }
+    #blog-reader-inner { position: relative; max-width: 680px; width: 100%; background: #fff; border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,0.25); overflow: hidden; margin: auto; }
+    #blog-reader-close { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border-radius: 50%; background: #F1F5F9; border: none; color: #64748B; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; z-index: 2; }
+    #blog-reader-close:hover { background: #E2E8F0; }
+    .blog-reader-header { padding: 36px 36px 0; }
+    .blog-reader-cat { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; padding: 5px 14px; border-radius: 100px; display: inline-block; font-weight: 600; margin-bottom: 14px; }
+    .blog-reader-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #0F172A; line-height: 1.3; margin-bottom: 12px; }
+    .blog-reader-meta { font-family: var(--font-body); font-size: 14px; color: #64748B; margin-bottom: 8px; }
+    .blog-reader-body { padding: 24px 36px 36px; font-family: var(--font-body); font-size: clamp(0.92rem, 1vw, 1rem); color: #475569; line-height: 1.85; }
+    .blog-reader-body p { margin: 0 0 20px 0; }
+    .blog-reader-body p:last-child { margin-bottom: 0; }
+    .blog-reader-divider { height: 1px; background: #E2E8F0; margin: 0 36px; }
+    @media (max-width: 768px) {
+      #blog-reader-inner { max-width: 95vw; }
+      .blog-reader-header { padding: 28px 24px 0; }
+      .blog-reader-body { padding: 20px 24px 28px; font-size: 0.9rem; }
+      .blog-reader-title { font-size: 1.3rem; }
+      .blog-reader-divider { margin: 0 24px; }
+    }
+
+    /* ── ARCHITECTURE DIAGRAM THUMBNAIL ── */
+    .arch-thumb { display: inline-flex; align-items: center; gap: 12px; margin: 16px 0 8px; padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--border); border-left: 3px solid #FF9900; background: var(--bg-surface); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+    .arch-thumb:hover { transform: translateY(-2px); box-shadow: 0 4px 14px #FF990018; border-color: #FF9900; }
+    .arch-thumb img { width: 72px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); flex-shrink: 0; }
+    .arch-thumb-text { display: flex; flex-direction: column; gap: 2px; }
+    .arch-thumb-title { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #B45309; letter-spacing: 0.02em; }
+    .arch-thumb-sub { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); }
+    .arch-thumb-arrow { font-family: var(--font-mono); font-size: 13px; color: #FF9900; margin-left: auto; opacity: 0.6; }
+    body.theme-light .arch-thumb { background: #fff; }
+
+    /* ── LIGHTBOX ── */
+    #arch-lightbox { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(8px); z-index: 99998; align-items: center; justify-content: center; padding: 24px; }
+    #arch-lightbox.open { display: flex; }
+    #arch-lightbox-inner { position: relative; max-width: 640px; width: 100%; background: #fff; border-radius: 14px; box-shadow: 0 24px 64px rgba(0,0,0,0.25); overflow: hidden; }
+    #arch-lightbox-inner img { width: 100%; height: auto; display: block; padding: 16px; box-sizing: border-box; }
+    #arch-lightbox-caption { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #64748B; padding: 10px 16px; border-top: 1px solid #E2E8F0; }
+    #arch-lightbox-close { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; background: rgba(15,23,42,0.55); border: none; color: #fff; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; z-index: 2; }
+    #arch-lightbox-close:hover { background: rgba(15,23,42,0.85); }
+    @media (max-width: 768px) { #arch-lightbox-inner { max-width: 95vw; } }
 
     /* ── PROJECTS ── */
     .projects-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 48px; }
@@ -923,7 +985,7 @@
     }
     body.theme-light .project-num { color: #1D4ED8; }
     .project-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; margin-bottom: 14px; line-height: 1.25; color: var(--text-primary); }
-    .project-desc { font-size: clamp(0.9rem, 1vw, 1rem); color: var(--text-secondary); line-height: 1.85; margin-bottom: 20px; }
+    .project-desc { font-family: var(--font-body); font-size: clamp(0.92rem, 1vw, 1rem); color: var(--text-secondary); line-height: 1.85; margin-bottom: 20px; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
     .tag {
       font-family: var(--font-body);
@@ -1119,20 +1181,21 @@
 
     /* Date label — left column */
     .rt-date {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #0F172A;
-      font-weight: 600;
+      font-family: var(--font-body);
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      color: #2563EB;
+      font-weight: 500;
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 0;
       padding-top: 18px;
       text-align: right;
+      line-height: 1.5;
     }
-    .rt-date span { white-space: nowrap; display: block; line-height: 1.7; }
-    body.theme-light .rt-date { color: #0F172A; }
+    .rt-date span { white-space: nowrap; display: block; }
+    .rt-date span:last-child { color: #64748B; font-size: 13px; }
+    body.theme-light .rt-date { color: #2563EB; }
 
     /* Card — right column, uniform style */
     .rt-card {
@@ -1175,33 +1238,34 @@
 
     .rt-role {
       font-family: var(--font-display); font-weight: 700;
-      font-size: clamp(0.95rem, 1.1vw, 1.1rem); margin-bottom: 3px; line-height: 1.35;
+      font-size: clamp(1rem, 1.2vw, 1.15rem); margin-bottom: 5px; line-height: 1.35;
+      color: #1E3A8A;
     }
     .rt-org {
-      font-family: var(--font-mono); font-size: clamp(11px, 0.9vw, 13px); font-weight: 600;
-      margin-bottom: 10px; letter-spacing: 0.04em; color: #0F172A;
+      font-family: var(--font-body); font-size: 14px; font-weight: 400;
+      margin-bottom: 12px; color: #475569; line-height: 1.4;
     }
-    body.theme-light .rt-role { color: #0F172A; }
-    body.theme-light .rt-org  { color: #0F172A; }
+    body.theme-light .rt-role { color: #1E3A8A; }
+    body.theme-light .rt-org  { color: #475569; }
 
-    .rt-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .rt-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .rt-tag {
-      font-family: var(--font-body); font-size: 10px; font-weight: 500;
-      padding: 2px 9px; border-radius: 4px;
+      font-family: var(--font-body); font-size: 12px; font-weight: 500;
+      padding: 4px 12px; border-radius: 6px;
       border: 1px solid #E2E8F0;
       background: var(--bg-surface);
-      color: #0F172A;
+      color: #334155;
       letter-spacing: 0.01em;
+      line-height: 1.4;
     }
-    /* Uniform tag colors — all blue-grey, no color chaos */
-    .rt-blue, .rt-violet, .rt-cyan, .rt-green {
-      background: var(--bg-surface);
-      color: #0F172A;
-      border: 1px solid var(--border);
-    }
-    body.theme-light .rt-blue,
-    body.theme-light .rt-violet,
-    body.theme-light .rt-cyan   { background: #F8FAFF; color: #0F172A; border-color: #CBD5E1; }
+    /* Color-coded tag variants */
+    .rt-blue   { background: #EFF6FF; color: #1D4ED8; border-color: #BFDBFE; }
+    .rt-violet { background: #F5F3FF; color: #5B21B6; border-color: #DDD6FE; }
+    .rt-cyan   { background: #ECFEFF; color: #0E7490; border-color: #A5F3FC; }
+    .rt-green  { background: #F0FDF4; color: #166534; border-color: #86EFAC; }
+    body.theme-light .rt-blue   { background: #EFF6FF; color: #1D4ED8; border-color: #BFDBFE; }
+    body.theme-light .rt-violet { background: #F5F3FF; color: #5B21B6; border-color: #DDD6FE; }
+    body.theme-light .rt-cyan   { background: #ECFEFF; color: #0E7490; border-color: #A5F3FC; }
     body.theme-light .rt-green  { background: #F0FDF4; color: #166534; border-color: #86EFAC; }
     /* Remove colored dots from tags */
     .rt-tag::before { display: none; }
@@ -1212,32 +1276,34 @@
       .roadmap-timeline::before { left: 0; }
       .rt-station { grid-template-columns: 1fr; gap: 6px; padding-bottom: 24px; }
       .rt-station::before { display: none; }
-      .rt-date { text-align: left; padding-top: 0; flex-direction: row; gap: 4px; flex-wrap: wrap; }
-      .rt-role { font-size: 0.95rem; }
-      .rt-card { padding: 14px 16px; }
+      .rt-date { text-align: left; padding-top: 0; flex-direction: row; gap: 6px; flex-wrap: wrap; font-size: 13px; }
+      .rt-date span:last-child { font-size: 12px; }
+      .rt-role { font-size: 0.98rem; }
+      .rt-org { font-size: 13px; }
+      .rt-card { padding: 16px 18px; }
     }
 
     /* ── CERTS ── */
-    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; margin-top: 48px; }
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 48px; }
     .cert-card {
       background: white;
       border: 1px solid #E2E8F0;
       border-left: 4px solid var(--cc, #4F46E5);
-      border-radius: 10px; padding: 20px 18px;
+      border-radius: 10px; padding: 22px 20px;
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
     .cert-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
     .cert-year {
-      font-family: var(--font-mono); font-size: 10px; font-weight: 700;
-      color: var(--cc, #4F46E5); margin-bottom: 8px; letter-spacing: 0.08em;
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--cc, #4F46E5); margin-bottom: 8px; letter-spacing: 0.06em;
       text-transform: uppercase;
     }
     .cert-name {
-      font-family: var(--font-display); font-size: 15px; font-weight: 800;
-      margin-bottom: 5px; line-height: 1.2; color: #0F172A;
+      font-family: var(--font-display); font-size: 17px; font-weight: 800;
+      margin-bottom: 6px; line-height: 1.25; color: #0F172A;
     }
-    .cert-issuer { font-size: 12px; color: #64748B; }
+    .cert-issuer { font-family: var(--font-body); font-size: 14px; color: #64748B; line-height: 1.4; }
 
     /* ══════════════════════════════
        BLOG SECTION
@@ -1256,16 +1322,17 @@
       display: flex; align-items: flex-end; justify-content: space-between;
       margin-bottom: 32px; flex-wrap: wrap; gap: 16px;
     }
-    .blog-intro { font-size: 0.95rem; color: var(--text-secondary); max-width: 52ch; line-height: 1.7; margin-top: 10px; }
+    .blog-intro { font-family: var(--font-body); font-size: 1rem; color: var(--text-secondary); max-width: 52ch; line-height: 1.7; margin-top: 10px; }
     .blog-all-link {
-      font-family: var(--font-mono); font-size: 12px; color: var(--primary);
+      font-family: var(--font-mono); font-size: 13px; color: var(--primary);
       text-decoration: none; border: 1px solid var(--primary);
-      padding: 8px 20px; border-radius: 100px; letter-spacing: 0.08em;
+      padding: 9px 22px; border-radius: 100px; letter-spacing: 0.06em;
       white-space: nowrap; transition: all 0.2s; align-self: flex-start; margin-top: 8px;
     }
     .blog-all-link:hover { background: var(--primary-glow); }
 
-    .blog-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; margin-bottom: 24px; max-width: 860px; }
+    .blog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; max-width: 860px; }
+    .blog-grid .blog-card.featured { grid-column: 1 / -1; }
     @media (max-width: 640px) { .blog-grid { grid-template-columns: 1fr; } }
 
     .blog-card {
@@ -1277,9 +1344,9 @@
     .blog-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 10px 36px var(--primary-glow); }
 
     .blog-cat {
-      font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
-      letter-spacing: 0.16em; padding: 4px 12px; border-radius: 100px;
-      display: inline-block; width: fit-content;
+      font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.12em; padding: 5px 14px; border-radius: 100px;
+      display: inline-block; width: fit-content; font-weight: 600;
     }
     .cat-cloud   { background: #38BDF815; color: var(--highlight); border: 1px solid #38BDF833; }
     .cat-pm      { background: #4F7FFF15; color: var(--primary);   border: 1px solid #4F7FFF33; }
@@ -1288,14 +1355,14 @@
     .blog-title {
       font-family: var(--font-display); font-weight: 700; line-height: 1.25; color: var(--text-primary);
     }
-    .blog-card.featured .blog-title { font-size: 1.3rem; }
-    .blog-card:not(.featured) .blog-title { font-size: 1rem; }
+    .blog-card.featured .blog-title { font-size: 1.35rem; }
+    .blog-card:not(.featured) .blog-title { font-size: 1.05rem; }
 
-    .blog-excerpt { font-size: 13px; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+    .blog-excerpt { font-family: var(--font-body); font-size: clamp(0.88rem, 0.95vw, 0.95rem); color: var(--text-secondary); line-height: 1.8; flex: 1; }
     .blog-card:not(.featured) .blog-excerpt { display: none; }
 
     .blog-meta { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-    .blog-date, .blog-read { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 0.06em; }
+    .blog-date, .blog-read { font-family: var(--font-body); font-size: 12px; color: var(--text-muted); letter-spacing: 0.03em; font-weight: 500; }
 
     /* Subscribe + Login */
     .blog-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
@@ -1307,8 +1374,8 @@
     }
     .b-box.subscribe { background: linear-gradient(135deg, var(--bg-card), #4F7FFF08); border-color: #4F7FFF2A; }
 
-    .b-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
-    .b-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 18px; line-height: 1.55; }
+    .b-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
+    .b-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 18px; line-height: 1.6; }
 
     .input-row { display: flex; gap: 10px; flex-wrap: wrap; }
     .email-input {
@@ -1329,7 +1396,7 @@
       display: flex; align-items: center; gap: 12px; margin: 14px 0;
     }
     .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .divider span { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; }
+    .divider span { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); letter-spacing: 0.1em; }
 
     .login-row { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn-login {
@@ -1518,7 +1585,7 @@
             <span class="bio-blog-cat cat-pm">Background</span>
             <div class="bio-blog-title">Enterprise SaaS, Technology & AI Delivery</div>
             <div class="bio-blog-body">
-              <p style="margin-bottom:10px;">Technology has always been more than a career for me, it is a genuine passion. I am drawn to innovative products and solutions that solve real problems, and that curiosity has driven over 5 years of delivering enterprise SaaS, AI, and cloud initiatives across regulated industries and higher education. I hold an <span class="bio-stat">HBA in Economics</span> from York University, which sharpened the way I think about business problems, product pricing strategies, and the grit required to drive a business toward success. I am currently completing a <span class="bio-stat bio-stat-cyan">Cloud Computing program</span> at Humber Polytechnic, because I believe the best leaders never stop learning, and in an age of exponential technological development, I want to ride the wave that bridges cloud computing with AI to deliver impactful, meaningful technology services and products.</p>
+              <p style="margin-bottom:10px;">Technology has always been more than a career for me, it is a genuine passion. I am drawn to innovative products and solutions that solve real problems, and that curiosity has driven over <span class="bio-stat">5 years</span> of delivering enterprise SaaS, AI, and cloud initiatives across regulated industries and higher education. Over <span class="bio-stat">3 years</span> as a Product and Project Management lead, I drove key enhancements and improvements across <span class="bio-stat">student portals</span>, <span class="bio-stat">learning management systems</span>, and <span class="bio-stat">student management systems</span>, delivering measurable impact at institutional scale. I am currently completing a <span class="bio-stat bio-stat-cyan">Cloud Computing program</span> at Humber Polytechnic, where I have designed and deployed <span class="bio-stat bio-stat-cyan">fault-tolerant AWS architectures</span>, built <span class="bio-stat bio-stat-cyan">cloud-native microservices platforms</span> with automated CI/CD pipelines, and applied real-world DevOps practices across containerized workloads. I believe the best leaders never stop learning, and in an age of exponential technological development, I want to ride the wave that bridges cloud computing with AI to deliver impactful, meaningful technology services and products.</p>
               <p>What makes me different is the range I bring. I am a practising visual artist, having developed <span class="bio-stat bio-stat-violet">visual portraits and worked with mixed media</span>, which drives a creative eye that directly shapes the way I approach UI/UX and product design. I have stood on stage as <span class="bio-stat">Master of Ceremony</span> for two consecutive convocation seasons at Global University Systems Canada, leading graduation ceremonies for hundreds of graduates and delivering presentations to thousands in attendance. Colleagues and clients describe me as <span class="bio-stat bio-stat-violet">welcoming, warm, and deeply collaborative</span>, someone who brings both precision and positive energy to every room and every project, working and leading toward a shared vision.</p>
             </div>
           </div>
@@ -1987,24 +2054,21 @@
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#7C3AED08;border-left:3px solid #7C3AED;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#7C3AED;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">Major U.S. pipeline operators lacked a modern, cloud-hosted risk modeling platform capable of meeting PHMSA regulatory requirements across transmission, distribution, and storage assets at scale.</span></div>
           <div class="project-desc">Directed <span class="bio-stat-blue-only">multimillion-dollar SaaS implementations</span> supporting <span class="bio-stat-blue-only">probability-based risk modeling</span> across transmission, distribution, and storage pipeline assets for <span class="bio-stat-blue-only">major U.S. pipeline operators</span>. Led cross-functional squads of 8 through requirements, UAT, and production deployment to ensure the safety, integrity, and maintenance of pipeline infrastructure in full compliance with <span class="bio-stat-blue-only">PHMSA regulations</span>, the federal framework governing U.S. hazardous liquid and gas pipeline operations.</div>
           <!-- Pipeline asset cards — click to expand -->
-          <div style="display:flex;gap:6px;margin:14px 0 12px;flex-wrap:wrap;" id="pipeline-cards">
-            <div onclick="acOpenModal('pipeline','transmission')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-              <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M2 9 H16" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><rect x="6" y="5" width="3" height="8" rx="1" fill="#2563EB" opacity="0.3"/><circle cx="2" cy="9" r="2" fill="#2563EB"/><circle cx="16" cy="9" r="2" fill="#2563EB"/></svg>
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#1D4ED8;">Transmission</span>
-              <span style="font-size:11px;color:#64748B;">High-pressure long-haul</span>
-              <span style="font-family:var(--font-mono);font-size:11px;color:#2563EB;">↗</span>
+          <div class="detail-chips" id="pipeline-cards">
+            <div class="detail-chip blue" onclick="acOpenModal('pipeline','transmission')">
+              <span class="detail-chip-label">⚡ Transmission</span>
+              <span class="detail-chip-hint">High-pressure long-haul</span>
+              <span class="detail-chip-arrow">↗</span>
             </div>
-            <div onclick="acOpenModal('pipeline','distribution')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #7C3AED;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #7C3AED22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-              <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M9 2 V9 M5 9 H13" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><circle cx="5" cy="13" r="2" fill="#7C3AED" opacity="0.7"/><circle cx="9" cy="13" r="2" fill="#7C3AED" opacity="0.7"/><circle cx="13" cy="13" r="2" fill="#7C3AED" opacity="0.7"/></svg>
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#5B21B6;">Distribution</span>
-              <span style="font-size:11px;color:#64748B;">Local delivery networks</span>
-              <span style="font-family:var(--font-mono);font-size:11px;color:#7C3AED;">↗</span>
+            <div class="detail-chip violet" onclick="acOpenModal('pipeline','distribution')">
+              <span class="detail-chip-label">🏠 Distribution</span>
+              <span class="detail-chip-hint">Local delivery networks</span>
+              <span class="detail-chip-arrow">↗</span>
             </div>
-            <div onclick="acOpenModal('pipeline','storage')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#ECFEFF;border:1px solid #A5F3FC;border-left:3px solid #0891B2;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #0891B222'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-              <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><ellipse cx="9" cy="5" rx="6" ry="2.5" fill="#0891B2" opacity="0.25" stroke="#0891B2" stroke-width="1.3"/><path d="M3 5 V13 C3 14.4 5.7 15.5 9 15.5 S15 14.4 15 13 V5" stroke="#0891B2" stroke-width="1.3" fill="none"/><ellipse cx="9" cy="13" rx="6" ry="2.5" stroke="#0891B2" stroke-width="1.3" fill="none"/></svg>
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#0E7490;">Storage</span>
-              <span style="font-size:11px;color:#64748B;">Strategic reserves</span>
-              <span style="font-family:var(--font-mono);font-size:11px;color:#0891B2;">↗</span>
+            <div class="detail-chip cyan" onclick="acOpenModal('pipeline','storage')">
+              <span class="detail-chip-label">🏭 Storage</span>
+              <span class="detail-chip-hint">Strategic reserves</span>
+              <span class="detail-chip-arrow">↗</span>
             </div>
           </div>
 
@@ -2157,18 +2221,16 @@
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">Enterprise portals lacked multi-layered authentication, and students had no way to pay fees directly within institutional platforms, creating both a security risk and a fragmented digital experience.</span></div>
           <div class="project-desc">Implemented <span class="bio-stat-blue-only">Multi-Factor Authentication (MFA)</span> and <span class="bio-stat-blue-only">Single Sign-On (SSO)</span> across enterprise portals, and led the integration of a <span class="bio-stat-blue-only">secure payment API with CIBC</span>, one of Canada's largest Schedule I chartered banks, enabling students to transact directly within institutional platforms.</div>
 
-          <div style="display:flex;gap:6px;margin:14px 0 12px;flex-wrap:wrap;">
-            <div onclick="acOpenModal('info','sec-auth')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#ECFEFF;border:1px solid #A5F3FC;border-left:3px solid #0891B2;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #0891B222'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-              <span style="font-size:1rem;line-height:1;">🔐</span>
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#0E7490;">MFA &amp; SSO</span>
-              <span style="font-size:11px;color:#64748B;">Enterprise auth hardening</span>
-              <span style="font-family:var(--font-mono);font-size:11px;color:#0891B2;">↗</span>
+          <div class="detail-chips">
+            <div class="detail-chip cyan" onclick="acOpenModal('info','sec-auth')">
+              <span class="detail-chip-label">🔐 MFA &amp; SSO</span>
+              <span class="detail-chip-hint">Enterprise auth hardening</span>
+              <span class="detail-chip-arrow">↗</span>
             </div>
-            <div onclick="acOpenModal('info','sec-cibc')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-              <span style="font-size:1rem;line-height:1;">🏦</span>
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#1D4ED8;">CIBC Payment API</span>
-              <span style="font-size:11px;color:#64748B;">Secure banking integration</span>
-              <span style="font-family:var(--font-mono);font-size:11px;color:#2563EB;">↗</span>
+            <div class="detail-chip blue" onclick="acOpenModal('info','sec-cibc')">
+              <span class="detail-chip-label">🏦 CIBC Payment API</span>
+              <span class="detail-chip-hint">Secure banking integration</span>
+              <span class="detail-chip-arrow">↗</span>
             </div>
           </div>
 <div class="bio-tech-grid">
@@ -2221,18 +2283,16 @@
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#2563EB08;border-left:3px solid #2563EB;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">Canvas LMS operated in isolation from key institutional tools, leaving academic integrity, reporting, and student communications as manual, disconnected processes across a multi-institution environment.</span></div>
           <div class="project-desc">Led a strategic vendor integration program on the <span class="bio-stat-blue-only">Canvas LMS platform</span>, used across hundreds of universities and colleges worldwide, coordinating directly with third-party vendors to deliver integrations aligned to institutional priorities and roadmap planning.</div>
 
-          <div style="display:flex;gap:6px;margin:14px 0 12px;flex-wrap:wrap;">
-            <div onclick="acOpenModal('info','lms-canvas')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #7C3AED;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #7C3AED22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-              <span style="font-size:1rem;line-height:1;">🎓</span>
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#5B21B6;">Canvas LMS</span>
-              <span style="font-size:11px;color:#64748B;">Global platform context</span>
-              <span style="font-family:var(--font-mono);font-size:11px;color:#7C3AED;">↗</span>
+          <div class="detail-chips">
+            <div class="detail-chip violet" onclick="acOpenModal('info','lms-canvas')">
+              <span class="detail-chip-label">🎓 Canvas LMS</span>
+              <span class="detail-chip-hint">Global platform context</span>
+              <span class="detail-chip-arrow">↗</span>
             </div>
-            <div onclick="acOpenModal('info','lms-vendors')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-              <span style="font-size:1rem;line-height:1;">🔗</span>
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:#1D4ED8;">Vendor Integrations</span>
-              <span style="font-size:11px;color:#64748B;">Turnitin, Power BI, SMS</span>
-              <span style="font-family:var(--font-mono);font-size:11px;color:#2563EB;">↗</span>
+            <div class="detail-chip blue" onclick="acOpenModal('info','lms-vendors')">
+              <span class="detail-chip-label">🔗 Vendor Integrations</span>
+              <span class="detail-chip-hint">Turnitin, Power BI, SMS</span>
+              <span class="detail-chip-arrow">↗</span>
             </div>
           </div>
 <div class="bio-tech-grid">
@@ -2261,9 +2321,13 @@
           <div class="project-title">Fault-Tolerant AWS Admissions Architecture</div>
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#FF990008;border-left:3px solid #FF9900;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#FF9900;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A university application needed a production-grade cloud infrastructure capable of surviving component failures without downtime, with no existing AWS architecture in place to build from.</span></div>
           <div class="project-desc">Designed and deployed a <span class="bio-stat-blue-only">fault-tolerant AWS architecture</span> for a university admissions web application across <span class="bio-stat-blue-only">two Availability Zones</span>. Deployed <span class="bio-stat-blue-only">Amazon EC2</span> instances within private subnets behind an <span class="bio-stat-blue-only">Application Load Balancer (ALB)</span>, with <span class="bio-stat-blue-only">Auto Scaling</span> validated to four instances under simulated peak traffic. Provisioned <span class="bio-stat-blue-only">Amazon RDS</span> with <span class="bio-stat-blue-only">Multi-AZ synchronous replication</span> for database high availability, and used <span class="bio-stat-blue-only">NAT Gateways</span> for secure outbound connectivity from private subnets.</div>
-          <div class="arch-diagram">
-            <img src="assets/aws-project1-diagram.png" alt="AWS Project 1 Architecture — Multi-AZ VPC with ALB, EC2 Auto Scaling, and RDS replication" loading="lazy"/>
-            <div class="arch-diagram-label">Architecture Diagram — Multi-AZ Fault-Tolerant Design</div>
+          <div class="arch-thumb" data-arch-id="0">
+            <img src="assets/aws-project1-diagram.jpg" alt="AWS Project 1 Architecture — Multi-AZ VPC with ALB, EC2 Auto Scaling, and RDS replication"/>
+            <div class="arch-thumb-text">
+              <span class="arch-thumb-title">Architecture Diagram — Multi-AZ Fault-Tolerant Design</span>
+              <span class="arch-thumb-sub">Click to view full diagram</span>
+            </div>
+            <span class="arch-thumb-arrow">↗</span>
           </div>
           <div class="bio-tech-grid">
               <div class="bio-tech-stat">
@@ -2307,9 +2371,13 @@
           <div class="project-title">Cloud-Native Microservices & CI/CD Platform</div>
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A monolithic application needed to be decomposed into independently deployable services with automated delivery pipelines — applying real-world DevOps practices in a cloud-native environment.</span></div>
           <div class="project-desc">Refactored a monolithic application into a <span class="bio-stat-blue-only">cloud-native microservices architecture</span> on AWS. Containerized services were deployed to <span class="bio-stat-blue-only">Amazon ECS with Fargate</span> using <span class="bio-stat-blue-only">ARM64 Graviton</span> for cost-optimized serverless compute. Implemented fully automated <span class="bio-stat-blue-only">CI/CD pipelines</span> via <span class="bio-stat-blue-only">AWS CodePipeline</span> and <span class="bio-stat-blue-only">CodeDeploy</span> with <span class="bio-stat-blue-only">blue/green deployment</span> strategy. Traffic routing handled by an <span class="bio-stat-blue-only">Application Load Balancer</span> with path-based routing to independent microservices, backed by <span class="bio-stat-blue-only">Amazon RDS MySQL</span> in private subnets. Estimated monthly cost of <span class="bio-stat-blue-only">$87.49 USD</span>.</div>
-          <div class="arch-diagram">
-            <img src="assets/aws-project2-diagram.png" alt="AWS Project 2 Architecture — ECS Fargate microservices with CI/CD pipeline and ALB routing" loading="lazy"/>
-            <div class="arch-diagram-label">Architecture Diagram — Microservices & CI/CD Pipeline</div>
+          <div class="arch-thumb" data-arch-id="1">
+            <img src="assets/aws-project2-diagram.jpg" alt="AWS Project 2 Architecture — ECS Fargate microservices with CI/CD pipeline and ALB routing"/>
+            <div class="arch-thumb-text">
+              <span class="arch-thumb-title">Architecture Diagram — Microservices & CI/CD Pipeline</span>
+              <span class="arch-thumb-sub">Click to view full diagram</span>
+            </div>
+            <span class="arch-thumb-arrow">↗</span>
           </div>
           <div class="bio-tech-grid">
               <div class="bio-tech-stat">
@@ -2511,10 +2579,18 @@
       </div>
 
       <div class="blog-grid">
-        <a class="blog-card featured" href="#" aria-label="Blog post coming soon: From PM to Cloud AI">
+        <a class="blog-card featured" href="javascript:void(0)" onclick="openBlogPost()" aria-label="Read: Our Future with AI">
+          <div class="blog-cat cat-cloud">AI &amp; Technology</div>
+          <div class="blog-title">Our Future with AI</div>
+          <div class="blog-excerpt">We are living in a time where technological advancements have accelerated rapidly over the past decade, and artificial intelligence is one of the clearest examples of that shift. While it is important to approach AI with responsibility and caution, it is equally important to recognize its potential to drive innovation across key sectors.</div>
+          <div class="blog-meta">
+            <span class="blog-date">Published</span>
+            <span class="blog-read">4 min read</span>
+          </div>
+        </a>
+        <a class="blog-card" href="#" aria-label="Blog post coming soon: From PM to Cloud AI">
           <div class="blog-cat cat-cloud">Cloud Computing</div>
           <div class="blog-title">From PM to Cloud AI: Leading the Next Wave of Intelligent Infrastructure</div>
-          <div class="blog-excerpt">My second semester dives into generative AI, machine learning security, and cloud automation. Here is what it means to lead technology initiatives when the infrastructure itself is starting to think, and why a PM perspective on AI architecture matters more than most people expect.</div>
           <div class="blog-meta">
             <span class="blog-date">Coming Soon</span>
             <span class="blog-read">8 min read</span>
@@ -2522,7 +2598,7 @@
         </a>
         <a class="blog-card" href="#" aria-label="Blog post coming soon: Delivering SaaS in Regulated Environments">
           <div class="blog-cat cat-pm">Project Management</div>
-          <div class="blog-title">Delivering SaaS in Regulated Environments: Lessons from Oil & Gas</div>
+          <div class="blog-title">Delivering SaaS in Regulated Environments: Lessons from Oil &amp; Gas</div>
           <div class="blog-meta">
             <span class="blog-date">Coming Soon</span>
             <span class="blog-read">6 min read</span>
@@ -2533,11 +2609,11 @@
       <!-- Subscribe nudge -->
       <div style="margin-top:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:22px 24px;background:linear-gradient(135deg,#EFF6FF,#F5F3FF);border:1px solid #DDD6FE;border-radius:14px;">
         <div>
-          <div style="font-family:var(--font-display);font-size:1rem;font-weight:800;color:#0F172A;margin-bottom:4px;">More posts dropping soon.</div>
-          <div style="font-size:0.85rem;color:#64748B;line-height:1.5;">Topics include adoption strategy, regulated SaaS delivery, and AI in the enterprise. Be first to read them.</div>
+          <div style="font-family:var(--font-display);font-size:1.05rem;font-weight:800;color:#0F172A;margin-bottom:4px;">More posts dropping soon.</div>
+          <div style="font-size:0.95rem;color:#64748B;line-height:1.55;">Topics include adoption strategy, regulated SaaS delivery, and AI in the enterprise. Be first to read them.</div>
         </div>
         <div style="display:flex;gap:10px;align-items:center;flex-shrink:0;">
-          <a href="https://www.linkedin.com/in/brandon-t-chihota" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#0A66C2;color:white;border-radius:8px;font-family:var(--font-mono);font-size:11px;font-weight:700;text-decoration:none;letter-spacing:0.04em;">Follow on LinkedIn ↗</a>
+          <a href="https://www.linkedin.com/in/brandon-t-chihota" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:#0A66C2;color:white;border-radius:8px;font-family:var(--font-mono);font-size:12px;font-weight:700;text-decoration:none;letter-spacing:0.04em;">Follow on LinkedIn ↗</a>
         </div>
       </div>
 
@@ -2730,4 +2806,72 @@
     </div>
   </div>
   <!-- Sticky mobile CTA -->
-  <div id="sticky-c
+  <div id="sticky-cta" style="display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9990;">
+    <a href="#contact" onclick="closeMenu()" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:linear-gradient(135deg,#4F7FFF,#7C5CFC);color:#fff;border-radius:100px;font-family:var(--font-mono);font-size:12px;font-weight:700;text-decoration:none;letter-spacing:0.06em;box-shadow:0 8px 28px rgba(79,127,255,0.35);white-space:nowrap;">Let\'s Connect ↗</a>
+  </div>
+  <!-- Blog Post Reader Modal -->
+  <div id="blog-reader" onclick="closeBlogPost()">
+    <div id="blog-reader-inner" onclick="event.stopPropagation()">
+      <button id="blog-reader-close" onclick="closeBlogPost()" aria-label="Close">&#x2715;</button>
+      <div class="blog-reader-header">
+        <div class="blog-reader-cat cat-cloud">AI &amp; Technology</div>
+        <div class="blog-reader-title">Our Future with AI</div>
+        <div class="blog-reader-meta">Brandon T. Chihota · 4 min read</div>
+      </div>
+      <div class="blog-reader-divider"></div>
+      <div class="blog-reader-body">
+        <p>We are living in a time where technological advancements have accelerated rapidly over the past decade, and artificial intelligence is one of the clearest examples of that shift.</p>
+        <p>I remember when my mom used a Nokia brick phone, playing Snake. Then came the Motorola Razr flip phone, which I saw as a Power Ranger morphing device. As I grew up, I witnessed the evolution of technology, from dial up internet through landlines to seamless wireless connections that now allow us to stream content anywhere. Whether on a train, a bus, or on the way to work, people are more connected than ever.</p>
+        <p>As technology has advanced across industries, artificial intelligence has disrupted the landscape in a way that feels different. Whether in the news or on podcasts, there is a growing narrative filled with fear, often pointing to a future that seems uncertain or even bleak.</p>
+        <p>Caution is necessary. We need to ensure <span class="bio-stat-cyan">the right guardrails are in place</span>, especially with emerging technologies that can impact our communities and society at large. However, much of the conversation leans heavily toward worst case scenarios, suggesting that AI could fundamentally break or replace our reality.</p>
+        <p>There is truth in the concern. AI will replace certain roles, particularly those built on repetitive tasks. At the same time, AI is also <span class="bio-stat">a powerful tool, capable of generating information, supporting research, analyzing data, and enhancing productivity</span>. It is <span class="bio-stat-cyan">not just a replacement mechanism, but a support system that can extend human capability</span>.</p>
+        <p>When we look at history, this pattern is not new. Every major technological advancement, from infrastructure and transportation to communication systems, introduced uncertainty. People questioned what these changes would mean for their future. Today, we benefit from those same innovations in ways that feel normal and essential.</p>
+        <p><span class="bio-stat-violet">Artificial intelligence is part of that same progression.</span></p>
+        <p>While it is important to approach AI with responsibility and caution, it is equally important to recognize its potential. <span class="bio-stat">AI can drive innovation across key sectors such as healthcare, education, and business</span>. It can enable new ways of solving complex problems and open doors to opportunities that were previously out of reach.</p>
+        <p>If we focus on <span class="bio-stat-cyan">responsible development, ethical use, and positive impact</span>, the potential outcomes are significant.</p>
+        <p>It is also important to take a broader perspective. AI is not just another technological trend, it is <span class="bio-stat-violet">part of a larger pattern of evolution</span>. Over millions of years, change has been constant, shaping life, society, and the systems we depend on. The shifts we are experiencing today are part of that ongoing process.</p>
+        <p>The question is not simply what AI will become, but how we choose to engage with it. <span class="bio-stat">With awareness, with curiosity, and with intention.</span></p>
+        <p>At the same time, we must not lose sight of what makes us human. We are not just systems of data or programmed logic. <span class="bio-stat-violet">We are conscious beings, connected to a larger existence that extends beyond technology and even beyond our planet.</span></p>
+        <p><span class="bio-stat-cyan">That perspective matters.</span></p>
+        <p>As we continue to develop and integrate artificial intelligence into our world, we carry the responsibility to <span class="bio-stat">guide it with purpose</span>. The goal is not only to build more advanced systems, but to <span class="bio-stat-violet">shape a future that reflects human values</span>.</p>
+        <p><span class="bio-stat">To innovate with care, to advance with compassion, and to ensure that as technology evolves, it enhances life rather than diminishes it.</span></p>
+      </div>
+    </div>
+  </div>
+  <script>
+  function openBlogPost() {
+    document.getElementById('blog-reader').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeBlogPost() {
+    document.getElementById('blog-reader').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeBlogPost(); });
+  </script>
+
+  <!-- Architecture Diagram Lightbox -->
+  <div id="arch-lightbox" onclick="closeArchLightbox()">
+    <div id="arch-lightbox-inner" onclick="event.stopPropagation()">
+      <button id="arch-lightbox-close" onclick="closeArchLightbox()" aria-label="Close">&#x2715;</button>
+      <img id="arch-lightbox-img" src="" alt=""/>
+      <div id="arch-lightbox-caption"></div>
+    </div>
+  </div>
+  <script>
+  document.querySelectorAll('.arch-thumb').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var img = el.querySelector('img');
+      var title = el.querySelector('.arch-thumb-title');
+      document.getElementById('arch-lightbox-img').src = img.src;
+      document.getElementById('arch-lightbox-caption').textContent = title.textContent;
+      document.getElementById('arch-lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeArchLightbox() {
+    document.getElementById('arch-lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeArchLightbox(); });
+  </script>
