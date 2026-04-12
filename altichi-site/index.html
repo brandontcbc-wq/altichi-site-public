@@ -17,7 +17,7 @@
   <meta property="og:url" content="https://altichi.com"/>
   <meta property="og:title" content="AltiChi — Brandon T. Chihota | Technology, AI & Cloud Solutions Consultant"/>
   <meta property="og:description" content="Technology, AI & Cloud Solutions Consultant and project delivery leader based in Toronto. PMP certified. Helping organisations navigate SaaS, cloud, and AI adoption at scale."/>
-  <meta property="og:image" content="https://altichi.com/assets/headshot.png"/>
+  <meta property="og:image" content="https://altichi.com/assets/headshot.webp"/>
   <meta property="og:site_name" content="AltiChi"/>
   <meta property="og:locale" content="en_CA"/>
 
@@ -26,7 +26,7 @@
   <meta name="twitter:url" content="https://altichi.com"/>
   <meta name="twitter:title" content="AltiChi — Brandon T. Chihota | Technology, AI & Cloud Solutions Consultant"/>
   <meta name="twitter:description" content="Technology, AI & Cloud Solutions Consultant and project delivery leader based in Toronto. PMP certified. 10,000+ users served."/>
-  <meta name="twitter:image" content="https://altichi.com/assets/headshot.png"/>
+  <meta name="twitter:image" content="https://altichi.com/assets/headshot.webp"/>
 
   <!-- ── SCHEMA.ORG STRUCTURED DATA (Google rich results) ── -->
   <script type="application/ld+json">
@@ -69,8 +69,15 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
   <link rel="dns-prefetch" href="https://www.linkedin.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <!-- ── PERFORMANCE: Preload above-the-fold assets ── -->
+  <link rel="preload" as="image" href="assets/headshot.webp" type="image/webp" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/headshot.avif" type="image/avif" fetchpriority="high"/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600;1,9..144,700&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
+    /* ── CRITICAL ABOVE-THE-FOLD CSS (inlined for FCP) ──
+       Fonts: font-display:swap is set via Google Fonts URL param (?display=swap)
+       which instructs the browser to render with fallback while custom font loads. */
+
     :root {
       --primary:      #4F7FFF;
       --primary-glow: #4F7FFF33;
@@ -89,8 +96,8 @@
       --bg-card:       #111927;
       --border:        #1E2F4A;
       --text-primary:  #EEF2FF;
-      --text-secondary:#94A3B8;
-      --text-muted:    #475569;
+      --text-secondary:#B8C8E0;  /* was #94A3B8 → 7.6:1 → now 11.5:1 */
+      --text-muted:    #6B84A3;  /* was #475569 → 2.6:1 → now 5.1:1 ✓ AA */
       --nav-bg:        #080C14dd;
       --shadow:        0 4px 32px #0008;
     }
@@ -104,7 +111,11 @@
       --text-secondary:#475569;
       --text-muted:    #94A3B8;
       --nav-bg:        #F5F8FFee;
-      --shadow:        0 2px 20px #4F7FFF12;
+      --shadow:        0 2px 20px #1D4ED812;
+      /* WCAG AA contrast fix: #4F7FFF on #F5F8FF = 3.2:1 (fails).
+         #1D4ED8 on #F5F8FF = 6.0:1 (passes AA + AAA for large text) */
+      --primary:       #1D4ED8;
+      --primary-glow:  #1D4ED833;
     }
 
     /* ── LIGHT THEME: ELECTRIC NEON SECTION COLORS ── */
@@ -140,7 +151,10 @@
     }
     body.theme-light #projects .project-card::after { background: linear-gradient(90deg, #7C3AED, #EC4899); }
     body.theme-light #projects .project-num   { color: #7C3AED; }
-    body.theme-light #projects .project-title { color: #3B82F6; }
+    body.theme-light #projects .project-title { color: var(--text-primary); }
+    body.theme-light .project-title { color: #3B82F6; }
+    body.theme-dark  .project-title { color: #93C5FD; }
+    body.theme-slate .project-title { color: #A5C8F0; }
     body.theme-light #projects .tag-blue   { background: #EFF6FF; color: #2563EB; border-color: #93C5FD; }
     body.theme-light #projects .tag-violet { background: #F5F3FF; color: #7C3AED; border-color: #C4B5FD; }
     body.theme-light #projects .tag-cyan   { background: #ECFEFF; color: #0891B2; border-color: #67E8F9; }
@@ -195,8 +209,8 @@
       --bg-card:       #1E2C42;
       --border:        #2A3D5C;
       --text-primary:  #F1F5F9;
-      --text-secondary:#94A3B8;
-      --text-muted:    #4A6080;
+      --text-secondary:#B8C8E0;  /* was #94A3B8 → 7.0:1 → now 10.5:1 */
+      --text-muted:    #718BAD;  /* was #4A6080 → 2.8:1 → now 5.1:1 ✓ AA */
       --nav-bg:        #0F172Add;
       --shadow:        0 4px 32px #0009;
     }
@@ -275,13 +289,18 @@
     }
     .theme-btn {
       font-family: var(--font-mono); font-size: 11px;
-      padding: 7px 16px; border-radius: 100px;
+      /* min 44px touch target */
+      min-height: 44px; padding: 0 20px; border-radius: 100px;
       border: 1px solid var(--border);
       background: var(--bg-card); color: var(--text-secondary);
       cursor: pointer; letter-spacing: 0.06em;
       box-shadow: var(--shadow); transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
     }
-    .theme-btn:hover, .theme-btn.active { border-color: var(--primary); color: var(--primary); }
+    .theme-btn:hover, .theme-btn.active {
+      border-color: var(--primary); color: var(--primary);
+      background: var(--primary-glow);
+    }
 
     /* ── NAV ── */
     nav {
@@ -325,10 +344,14 @@
       flex-direction: column;
       justify-content: center;
       gap: 5px;
-      width: 36px; height: 36px;
+      /* 48×48 minimum touch target (WCAG 2.5.5) */
+      width: 48px; height: 48px;
       background: none; border: none; cursor: pointer;
       padding: 4px; flex-shrink: 0;
+      border-radius: 8px;
+      transition: background 0.15s;
     }
+    .nav-hamburger:hover { background: var(--primary-glow); }
     .nav-hamburger span {
       display: block; width: 22px; height: 2px;
       background: var(--text-primary); border-radius: 2px;
@@ -340,17 +363,30 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Mobile drawer */
+    /* Mobile drawer — smooth slide transition */
     .nav-drawer {
-      display: none;
+      display: flex;
+      flex-direction: column; gap: 4px;
       position: fixed; top: 65px; left: 0; right: 0;
       background: var(--nav-bg); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
-      padding: 16px 24px 24px;
-      flex-direction: column; gap: 4px;
+      padding: 0 24px;
       z-index: 99;
+      /* Hidden state */
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height 0.32s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.25s ease,
+                  padding 0.28s ease;
     }
-    .nav-drawer.open { display: flex; }
+    .nav-drawer.open {
+      max-height: 400px;
+      opacity: 1;
+      pointer-events: auto;
+      padding: 16px 24px 24px;
+    }
     .nav-drawer a {
       font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em;
       text-transform: uppercase; text-decoration: none;
@@ -389,7 +425,8 @@
       .bio-blog-card { padding: 20px 18px; }
 
       /* ── HERO SUBTITLE ── */
-      .hero-subtitle { font-size: 0.85rem; padding: 8px 12px; }
+      .hero-subtitle { font-size: 0.85rem; padding: 8px 12px; max-width: 100%; gap: 8px; min-height: 44px; }
+      .spec-highlight { font-size: 0.85rem; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
       /* ── HERO CERTS ── */
       .hero-certs-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 6px; }
@@ -608,6 +645,8 @@
       border-left: 3px solid var(--primary);
       border-radius: 10px;
       width: 100%; max-width: 460px;
+      min-height: 50px;
+      overflow: hidden;
     }
     body.theme-light .hero-subtitle {
       background: #FAFBFF; border-color: #DDE3F0; border-left-color: #4F7FFF;
@@ -622,9 +661,12 @@
     .spec-highlight {
       font-family: var(--font-display); font-size: 1rem; font-weight: 700;
       color: var(--text-primary);
-      display: inline-block; white-space: nowrap;
+      display: inline-block;
       transition: opacity 0.3s ease, transform 0.3s ease;
       position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
     }
     body.theme-light .spec-highlight { color: #0F172A; }
     .spec-highlight::after {
@@ -749,9 +791,10 @@
     }
     .bio-tech-stat-label {
       font-family: var(--font-mono); font-size: clamp(8px, 0.65vw, 10px); font-weight: 700;
-      color: #1E293B; letter-spacing: 0.08em;
+      color: var(--text-secondary); letter-spacing: 0.08em;
       text-transform: uppercase; margin-top: 5px;
     }
+    body.theme-light .bio-tech-stat-label { color: var(--text-secondary); }
     body.theme-light .bio-tech-stat-label { color: #1E293B; }
 
     /* ── HERO CERT CARDS (replaces cert-badges) ── */
@@ -916,7 +959,82 @@
     .detail-chip.orange:hover { border-color: #FF9900; box-shadow: 0 4px 14px #FF990018; }
     body.theme-light .detail-chip { background: #fff; }
 
-    /* ── BLOG POST READER MODAL ── */
+    /* ── CONTACT FORM ── */
+    .contact-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .cf-field { display: flex; flex-direction: column; gap: 6px; }
+    .cf-field--full { grid-column: 1 / -1; }
+    .cf-label {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+    }
+    body.theme-light .cf-label { color: #475569; }
+    body.theme-dark  .cf-label,
+    body.theme-slate .cf-label { color: #B8C8E0; }
+    body.theme-dark  .cf-input,
+    body.theme-slate .cf-input {
+      background: var(--bg-surface);
+      border-color: #2D4A6E;
+      color: var(--text-primary);
+    }
+    body.theme-dark  .cf-input::placeholder,
+    body.theme-slate .cf-input::placeholder { color: #6B84A3; }
+    body.theme-dark  .cf-input:focus,
+    body.theme-slate .cf-input:focus { border-color: #60A5FA; box-shadow: 0 0 0 3px #3B82F622; }
+    .cf-input {
+      background: var(--bg-card); color: var(--text-primary);
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 11px 14px; font-family: var(--font-body); font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%; box-sizing: border-box; resize: none;
+    }
+    .cf-input::placeholder { color: var(--text-muted); }
+    .cf-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+    .cf-field--error .cf-input { border-color: #EF4444; box-shadow: 0 0 0 3px #EF444420; }
+    .cf-field--valid .cf-input { border-color: #10B981; }
+    .cf-textarea { min-height: 100px; }
+    .cf-err {
+      font-family: var(--font-mono); font-size: 11px; color: #EF4444;
+      min-height: 16px; letter-spacing: 0.02em;
+    }
+    .cf-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .cf-submit { display: inline-flex; align-items: center; gap: 8px; min-width: 168px; justify-content: center; }
+    @keyframes cfSpin { to { transform: rotate(360deg); } }
+    .cf-success {
+      text-align: center; padding: 40px 24px; border: 1px solid #10B98133;
+      border-radius: 14px; background: linear-gradient(135deg, #0E1525, #0F2A1E);
+      margin-bottom: 20px;
+      animation: cfFadeIn 0.4s ease;
+    }
+    body.theme-light .cf-success {
+      background: linear-gradient(135deg, #F0FDF4, #ECFDF5);
+      border-color: #86EFAC;
+    }
+    @keyframes cfFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .cf-success-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: white; font-size: 22px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px; box-shadow: 0 0 24px #10B98144;
+    }
+    .cf-success-title {
+      font-family: var(--font-display); font-size: 1.3rem; font-weight: 800;
+      color: var(--text-primary); margin-bottom: 6px;
+    }
+    .cf-success-sub { font-size: 0.9rem; color: var(--text-secondary); }
+    @media (max-width: 600px) {
+      .contact-form-grid { grid-template-columns: 1fr; }
+    }
+
+        /* ── BLOG POST READER MODAL ── */
     #blog-reader { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(8px); z-index: 99998; align-items: flex-start; justify-content: center; padding: 40px 24px; overflow-y: auto; }
     #blog-reader.open { display: flex; }
     #blog-reader-inner { position: relative; max-width: 680px; width: 100%; background: #fff; border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,0.25); overflow: hidden; margin: auto; }
@@ -944,19 +1062,72 @@
     .arch-thumb img { width: 72px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); flex-shrink: 0; }
     .arch-thumb-text { display: flex; flex-direction: column; gap: 2px; }
     .arch-thumb-title { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #B45309; letter-spacing: 0.02em; }
+    body.theme-dark  .arch-thumb-title { color: #FCD34D; }
+    body.theme-slate .arch-thumb-title { color: #FBBF24; }
     .arch-thumb-sub { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); }
     .arch-thumb-arrow { font-family: var(--font-mono); font-size: 13px; color: #FF9900; margin-left: auto; opacity: 0.6; }
     body.theme-light .arch-thumb { background: #fff; }
 
-    /* ── LIGHTBOX ── */
-    #arch-lightbox { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(8px); z-index: 99998; align-items: center; justify-content: center; padding: 24px; }
+    /* ── LIGHTBOX WITH ZOOM/PAN ── */
+    #arch-lightbox { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.82); backdrop-filter: blur(10px); z-index: 99998; align-items: center; justify-content: center; padding: 24px; }
     #arch-lightbox.open { display: flex; }
-    #arch-lightbox-inner { position: relative; max-width: 640px; width: 100%; background: #fff; border-radius: 14px; box-shadow: 0 24px 64px rgba(0,0,0,0.25); overflow: hidden; }
-    #arch-lightbox-inner img { width: 100%; height: auto; display: block; padding: 16px; box-sizing: border-box; }
-    #arch-lightbox-caption { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #64748B; padding: 10px 16px; border-top: 1px solid #E2E8F0; }
-    #arch-lightbox-close { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; background: rgba(15,23,42,0.55); border: none; color: #fff; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; z-index: 2; }
-    #arch-lightbox-close:hover { background: rgba(15,23,42,0.85); }
-    @media (max-width: 768px) { #arch-lightbox-inner { max-width: 95vw; } }
+    #arch-lightbox-inner {
+      position: relative; max-width: 720px; width: 100%;
+      background: #0E1525; border-radius: 14px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5); overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    /* Zoom canvas area */
+    #arch-lightbox-canvas {
+      width: 100%; overflow: hidden; cursor: grab;
+      position: relative; background: #080C14;
+      min-height: 200px; max-height: 70vh;
+      display: flex; align-items: center; justify-content: center;
+      user-select: none;
+    }
+    #arch-lightbox-canvas:active { cursor: grabbing; }
+    #arch-lightbox-img {
+      display: block; max-width: none;
+      transform-origin: center center;
+      transition: transform 0.1s ease;
+      pointer-events: none;
+    }
+    /* Zoom controls bar */
+    #arch-lightbox-controls {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px; border-top: 1px solid #1E2F4A;
+      background: #0E1525;
+    }
+    .lbx-ctrl-btn {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: #111927; border: 1px solid #1E2F4A;
+      color: #94A3B8; font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, color 0.15s; flex-shrink: 0;
+    }
+    .lbx-ctrl-btn:hover { background: #1E2F4A; color: #EEF2FF; }
+    #lbx-zoom-level {
+      font-family: var(--font-mono); font-size: 11px;
+      color: #64748B; letter-spacing: 0.06em; min-width: 44px; text-align: center;
+    }
+    #arch-lightbox-caption {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: #475569; padding: 0 16px 12px; flex: 1;
+    }
+    #arch-lightbox-close {
+      position: absolute; top: 10px; right: 10px;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(15,23,42,0.72); border: none;
+      color: #EEF2FF; font-size: 14px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s; z-index: 2;
+    }
+    #arch-lightbox-close:hover { background: rgba(79,127,255,0.6); }
+    @media (max-width: 768px) {
+      #arch-lightbox-inner { max-width: 98vw; }
+      #arch-lightbox-canvas { max-height: 55vh; }
+    }
 
     /* ── PROJECTS ── */
     .projects-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 48px; }
@@ -1239,14 +1410,16 @@
     .rt-role {
       font-family: var(--font-display); font-weight: 700;
       font-size: clamp(1rem, 1.2vw, 1.15rem); margin-bottom: 5px; line-height: 1.35;
-      color: #1E3A8A;
+      color: var(--text-primary);
     }
     .rt-org {
       font-family: var(--font-body); font-size: 14px; font-weight: 400;
-      margin-bottom: 12px; color: #475569; line-height: 1.4;
+      margin-bottom: 12px; color: var(--text-secondary); line-height: 1.4;
     }
+    body.theme-light .rt-role { color: var(--text-primary); }
     body.theme-light .rt-role { color: #1E3A8A; }
-    body.theme-light .rt-org  { color: #475569; }
+    body.theme-light .rt-org  { color: var(--text-secondary); }
+    body.theme-light .rt-org { color: #475569; }
 
     .rt-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .rt-tag {
@@ -1511,7 +1684,12 @@
 <body class="theme-light">
 
   <!-- THEME SWITCHER -->
-
+  <div class="theme-switcher" role="group" aria-label="Choose colour theme">
+    <div class="theme-label">Theme</div>
+    <button class="theme-btn" id="btn-dark"  onclick="setTheme('dark')"  aria-label="Switch to dark theme"  aria-pressed="false">Dark</button>
+    <button class="theme-btn" id="btn-light" onclick="setTheme('light')" aria-label="Switch to light theme" aria-pressed="true">Light</button>
+    <button class="theme-btn" id="btn-slate" onclick="setTheme('slate')" aria-label="Switch to slate theme" aria-pressed="false">Slate</button>
+  </div>
 
   <!-- NAV -->
   <nav>
@@ -1545,11 +1723,15 @@
         <!-- Headshot — moved inline with name, hidden here -->
         <div class="hero-photo-wrap" style="display:none;">
           <div id="hero-photo" style="position:relative;display:inline-block;">
-            <img src="assets/headshot.png"
+            <picture>
+              <source srcset="assets/headshot.avif" type="image/avif">
+              <source srcset="assets/headshot.webp" type="image/webp">
+              <img src="assets/headshot.png"
               alt="Brandon T. Chihota"
               style="width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:center top;image-rendering:high-quality;
                      border:3px solid white;
                      box-shadow:0 0 0 3px #7C3AED44, 0 8px 32px rgba(124,58,237,0.2);">
+              </picture>
             <div style="position:absolute;bottom:2px;right:2px;background:#10B981;width:16px;height:16px;
                         border-radius:50%;border:2.5px solid white;box-shadow:0 0 8px #10B98155;">
             </div>
@@ -1563,12 +1745,17 @@
             <span class="hero-name-line2">
               <span class="hero-name-last">Chihota.</span>
               <span class="hero-photo-inline">
-                <img src="assets/headshot.png"
+                <picture>
+                     <source srcset="assets/headshot.avif" type="image/avif">
+                     <source srcset="assets/headshot.webp" type="image/webp">
+                     <img src="assets/headshot.png"
                      alt="Brandon T. Chihota"
+                     width="72" height="72"
                      style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;image-rendering:high-quality;
                             border:3px solid white;
                             box-shadow:0 0 0 3px #7C3AED44, 0 8px 32px rgba(124,58,237,0.2);
                             display:block;">
+                     </picture>
                 <span class="hero-photo-dot"></span>
               </span>
             </span>
@@ -1882,12 +2069,12 @@
   </section>
 
   <!-- SKILLS -->
-  <section id="about">
+  <section id="about" aria-labelledby="skills-heading">
     <div class="content-section">
       <div class="section-header">
         <div class="section-stamp">02</div>
         <div class="section-label">02 — Core Competencies</div>
-        <h2 class="section-heading">Where Strategy<br>Meets Execution.</h2>
+        <h2 id="skills-heading" class="section-heading">Where Strategy<br>Meets Execution.</h2>
       </div>
       <div class="skills-grid">
         <div class="skill-card blue">
@@ -1953,12 +2140,12 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
+  <section id="projects" aria-labelledby="projects-heading">
     <div class="content-section" style="padding-top:0;">
       <div class="section-header">
         <div class="section-stamp">03</div>
         <div class="section-label">03 — Featured Projects</div>
-        <h2 class="section-heading">Delivered at Scale.</h2>
+        <h2 id="projects-heading" class="section-heading">Delivered at Scale.</h2>
       </div>
       <div class="projects-grid">
 
@@ -1967,7 +2154,7 @@
           <div>
             <div class="project-num" data-n="01">FEATURED PROJECT</div>
             <div class="project-title">Multi-Institution Student Systems Modernization</div>
-            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#2563EB08;border-left:3px solid #2563EB;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">7 higher education institutions were running disconnected legacy systems with no unified student data platform, creating operational bottlenecks affecting 10,000+ students and staff across two countries.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#2563EB08;border-left:3px solid #2563EB;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:var(--text-secondary);line-height:1.5;font-style:italic;">7 higher education institutions were running disconnected legacy systems with no unified student data platform, creating operational bottlenecks affecting 10,000+ students and staff across two countries.</span></div>
           <div class="project-desc">Led <span class="bio-stat-blue-only">enterprise Student Management System (SMS) transformation</span> across <span class="bio-stat-blue-only">7+ higher education institutions</span> supporting <span class="bio-stat-blue-only">10,000+ students and staff</span> across U.S. and Canadian operations. Managed <span class="bio-stat-blue-only">project budgets up to $100K</span> and cross-functional delivery teams of 5 to 10, reducing core operational workflows by up to <span class="bio-stat-blue-only">70%</span> across implementation cycles spanning <span class="bio-stat-blue-only">4 weeks to 3 months</span>.</div>
             <div class="bio-tech-grid">
               <div class="bio-tech-stat">
@@ -2051,7 +2238,7 @@
           </svg>
           <div class="project-num" data-n="02">Oil &amp; Gas</div>
           <div class="project-title">Pipeline Risk Modeling Platforms: Oil & Gas</div>
-          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#7C3AED08;border-left:3px solid #7C3AED;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#7C3AED;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">Major U.S. pipeline operators lacked a modern, cloud-hosted risk modeling platform capable of meeting PHMSA regulatory requirements across transmission, distribution, and storage assets at scale.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#7C3AED08;border-left:3px solid #7C3AED;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#7C3AED;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:var(--text-secondary);line-height:1.5;font-style:italic;">Major U.S. pipeline operators lacked a modern, cloud-hosted risk modeling platform capable of meeting PHMSA regulatory requirements across transmission, distribution, and storage assets at scale.</span></div>
           <div class="project-desc">Directed <span class="bio-stat-blue-only">multimillion-dollar SaaS implementations</span> supporting <span class="bio-stat-blue-only">probability-based risk modeling</span> across transmission, distribution, and storage pipeline assets for <span class="bio-stat-blue-only">major U.S. pipeline operators</span>. Led cross-functional squads of 8 through requirements, UAT, and production deployment to ensure the safety, integrity, and maintenance of pipeline infrastructure in full compliance with <span class="bio-stat-blue-only">PHMSA regulations</span>, the federal framework governing U.S. hazardous liquid and gas pipeline operations.</div>
           <!-- Pipeline asset cards — click to expand -->
           <div class="detail-chips" id="pipeline-cards">
@@ -2169,7 +2356,7 @@
               <circle cx="38" cy="0" r="1.5" fill="#C4B5FD"/>
             </svg>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#7C3AED08;border-left:3px solid #7C3AED;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#7C3AED;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">Students and prospective applicants across 7+ institutions had no 24/7 self-service support channel, placing unsustainable load on staff and creating inconsistent information experiences across campuses.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#7C3AED08;border-left:3px solid #7C3AED;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#7C3AED;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:var(--text-secondary);line-height:1.5;font-style:italic;">Students and prospective applicants across 7+ institutions had no 24/7 self-service support channel, placing unsustainable load on staff and creating inconsistent information experiences across campuses.</span></div>
           <div class="project-desc">Led the <span class="bio-stat-blue-only">organization's first AI implementation</span> from strategic inception through scaled multi-institution deployment. Coordinated directly with the <span class="bio-stat-blue-only">Executive Director of Digital Transformation</span>, the <span class="bio-stat-blue-only">Executive Director of IT &amp; Infrastructure</span>, and the <span class="bio-stat-blue-only">Vice President of Operations, Enterprise Systems &amp; Digital Transformation</span> to conduct a structured <span class="bio-stat-blue-only">build vs. buy evaluation</span>, proceeding with a third-party proof of concept before determining the path to scale. Managed the <span class="bio-stat-blue-only">full implementation lifecycle</span> including cross-departmental knowledge base development to train the LLM across student, faculty, and public inquiry domains. Established a <span class="bio-stat-blue-only">dual monitoring framework</span> pairing a dedicated accuracy review team with hallucination safeguards, and led go-live communications, staff training, and a continuous improvement roadmap to deliver a <span class="bio-stat-blue-only">24/7 high-availability solution</span> scalable across all institutions.</div>
 <div class="bio-tech-grid">
               <div class="bio-tech-stat">
@@ -2218,7 +2405,7 @@
               <circle cx="9"  cy="38" r="2" fill="#0891B2" opacity="0.4"/>
             </svg>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">Enterprise portals lacked multi-layered authentication, and students had no way to pay fees directly within institutional platforms, creating both a security risk and a fragmented digital experience.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:var(--text-secondary);line-height:1.5;font-style:italic;">Enterprise portals lacked multi-layered authentication, and students had no way to pay fees directly within institutional platforms, creating both a security risk and a fragmented digital experience.</span></div>
           <div class="project-desc">Implemented <span class="bio-stat-blue-only">Multi-Factor Authentication (MFA)</span> and <span class="bio-stat-blue-only">Single Sign-On (SSO)</span> across enterprise portals, and led the integration of a <span class="bio-stat-blue-only">secure payment API with CIBC</span>, one of Canada's largest Schedule I chartered banks, enabling students to transact directly within institutional platforms.</div>
 
           <div class="detail-chips">
@@ -2280,7 +2467,7 @@
               <line x1="47.5" y1="12" x2="57" y2="16" stroke="#A78BFA" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
             </svg>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#2563EB08;border-left:3px solid #2563EB;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">Canvas LMS operated in isolation from key institutional tools, leaving academic integrity, reporting, and student communications as manual, disconnected processes across a multi-institution environment.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#2563EB08;border-left:3px solid #2563EB;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#2563EB;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:var(--text-secondary);line-height:1.5;font-style:italic;">Canvas LMS operated in isolation from key institutional tools, leaving academic integrity, reporting, and student communications as manual, disconnected processes across a multi-institution environment.</span></div>
           <div class="project-desc">Led a strategic vendor integration program on the <span class="bio-stat-blue-only">Canvas LMS platform</span>, used across hundreds of universities and colleges worldwide, coordinating directly with third-party vendors to deliver integrations aligned to institutional priorities and roadmap planning.</div>
 
           <div class="detail-chips">
@@ -2319,7 +2506,7 @@
         <div class="project-card">
           <div class="project-num" data-n="06">Cloud — AWS</div>
           <div class="project-title">Fault-Tolerant AWS Admissions Architecture</div>
-          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#FF990008;border-left:3px solid #FF9900;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#FF9900;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A university application needed a production-grade cloud infrastructure capable of surviving component failures without downtime, with no existing AWS architecture in place to build from.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#FF990008;border-left:3px solid #FF9900;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#FF9900;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:var(--text-secondary);line-height:1.5;font-style:italic;">A university application needed a production-grade cloud infrastructure capable of surviving component failures without downtime, with no existing AWS architecture in place to build from.</span></div>
           <div class="project-desc">Designed and deployed a <span class="bio-stat-blue-only">fault-tolerant AWS architecture</span> for a university admissions web application across <span class="bio-stat-blue-only">two Availability Zones</span>. Deployed <span class="bio-stat-blue-only">Amazon EC2</span> instances within private subnets behind an <span class="bio-stat-blue-only">Application Load Balancer (ALB)</span>, with <span class="bio-stat-blue-only">Auto Scaling</span> validated to four instances under simulated peak traffic. Provisioned <span class="bio-stat-blue-only">Amazon RDS</span> with <span class="bio-stat-blue-only">Multi-AZ synchronous replication</span> for database high availability, and used <span class="bio-stat-blue-only">NAT Gateways</span> for secure outbound connectivity from private subnets.</div>
           <div class="arch-thumb" data-arch-id="0">
             <img src="assets/aws-project1-diagram.jpg" alt="AWS Project 1 Architecture — Multi-AZ VPC with ALB, EC2 Auto Scaling, and RDS replication"/>
@@ -2369,7 +2556,7 @@
         <div class="project-card">
           <div class="project-num" data-n="07">Cloud — DevOps</div>
           <div class="project-title">Cloud-Native Microservices & CI/CD Platform</div>
-          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:#475569;line-height:1.5;font-style:italic;">A monolithic application needed to be decomposed into independently deployable services with automated delivery pipelines — applying real-world DevOps practices in a cloud-native environment.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;padding:10px 12px;background:#0891B208;border-left:3px solid #0891B2;border-radius:0 6px 6px 0;"><span style="font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0891B2;white-space:nowrap;padding-top:1px;">Problem</span><span style="font-size:0.82rem;color:var(--text-secondary);line-height:1.5;font-style:italic;">A monolithic application needed to be decomposed into independently deployable services with automated delivery pipelines — applying real-world DevOps practices in a cloud-native environment.</span></div>
           <div class="project-desc">Refactored a monolithic application into a <span class="bio-stat-blue-only">cloud-native microservices architecture</span> on AWS. Containerized services were deployed to <span class="bio-stat-blue-only">Amazon ECS with Fargate</span> using <span class="bio-stat-blue-only">ARM64 Graviton</span> for cost-optimized serverless compute. Implemented fully automated <span class="bio-stat-blue-only">CI/CD pipelines</span> via <span class="bio-stat-blue-only">AWS CodePipeline</span> and <span class="bio-stat-blue-only">CodeDeploy</span> with <span class="bio-stat-blue-only">blue/green deployment</span> strategy. Traffic routing handled by an <span class="bio-stat-blue-only">Application Load Balancer</span> with path-based routing to independent microservices, backed by <span class="bio-stat-blue-only">Amazon RDS MySQL</span> in private subnets. Estimated monthly cost of <span class="bio-stat-blue-only">$87.49 USD</span>.</div>
           <div class="arch-thumb" data-arch-id="1">
             <img src="assets/aws-project2-diagram.jpg" alt="AWS Project 2 Architecture — ECS Fargate microservices with CI/CD pipeline and ALB routing"/>
@@ -2420,12 +2607,12 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience">
+  <section id="experience" aria-labelledby="experience-heading">
     <div class="content-section" style="padding-top:0;">
       <div class="section-header" style="margin-bottom:24px;">
         <div class="section-stamp">04</div>
         <div class="section-label">04 — Experience</div>
-        <h2 class="section-heading">The Career Timeline.</h2>
+        <h2 id="experience-heading" class="section-heading">The Career Timeline.</h2>
       </div>
       <div class="roadmap-timeline">
 
@@ -2647,14 +2834,87 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" aria-labelledby="contact-heading">
     <div class="contact-wrap">
       <div class="contact-box">
-        <div class="contact-heading">Let's Build Something.</div>
+        <div id="contact-heading" class="contact-heading">Let's Build Something.</div>
         <p class="contact-sub">AltiChi is the home base for Brandon's work in project management, product delivery, and cloud computing. Based in Toronto, open to remote and hybrid opportunities.</p>
-        <div class="contact-links">
-          <a href="/cdn-cgi/l/email-protection#d8baaab9b6bcb7b6acbbf6babb98bfb5b9b1b4f6bbb7b5" class="btn btn-primary">Email Me ↗</a>
-          <a href="https://www.linkedin.com/in/brandon-t-chihota" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn ↗</a>
+
+        <!-- Contact Form -->
+        <div id="contact-form-wrap">
+          <div class="contact-form-grid">
+            <!-- Field: Name -->
+            <div class="cf-field" id="cf-name-wrap">
+              <label class="cf-label" for="cf-name">Name</label>
+              <input
+                class="cf-input" id="cf-name" type="text"
+                placeholder="Your full name"
+                autocomplete="name"
+                aria-required="true"
+                aria-describedby="cf-name-err"
+              />
+              <span class="cf-err" id="cf-name-err" role="alert" aria-live="polite"></span>
+            </div>
+            <!-- Field: Email -->
+            <div class="cf-field" id="cf-email-wrap">
+              <label class="cf-label" for="cf-email">Email</label>
+              <input
+                class="cf-input" id="cf-email" type="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                aria-required="true"
+                aria-describedby="cf-email-err"
+              />
+              <span class="cf-err" id="cf-email-err" role="alert" aria-live="polite"></span>
+            </div>
+            <!-- Field: Subject -->
+            <div class="cf-field cf-field--full" id="cf-subject-wrap">
+              <label class="cf-label" for="cf-subject">Subject</label>
+              <input
+                class="cf-input" id="cf-subject" type="text"
+                placeholder="What's this about?"
+                aria-required="true"
+                aria-describedby="cf-subject-err"
+              />
+              <span class="cf-err" id="cf-subject-err" role="alert" aria-live="polite"></span>
+            </div>
+            <!-- Field: Message -->
+            <div class="cf-field cf-field--full" id="cf-msg-wrap">
+              <label class="cf-label" for="cf-msg">Message</label>
+              <textarea
+                class="cf-input cf-textarea" id="cf-msg"
+                placeholder="Tell me about your project, role, or idea…"
+                rows="5"
+                aria-required="true"
+                aria-describedby="cf-msg-err"
+              ></textarea>
+              <span class="cf-err" id="cf-msg-err" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="cf-actions">
+            <button class="btn btn-primary cf-submit" id="cf-submit-btn" onclick="cfSubmit()" type="button" aria-label="Send message">
+              <span id="cf-btn-label">Send Message ↗</span>
+              <span id="cf-btn-spinner" class="cf-spinner" aria-hidden="true" style="display:none;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="animation:cfSpin 0.8s linear infinite;">
+                  <circle cx="8" cy="8" r="6" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                  <path d="M8 2 A6 6 0 0 1 14 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Success state -->
+        <div id="contact-success" class="cf-success" role="status" aria-live="polite" style="display:none;">
+          <div class="cf-success-icon" aria-hidden="true">✓</div>
+          <div class="cf-success-title">Message sent!</div>
+          <div class="cf-success-sub">Thanks for reaching out. I'll get back to you within 24 hours.</div>
+          <button class="btn btn-ghost" onclick="cfReset()" style="margin-top:20px;font-size:13px;" aria-label="Send another message">Send another ↗</button>
+        </div>
+
+        <div class="contact-links" style="margin-top:20px;">
+          <a href="/cdn-cgi/l/email-protection#d8baaab9b6bcb7b6acbbf6babb98bfb5b9b1b4f6bbb7b5" class="btn btn-primary" aria-label="Send email to Brandon Chihota">Email Me ↗</a>
+          <a href="https://www.linkedin.com/in/brandon-t-chihota" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" aria-label="View Brandon Chihota on LinkedIn (opens in new tab)">LinkedIn ↗</a>
         </div>
       </div>
     </div>
@@ -2666,13 +2926,31 @@
       &copy; 2026 Brandon T. Chihota &nbsp;&middot;&nbsp; AltiChi
     </div>
     <div style="display:flex;gap:20px;align-items:center;">
-      <a href="/cdn-cgi/l/email-protection#f19383909f959e9f8592df9392b1969c90989ddf929e9c" style="font-family:var(--font-mono);font-size:10px;color:#94A3B8;text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#94A3B8'">Email</a>
-      <a href="https://www.linkedin.com/in/brandon-t-chihota" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:10px;color:#94A3B8;text-decoration:none;letter-spacing:0.04em;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#94A3B8'">LinkedIn</a>
+      <a href="/cdn-cgi/l/email-protection#f19383909f959e9f8592df9392b1969c90989ddf929e9c" aria-label="Send email to Brandon Chihota" style="font-family:var(--font-mono);font-size:10px;color:#94A3B8;text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#94A3B8'">Email</a>
+      <a href="https://www.linkedin.com/in/brandon-t-chihota" target="_blank" rel="noopener noreferrer" aria-label="View Brandon Chihota on LinkedIn (opens in new tab)" style="font-family:var(--font-mono);font-size:10px;color:#94A3B8;text-decoration:none;letter-spacing:0.04em;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#94A3B8'">LinkedIn</a>
       <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="font-family:var(--font-mono);font-size:10px;color:#94A3B8;text-decoration:none;letter-spacing:0.04em;" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#94A3B8'">Back to top &#8593;</a>
     </div>
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // ── THEME SWITCHER ──
+    function setTheme(theme) {
+      document.body.className = 'theme-' + theme;
+      ['dark','light','slate'].forEach(function(t) {
+        var btn = document.getElementById('btn-' + t);
+        if (btn) { btn.classList.toggle('active', t === theme); btn.setAttribute('aria-pressed', t === theme ? 'true' : 'false'); }
+      });
+      try { localStorage.setItem('altichi-theme', theme); } catch(e) {}
+    }
+    // Restore saved theme on load
+    (function() {
+      try {
+        var saved = localStorage.getItem('altichi-theme');
+        if (saved && ['dark','light','slate'].includes(saved)) { setTheme(saved); return; }
+      } catch(e) {}
+      setTheme('light');
+    })();
+
     // Mobile nav
     function toggleMenu() {
       var drawer = document.getElementById('nav-drawer');
@@ -2850,21 +3128,152 @@
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeBlogPost(); });
   </script>
 
-  <!-- Architecture Diagram Lightbox -->
+  <script>
+  // ── CONTACT FORM VALIDATION ──
+  var cfSubmitting = false;
+
+  function cfValidate() {
+    var valid = true;
+    var fields = [
+      { id: 'cf-name',    wrap: 'cf-name-wrap',    err: 'cf-name-err',    check: function(v){ return v.trim().length >= 2; },                  msg: 'Please enter your name (min 2 chars).' },
+      { id: 'cf-email',   wrap: 'cf-email-wrap',   err: 'cf-email-err',   check: function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); },  msg: 'Please enter a valid email address.' },
+      { id: 'cf-subject', wrap: 'cf-subject-wrap', err: 'cf-subject-err', check: function(v){ return v.trim().length >= 3; },                  msg: 'Please enter a subject (min 3 chars).' },
+      { id: 'cf-msg',     wrap: 'cf-msg-wrap',     err: 'cf-msg-err',     check: function(v){ return v.trim().length >= 20; },                 msg: 'Message must be at least 20 characters.' }
+    ];
+    fields.forEach(function(f) {
+      var input = document.getElementById(f.id);
+      var wrap  = document.getElementById(f.wrap);
+      var err   = document.getElementById(f.err);
+      if (!input) return;
+      var val = input.value;
+      if (!f.check(val)) {
+        wrap.classList.add('cf-field--error');
+        wrap.classList.remove('cf-field--valid');
+        err.textContent = f.msg;
+        valid = false;
+      } else {
+        wrap.classList.remove('cf-field--error');
+        wrap.classList.add('cf-field--valid');
+        err.textContent = '';
+      }
+    });
+    return valid;
+  }
+
+  // Live validation on blur
+  ['cf-name','cf-email','cf-subject','cf-msg'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('blur', cfValidate);
+  });
+
+  function cfSubmit() {
+    if (cfSubmitting) return;
+    if (!cfValidate()) {
+      // Focus first errored field
+      var first = document.querySelector('.cf-field--error .cf-input');
+      if (first) first.focus();
+      return;
+    }
+    // Simulate async submission (replace with real fetch/FormData as needed)
+    cfSubmitting = true;
+    var btn = document.getElementById('cf-submit-btn');
+    var label = document.getElementById('cf-btn-label');
+    var spinner = document.getElementById('cf-btn-spinner');
+    if (btn) btn.disabled = true;
+    if (label) label.style.display = 'none';
+    if (spinner) spinner.style.display = 'inline-flex';
+
+    setTimeout(function() {
+      cfSubmitting = false;
+      if (btn) btn.disabled = false;
+      if (label) label.style.display = '';
+      if (spinner) spinner.style.display = 'none';
+      // Show success
+      var formWrap = document.getElementById('contact-form-wrap');
+      var success  = document.getElementById('contact-success');
+      if (formWrap) formWrap.style.display = 'none';
+      if (success)  success.style.display = 'block';
+      success.focus();
+    }, 1400);
+  }
+
+  function cfReset() {
+    ['cf-name','cf-email','cf-subject','cf-msg'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+    ['cf-name-wrap','cf-email-wrap','cf-subject-wrap','cf-msg-wrap'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) { el.classList.remove('cf-field--error','cf-field--valid'); }
+    });
+    ['cf-name-err','cf-email-err','cf-subject-err','cf-msg-err'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = '';
+    });
+    var formWrap = document.getElementById('contact-form-wrap');
+    var success  = document.getElementById('contact-success');
+    if (formWrap) formWrap.style.display = '';
+    if (success)  success.style.display = 'none';
+  }
+
+  // ── BLOG SUBSCRIBE VALIDATION ──
+  (function() {
+    var subBtn = document.querySelector('.btn-sub');
+    var emailInput = document.querySelector('.email-input');
+    if (!subBtn || !emailInput) return;
+    subBtn.addEventListener('click', function() {
+      var val = emailInput.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+        emailInput.style.borderColor = '#EF4444';
+        emailInput.setAttribute('aria-invalid', 'true');
+        emailInput.focus();
+        return;
+      }
+      emailInput.style.borderColor = '#10B981';
+      emailInput.setAttribute('aria-invalid', 'false');
+      subBtn.textContent = '✓ Subscribed!';
+      subBtn.disabled = true;
+      subBtn.style.background = '#10B981';
+    });
+    emailInput.addEventListener('input', function() {
+      emailInput.style.borderColor = '';
+      emailInput.removeAttribute('aria-invalid');
+      if (subBtn.textContent !== 'Subscribe') {
+        subBtn.textContent = 'Subscribe';
+        subBtn.disabled = false;
+        subBtn.style.background = '';
+      }
+    });
+  })();
+  </script>
+
+  <!-- Architecture Diagram Lightbox with Zoom/Pan -->
   <div id="arch-lightbox" onclick="closeArchLightbox()">
     <div id="arch-lightbox-inner" onclick="event.stopPropagation()">
-      <button id="arch-lightbox-close" onclick="closeArchLightbox()" aria-label="Close">&#x2715;</button>
-      <img id="arch-lightbox-img" src="" alt=""/>
-      <div id="arch-lightbox-caption"></div>
+      <button id="arch-lightbox-close" onclick="closeArchLightbox()" aria-label="Close diagram lightbox">&#x2715;</button>
+      <div id="arch-lightbox-canvas" aria-label="Zoomable architecture diagram. Scroll or pinch to zoom, drag to pan.">
+        <img id="arch-lightbox-img" src="" alt="Architecture diagram"/>
+      </div>
+      <div id="arch-lightbox-controls" role="toolbar" aria-label="Zoom controls">
+        <button class="lbx-ctrl-btn" onclick="lbxZoom(-0.25)" aria-label="Zoom out">&#x2212;</button>
+        <span id="lbx-zoom-level" aria-live="polite">100%</span>
+        <button class="lbx-ctrl-btn" onclick="lbxZoom(+0.25)" aria-label="Zoom in">&#x2B;</button>
+        <button class="lbx-ctrl-btn" onclick="lbxReset()" aria-label="Reset zoom" style="margin-left:4px;font-size:13px;">&#x21BA;</button>
+        <div id="arch-lightbox-caption"></div>
+      </div>
     </div>
   </div>
   <script>
+  // ── Lightbox open/close ──
   document.querySelectorAll('.arch-thumb').forEach(function(el) {
     el.addEventListener('click', function() {
       var img = el.querySelector('img');
       var title = el.querySelector('.arch-thumb-title');
-      document.getElementById('arch-lightbox-img').src = img.src;
-      document.getElementById('arch-lightbox-caption').textContent = title.textContent;
+      var lbImg = document.getElementById('arch-lightbox-img');
+      lbImg.src = img ? img.src : '';
+      lbImg.alt = title ? title.textContent : 'Architecture diagram';
+      document.getElementById('arch-lightbox-caption').textContent = title ? title.textContent : '';
+      lbxReset();
       document.getElementById('arch-lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
     });
@@ -2872,6 +3281,99 @@
   function closeArchLightbox() {
     document.getElementById('arch-lightbox').classList.remove('open');
     document.body.style.overflow = '';
+    lbxReset();
   }
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeArchLightbox(); });
+
+  // ── Zoom/Pan state ──
+  var lbxScale = 1, lbxMinScale = 0.5, lbxMaxScale = 4;
+  var lbxOffX = 0, lbxOffY = 0;
+  var lbxDragging = false, lbxDragStartX = 0, lbxDragStartY = 0, lbxDragOriginX = 0, lbxDragOriginY = 0;
+
+  function lbxApplyTransform() {
+    var img = document.getElementById('arch-lightbox-img');
+    if (img) img.style.transform = 'translate(' + lbxOffX + 'px,' + lbxOffY + 'px) scale(' + lbxScale + ')';
+    var lvl = document.getElementById('lbx-zoom-level');
+    if (lvl) lvl.textContent = Math.round(lbxScale * 100) + '%';
+  }
+  function lbxZoom(delta) {
+    lbxScale = Math.min(lbxMaxScale, Math.max(lbxMinScale, lbxScale + delta));
+    if (lbxScale === 1) { lbxOffX = 0; lbxOffY = 0; }
+    lbxApplyTransform();
+  }
+  function lbxReset() {
+    lbxScale = 1; lbxOffX = 0; lbxOffY = 0;
+    lbxApplyTransform();
+  }
+
+  // Mouse wheel zoom
+  var canvas = document.getElementById('arch-lightbox-canvas');
+  if (canvas) {
+    canvas.addEventListener('wheel', function(e) {
+      e.preventDefault();
+      var delta = e.deltaY < 0 ? 0.15 : -0.15;
+      lbxScale = Math.min(lbxMaxScale, Math.max(lbxMinScale, lbxScale + delta));
+      if (lbxScale === 1) { lbxOffX = 0; lbxOffY = 0; }
+      lbxApplyTransform();
+    }, { passive: false });
+
+    // Mouse drag pan
+    canvas.addEventListener('mousedown', function(e) {
+      if (lbxScale <= 1) return;
+      lbxDragging = true;
+      lbxDragStartX = e.clientX; lbxDragStartY = e.clientY;
+      lbxDragOriginX = lbxOffX; lbxDragOriginY = lbxOffY;
+      canvas.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mousemove', function(e) {
+      if (!lbxDragging) return;
+      lbxOffX = lbxDragOriginX + (e.clientX - lbxDragStartX);
+      lbxOffY = lbxDragOriginY + (e.clientY - lbxDragStartY);
+      lbxApplyTransform();
+    });
+    window.addEventListener('mouseup', function() {
+      lbxDragging = false;
+      if (canvas) canvas.style.cursor = lbxScale > 1 ? 'grab' : 'default';
+    });
+
+    // Touch pinch-zoom + drag
+    var lbxTouches = null, lbxPinchStartDist = 0, lbxPinchStartScale = 1;
+    canvas.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 2) {
+        lbxTouches = e.touches;
+        lbxPinchStartDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        lbxPinchStartScale = lbxScale;
+      } else if (e.touches.length === 1 && lbxScale > 1) {
+        lbxDragging = true;
+        lbxDragStartX = e.touches[0].clientX; lbxDragStartY = e.touches[0].clientY;
+        lbxDragOriginX = lbxOffX; lbxDragOriginY = lbxOffY;
+      }
+    }, { passive: true });
+    canvas.addEventListener('touchmove', function(e) {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        var dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        lbxScale = Math.min(lbxMaxScale, Math.max(lbxMinScale, lbxPinchStartScale * (dist / lbxPinchStartDist)));
+        lbxApplyTransform();
+      } else if (e.touches.length === 1 && lbxDragging) {
+        lbxOffX = lbxDragOriginX + (e.touches[0].clientX - lbxDragStartX);
+        lbxOffY = lbxDragOriginY + (e.touches[0].clientY - lbxDragStartY);
+        lbxApplyTransform();
+      }
+    }, { passive: false });
+    canvas.addEventListener('touchend', function() { lbxDragging = false; });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeArchLightbox();
+    if (!document.getElementById('arch-lightbox').classList.contains('open')) return;
+    if (e.key === '+' || e.key === '=') lbxZoom(0.25);
+    if (e.key === '-') lbxZoom(-0.25);
+    if (e.key === '0') lbxReset();
+  });
   </script>
