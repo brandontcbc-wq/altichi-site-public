@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — AltiChi | Brandon T. Chihota</title>
+  <meta name="description" content="Start a conversation about your Cloud Architecture, Agentic AI, Cloud Security Automation, or DevOps project with AltiChi consulting."/>
+  <meta name="author" content="Brandon T. Chihota"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://altichi.com/contact.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://altichi.com/contact.html"/>
+  <meta property="og:title" content="Contact — AltiChi | Brandon T. Chihota"/>
+  <meta property="og:description" content="Start a conversation about your Cloud Architecture, Agentic AI, Cloud Security Automation, or DevOps project with AltiChi consulting."/>
+  <meta property="og:image" content="https://altichi.com/assets/headshot.png"/>
+  <meta property="og:site_name" content="AltiChi"/>
+  <meta property="og:locale" content="en_CA"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://altichi.com/contact.html"/>
+  <meta name="twitter:title" content="Contact — AltiChi | Brandon T. Chihota"/>
+  <meta name="twitter:description" content="Start a conversation about your Cloud Architecture, Agentic AI, Cloud Security Automation, or DevOps project with AltiChi consulting."/>
+  <meta name="twitter:image" content="https://altichi.com/assets/headshot.png"/>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>"/>
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/styles.css"/>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<main>
+  <div class="content-section" style="max-width:760px;">
+    <div class="section-header">
+      <div class="section-stamp">04</div>
+      <div class="section-label">04 — Start a Project</div>
+      <h2 class="section-heading">Let's Talk Through It.</h2>
+    </div>
+    <p style="color:var(--text-secondary); font-size:.98rem; line-height:1.8; max-width:60ch; margin-bottom:36px;">Tell me a bit about what you're working on. Most engagements start as a short conversation about the constraint, not the tool, so there's no wrong way to fill this out.</p>
+
+    <form class="contact-form" onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="cf-fname">First Name</label>
+          <input id="cf-fname" type="text" placeholder="Jordan">
+        </div>
+        <div class="form-field">
+          <label for="cf-lname">Last Name</label>
+          <input id="cf-lname" type="text" placeholder="Rivera">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="cf-email">Email Address</label>
+        <input id="cf-email" type="email" placeholder="jordan@company.com">
+      </div>
+
+      <div class="form-field">
+        <label for="cf-company">Company <span class="optional">(optional)</span></label>
+        <input id="cf-company" type="text" placeholder="Company name">
+      </div>
+
+      <div class="form-field">
+        <label id="cf-service-label">What kind of support are you looking for?</label>
+        <div class="service-check-grid" role="group" aria-labelledby="cf-service-label">
+          <label class="service-check blue"><input type="checkbox"><span>Cloud Architecture</span></label>
+          <label class="service-check violet"><input type="checkbox"><span>Agentic AI &amp; Workflows</span></label>
+          <label class="service-check cyan"><input type="checkbox"><span>Cloud Security Automation</span></label>
+          <label class="service-check indigo"><input type="checkbox"><span>DevOps &amp; CI/CD</span></label>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="cf-stage">Where are you in the process?</label>
+        <select id="cf-stage">
+          <option>Just exploring options</option>
+          <option>Have a defined project, need a partner</option>
+          <option>Mid-project, need additional support</option>
+          <option>Ongoing / retainer-style support</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="cf-details">Tell me about the project <span class="optional">(optional)</span></label>
+        <textarea id="cf-details" rows="4" placeholder="What are you building, what's the constraint, and what would a good outcome look like?"></textarea>
+      </div>
+
+      <div class="form-field">
+        <label for="cf-timeline">Estimated Timeline <span class="optional">(optional)</span></label>
+        <select id="cf-timeline">
+          <option>Not sure yet</option>
+          <option>Within 1 month</option>
+          <option>1 to 3 months</option>
+          <option>3+ months</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="margin-top:8px;">Send Message →</button>
+    </form>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<div id="ac-modal-overlay" onclick="acCloseModal()" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.55);backdrop-filter:blur(6px);z-index:99999;align-items:center;justify-content:center;padding:24px;">
+  <div id="ac-modal-box" onclick="event.stopPropagation()" style="background:#fff;border-radius:16px;padding:32px 28px 28px;max-width:440px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,0.18);position:relative;max-height:82vh;overflow-y:auto;">
+    <button onclick="acCloseModal()" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:#F1F5F9;border:none;font-size:16px;cursor:pointer;color:#64748B;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F1F5F9'">&#x2715;</button>
+    <div id="ac-modal-content"></div>
+  </div>
+</div>
+
+<script src="/assets/main.js"></script>
+</body>
+</html>

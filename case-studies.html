@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Case Studies — AltiChi | Brandon T. Chihota</title>
+  <meta name="description" content="Real case studies across Cloud Architecture, Cloud Security Automation, and Agentic AI, including AWS admissions architecture, IAM privilege escalation labs, and a RAG document QA system with a 1.00 faithfulness score."/>
+  <meta name="author" content="Brandon T. Chihota"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://altichi.com/case-studies.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://altichi.com/case-studies.html"/>
+  <meta property="og:title" content="Case Studies — AltiChi | Brandon T. Chihota"/>
+  <meta property="og:description" content="Real case studies across Cloud Architecture, Cloud Security Automation, and Agentic AI, including AWS admissions architecture, IAM privilege escalation labs, and a RAG document QA system with a 1.00 faithfulness score."/>
+  <meta property="og:image" content="https://altichi.com/assets/headshot.png"/>
+  <meta property="og:site_name" content="AltiChi"/>
+  <meta property="og:locale" content="en_CA"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://altichi.com/case-studies.html"/>
+  <meta name="twitter:title" content="Case Studies — AltiChi | Brandon T. Chihota"/>
+  <meta name="twitter:description" content="Real case studies across Cloud Architecture, Cloud Security Automation, and Agentic AI, including AWS admissions architecture, IAM privilege escalation labs, and a RAG document QA system with a 1.00 faithfulness score."/>
+  <meta name="twitter:image" content="https://altichi.com/assets/headshot.png"/>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>"/>
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/styles.css"/>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<main>
+
+  <!-- CLUSTER 1: Cloud Architecture -->
+  <div class="content-section" style="padding-bottom:40px;">
+    <div class="section-header">
+      <div class="section-stamp">02</div>
+      <div class="section-label">02 — Case Studies</div>
+      <h2 class="section-heading">Delivered at Scale.</h2>
+    </div>
+
+    <div class="cluster-intro">
+      <span class="tag tag-blue" style="margin-bottom:10px;">Cloud Architecture</span>
+      <p>Two production-style AWS builds: one focused on fault tolerance under load, the other on independent deployability and cost efficiency.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card featured">
+        <div>
+          <div class="project-num" data-n="01">FEATURED CASE STUDY</div>
+          <div class="project-title">Cloud-Native Microservices &amp; CI/CD Platform</div>
+          <div class="problem-callout">
+            <span class="lbl">Problem</span>
+            <span class="txt">A monolithic application needed to be decomposed into independently deployable services with automated delivery pipelines.</span>
+          </div>
+          <div class="project-desc">Containerized services deployed to <strong>Amazon ECS with Fargate</strong> using <strong>ARM64 Graviton</strong> for cost-optimized serverless compute. Implemented fully automated CI/CD via <strong>AWS CodePipeline and CodeDeploy</strong> with a blue/green deployment strategy, backed by <strong>Amazon RDS MySQL</strong> in private subnets.</div>
+          <div class="project-tags">
+            <span class="tag tag-blue">ECS Fargate</span>
+            <span class="tag tag-indigo">CI/CD</span>
+            <span class="tag tag-cyan">RDS MySQL</span>
+            <span class="tag tag-violet">Blue/Green</span>
+          </div>
+        </div>
+        <div class="proj-metrics blue">
+          <div><div class="proj-metric-val" style="color:#1D4ED8;">$87</div><div class="proj-metric-tag">Monthly Infra Cost</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:78%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#1D4ED8;">0-DT</div><div class="proj-metric-tag">Zero-Downtime Deploys</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#1D4ED8;">100%</div><div class="proj-metric-tag">Fault Isolation / Service</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="support-grid">
+      <div class="support-card blue">
+        <div class="support-card-tag-row"><span class="tag tag-blue">Cloud</span><span class="tag tag-blue">AWS</span></div>
+        <div class="support-card-title">Fault-Tolerant AWS Admissions Architecture</div>
+        <div class="support-card-desc">Designed and deployed a fault-tolerant architecture for a university admissions application across two Availability Zones. EC2 instances run in private subnets behind an Application Load Balancer, with Auto Scaling validated to four instances under simulated peak traffic and Amazon RDS Multi-AZ synchronous replication providing database high availability.</div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">2 AZ</div><div class="support-metric-label">Fault Tolerant</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:90%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">4x</div><div class="support-metric-label">Auto Scaling Validated</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:75%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">Multi-AZ</div><div class="support-metric-label">RDS Replication</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:95%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+        </div>
+      </div>
+      <div class="support-card blue">
+        <div class="support-card-tag-row"><span class="tag tag-blue">AWS</span><span class="tag tag-blue">Regulated Industry</span></div>
+        <div class="support-card-title">Pipeline Risk Modeling Platforms (Oil &amp; Gas)</div>
+        <div class="support-card-desc">Directed multimillion-dollar, AWS-hosted SaaS implementations supporting probability-based risk modeling across transmission, distribution, and storage pipeline assets for major U.S. pipeline operators. Led cross-functional squads of 8 through requirements, UAT, and production deployment in full compliance with PHMSA, the federal framework governing U.S. hazardous liquid and gas pipeline operations.</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+          <div onclick="acOpenModal('pipeline','transmission')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <span style="font-size:14px;">&#9889;</span><span style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:#1D4ED8;">Transmission &#8250;</span>
+          </div>
+          <div onclick="acOpenModal('pipeline','distribution')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #7C3AED;border-radius:6px;padding:8px 12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #7C3AED22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <span style="font-size:14px;">&#127968;</span><span style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:#6D28D9;">Distribution &#8250;</span>
+          </div>
+          <div onclick="acOpenModal('pipeline','storage')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#ECFEFF;border:1px solid #A5F3FC;border-left:3px solid #0891B2;border-radius:6px;padding:8px 12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #0891B222'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <span style="font-size:14px;">&#127981;</span><span style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:#0E7490;">Storage &#8250;</span>
+          </div>
+        </div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">PHMSA</div><div class="support-metric-label">Regulatory Compliance</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">8</div><div class="support-metric-label">Cross-Functional Squad Size</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:70%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+        </div>
+      </div>
+      <div class="support-card blue">
+        <div class="support-card-tag-row"><span class="tag tag-blue">Integrations</span><span class="tag tag-indigo">Jira</span></div>
+        <div class="support-card-title">LMS &amp; Data Integration Programs</div>
+        <div class="support-card-desc">Led a strategic vendor integration program on the Canvas LMS platform, used across hundreds of universities and colleges worldwide, coordinating directly with third-party vendors to deliver integrations (Turnitin, Power BI, SMS) aligned to institutional priorities and roadmap planning, managed and tracked through Jira.</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+          <div onclick="acOpenModal('info','lms-canvas')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #7C3AED;border-radius:6px;padding:8px 12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #7C3AED22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <span style="font-size:14px;">&#127891;</span><span style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:#6D28D9;">Canvas LMS &#8250;</span>
+          </div>
+          <div onclick="acOpenModal('info','lms-vendors')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <span style="font-size:14px;">&#128279;</span><span style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:#1D4ED8;">Vendor Integrations &#8250;</span>
+          </div>
+        </div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">3</div><div class="support-metric-label">Vendor Integrations Shipped</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:65%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">Global</div><div class="support-metric-label">Platform Scale (Canvas LMS)</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:85%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLUSTER 2: Cloud Security Automation -->
+  <div class="content-section" style="padding-top:24px;padding-bottom:24px;">
+    <div class="section-header">
+      <div class="section-label">Cloud Security Automation</div>
+      <h2 class="section-heading" style="font-size:clamp(1.6rem,2.6vw,2.2rem);">Simulated Attack Chain Case Studies</h2>
+    </div>
+    <div class="cluster-intro">
+      <p>Three simulated AWS attack chains: privilege escalation via Lambda, privilege escalation via EC2 instance profiles, and a full SSRF to breach simulation modeled on the 2019 Capital One incident. The common thread is dangerous <strong>permission combinations</strong>, not single misconfigurations, being what actually gets exploited.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card featured">
+        <div>
+          <div class="project-num" data-n="02">FEATURED CASE STUDY</div>
+          <div class="project-title">S3 Data Exfiltration Breach Simulation</div>
+          <div class="problem-callout" style="background:#0891B208;border-left-color:#0891B2;">
+            <span class="lbl" style="color:#0891B2;">Problem</span>
+            <span class="txt">Demonstrate how a real-world attack pattern chains SSRF, exposed instance metadata, and an over-permissioned IAM role into a full data breach.</span>
+          </div>
+          <div class="project-desc">Provisioned a vulnerable AWS environment with <strong>Terraform</strong> (17 resources: VPC, EC2 reverse proxy, IAM role, S3 bucket) modeled on the 2019 Capital One incident. Exploited a Host-header <strong>SSRF</strong> vulnerability to reach the EC2 Instance Metadata Service, extracted temporary IAM credentials, and used them to enumerate and exfiltrate data from a restricted S3 bucket. Documented full root-cause analysis and defensive recommendations, including enforcing IMDSv2.</div>
+          <div class="project-tags">
+            <span class="tag tag-cyan">SSRF</span>
+            <span class="tag tag-cyan">IMDSv1</span>
+            <span class="tag tag-cyan">S3</span>
+            <span class="tag tag-cyan">Terraform</span>
+          </div>
+        </div>
+        <div class="proj-metrics cyan">
+          <div><div class="proj-metric-val" style="color:#0E7490;">17</div><div class="proj-metric-tag">AWS Resources Provisioned</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:85%;background:linear-gradient(90deg,#0891B2,#67E8F9);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#0E7490;">1</div><div class="proj-metric-tag">Named Breach Recreated</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#0891B2,#67E8F9);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#0E7490;">Full</div><div class="proj-metric-tag">Teardown Post-Lab</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#0891B2,#67E8F9);"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="support-grid">
+      <div class="support-card cyan">
+        <div class="support-card-tag-row"><span class="tag tag-cyan">IAM</span><span class="tag tag-cyan">Lambda</span></div>
+        <div class="support-card-title">Privilege Escalation via Lambda</div>
+        <div class="support-card-desc">Starting from a read-only IAM user, chained <code>sts:AssumeRole</code>, Lambda management permissions, and <code>iam:PassRole</code> to reach an overprivileged Lambda execution role. Deployed a payload that attached AdministratorAccess to the original low-privilege user, fully escalating access.</div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#0E7490;">Read-Only</div><div class="support-metric-label">Starting Access</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:25%;background:linear-gradient(90deg,#0891B2,#67E8F9);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#0E7490;">Admin</div><div class="support-metric-label">Ending Access</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#0891B2,#67E8F9);"></div></div></div>
+        </div>
+      </div>
+      <div class="support-card cyan">
+        <div class="support-card-tag-row"><span class="tag tag-cyan">IAM</span><span class="tag tag-cyan">EC2</span></div>
+        <div class="support-card-title">Privilege Escalation by Attachment</div>
+        <div class="support-card-desc">Exploited a combination of <code>iam:PassRole</code>, <code>ec2:RunInstances</code>, and <code>iam:AddRoleToInstanceProfile</code> to swap a low-privilege role for an admin role on an EC2 instance profile. Stole temporary administrator credentials from the Instance Metadata Service and used them to terminate a protected EC2 instance, proving real impact.</div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#0E7490;">IMDS</div><div class="support-metric-label">Credential Theft Path</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:80%;background:linear-gradient(90deg,#0891B2,#67E8F9);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#0E7490;">Verified</div><div class="support-metric-label">Impact Proven</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#0891B2,#67E8F9);"></div></div></div>
+        </div>
+      </div>
+      <div class="support-card cyan">
+        <div class="support-card-tag-row"><span class="tag tag-cyan">MFA / SSO</span><span class="tag tag-cyan">Payments</span></div>
+        <div class="support-card-title">Secure Portal &amp; Authentication Enhancements</div>
+        <div class="support-card-desc">Implemented Multi-Factor Authentication and Single Sign-On across enterprise portals, and led the integration of a secure payment API with CIBC, one of Canada's largest Schedule I chartered banks, enabling students to transact directly within institutional platforms. Production security work, not a simulated environment.</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+          <div onclick="acOpenModal('info','sec-auth')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#ECFEFF;border:1px solid #A5F3FC;border-left:3px solid #0891B2;border-radius:6px;padding:8px 12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #0891B222'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <span style="font-size:14px;">&#128272;</span><span style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:#0E7490;">MFA &amp; SSO &#8250;</span>
+          </div>
+          <div onclick="acOpenModal('info','sec-cibc')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#EFF6FF;border:1px solid #BFDBFE;border-left:3px solid #2563EB;border-radius:6px;padding:8px 12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #2563EB22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <span style="font-size:14px;">&#127970;</span><span style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:#1D4ED8;">CIBC Payment API &#8250;</span>
+          </div>
+        </div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#0E7490;">MFA+SSO</div><div class="support-metric-label">Enterprise Auth Hardening</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:90%;background:linear-gradient(90deg,#0891B2,#67E8F9);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#0E7490;">CIBC</div><div class="support-metric-label">Bank-Grade Payment API</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#0891B2,#67E8F9);"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLUSTER 3: Agentic AI & Workflows -->
+  <div class="content-section" style="padding-top:24px;">
+    <div class="section-header">
+      <div class="section-label">Agentic AI &amp; Workflows</div>
+      <h2 class="section-heading" style="font-size:clamp(1.6rem,2.6vw,2.2rem);">Applied Agentic AI Case Studies</h2>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card featured">
+        <div>
+          <div class="project-num" data-n="03">FEATURED CASE STUDY</div>
+          <div class="project-title">RAG Document QA System</div>
+          <div class="problem-callout" style="background:#7C3AED08;border-left-color:#7C3AED;">
+            <span class="lbl" style="color:#7C3AED;">Problem</span>
+            <span class="txt">Document question-answering needs grounded, source-cited answers, not fluent-sounding guesses.</span>
+          </div>
+          <div class="project-desc">Built a 15-document research corpus, indexed embeddings in <strong>Chroma</strong>, and developed a <code>search_knowledge_base</code> retrieval tool. Added <strong>multi-query rewriting</strong> to improve retrieval coverage and <strong>citation-grounded generation</strong> to reduce hallucination. Evaluated with an LLM-as-judge faithfulness evaluator.</div>
+          <div class="project-tags">
+            <span class="tag tag-violet">RAG</span>
+            <span class="tag tag-violet">Chroma</span>
+            <span class="tag tag-violet">Multi-Query</span>
+            <span class="tag tag-violet">LLM Eval</span>
+          </div>
+        </div>
+        <div class="proj-metrics violet">
+          <div><div class="proj-metric-val" style="color:#4C1D95;">1.00</div><div class="proj-metric-tag">Avg. Faithfulness Score</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#4C1D95;">15</div><div class="proj-metric-tag">Document Corpus</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:70%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#4C1D95;">100%</div><div class="proj-metric-tag">Cited Generation</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+        </div>
+      </div>
+
+      <div class="project-card featured">
+        <div>
+          <div class="project-num" data-n="04">FEATURED CASE STUDY</div>
+          <div class="project-title">First AI Chatbot Implementation</div>
+          <div class="problem-callout" style="background:#7C3AED08;border-left-color:#7C3AED;">
+            <span class="lbl" style="color:#7C3AED;">Problem</span>
+            <span class="txt">Students and applicants across 7+ institutions had no 24/7 self-service support, placing unsustainable load on staff and creating inconsistent information experiences.</span>
+          </div>
+          <div class="project-desc">Led the organization's first AI implementation from strategic inception through scaled multi-institution deployment, coordinating directly with the Executive Director of Digital Transformation, the Executive Director of IT &amp; Infrastructure, and the VP of Operations. Conducted a structured <strong>build vs. buy</strong> evaluation, proceeded with a third-party proof of concept, then managed the full implementation lifecycle including cross-departmental knowledge base development. Established a dual monitoring framework pairing a dedicated accuracy review team with hallucination safeguards.</div>
+          <div class="project-tags">
+            <span class="tag tag-violet">LLM</span>
+            <span class="tag tag-violet">Build vs. Buy</span>
+            <span class="tag tag-violet">Knowledge Base</span>
+            <span class="tag tag-indigo">Dual Monitoring</span>
+          </div>
+        </div>
+        <div class="proj-metrics violet">
+          <div><div class="proj-metric-val" style="color:#4C1D95;">7+</div><div class="proj-metric-tag">Institutions Deployed</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:85%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#4C1D95;">24/7</div><div class="proj-metric-tag">Availability</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#4C1D95;">Dual</div><div class="proj-metric-tag">Accuracy Monitoring Layer</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:90%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="support-grid">
+      <div class="support-card violet">
+        <div class="support-card-tag-row"><span class="tag tag-violet">Agents</span><span class="tag tag-violet">Multi-Model</span></div>
+        <div class="support-card-title">AI Agent Enhancement Project</div>
+        <div class="support-card-desc">Expanded an existing AI agent from a basic prototype into a more product-oriented application. Added multi-model testing across OpenAI and Claude to compare response quality, performance, and operating cost, and scoped a usage dashboard covering token consumption, latency, and estimated spend.</div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#6D28D9;">2</div><div class="support-metric-label">Providers Compared</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:65%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#6D28D9;">Cost</div><div class="support-metric-label">Aware Reporting</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:90%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+        </div>
+      </div>
+      <div class="support-card violet">
+        <div class="support-card-tag-row"><span class="tag tag-violet">ML</span><span class="tag tag-violet">XGBoost</span></div>
+        <div class="support-card-title">Imbalanced-Data Fraud Detection</div>
+        <div class="support-card-desc">Built a machine learning pipeline for credit card fraud detection on a highly imbalanced dataset, where fraud represented roughly 0.17% of transactions. Compared logistic regression and XGBoost across multiple imbalance-handling techniques, with threshold tuning on the precision-recall curve delivering the strongest practical tradeoff between catching fraud and limiting false alerts.</div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#6D28D9;">0.17%</div><div class="support-metric-label">Fraud Rate in Dataset</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:15%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#6D28D9;">XGBoost</div><div class="support-metric-label">Strongest Tradeoff</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:88%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<div id="ac-modal-overlay" onclick="acCloseModal()" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.55);backdrop-filter:blur(6px);z-index:99999;align-items:center;justify-content:center;padding:24px;">
+  <div id="ac-modal-box" onclick="event.stopPropagation()" style="background:#fff;border-radius:16px;padding:32px 28px 28px;max-width:440px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,0.18);position:relative;max-height:82vh;overflow-y:auto;">
+    <button onclick="acCloseModal()" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:#F1F5F9;border:none;font-size:16px;cursor:pointer;color:#64748B;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='#E2E8F0'" onmouseout="this.style.background='#F1F5F9'">&#x2715;</button>
+    <div id="ac-modal-content"></div>
+  </div>
+</div>
+
+<script src="/assets/main.js"></script>
+</body>
+</html>
