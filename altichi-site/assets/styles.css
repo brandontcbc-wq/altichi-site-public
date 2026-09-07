@@ -14,7 +14,7 @@
     --nav-bg:#F5F8FFee; --shadow:0 2px 20px #4F7FFF12;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -38,18 +38,6 @@
   .nav-drawer a { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--text-secondary); padding: 14px 4px; border-bottom: 1px solid var(--border); cursor: pointer; }
   .nav-drawer a:last-child { border-bottom: none; }
   .nav-drawer .drawer-pill { margin-top: 8px; text-align: center; padding: 12px; border-radius: 8px; border: 1px solid var(--primary) !important; color: var(--primary) !important; }
-  @media (max-width: 720px) {
-    nav { padding: 16px 20px; }
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-  }
-  @media (max-width: 600px) {
-    .content-section { padding: 56px 20px; }
-    .hero { padding: 80px 20px 48px !important; }
-    .section-heading { font-size: clamp(1.7rem, 7vw, 2.2rem); }
-    .form-row { grid-template-columns: 1fr; }
-    .service-check-grid { grid-template-columns: 1fr; }
-  }
   .nav-logo { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.03em; text-decoration: none; cursor: pointer; }
   .nav-logo .alti { background: linear-gradient(90deg, var(--primary), var(--accent-soft)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .nav-logo .chi { background: linear-gradient(90deg, var(--accent-soft), var(--highlight)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -58,6 +46,11 @@
   .nav-links a:hover, .nav-links a.active { color: var(--primary); }
   .nav-pill { padding: 6px 16px; border-radius: 100px; border: 1px solid var(--primary); color: var(--primary) !important; }
   .nav-pill:hover { background: var(--primary-glow); }
+  @media (max-width: 720px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
 
   /* HERO */
   .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding: 90px 48px 60px; min-height: 88vh; }
@@ -94,7 +87,7 @@
   .section-heading { font-family: var(--font-display); font-weight: 800; letter-spacing: -.02em; font-size: clamp(2rem, 3.2vw, 2.9rem); line-height: 1.1; position: relative; }
 
   /* SKILL/SERVICE CARDS — matches real .skill-card exactly */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 40px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 16px; margin-top: 40px; }
   .skill-card { background: #fff; border: 1.5px solid #93C5FD; border-radius: 12px; padding: 28px; position: relative; overflow: hidden; box-shadow: 0 0 0 3px #DBEAFE, 0 6px 24px #2563EB10; }
   .skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
   .skill-card.blue { border-color: #93C5FD; box-shadow: 0 0 0 3px #DBEAFE, 0 6px 24px #2563EB10; }
@@ -150,7 +143,7 @@
   .proj-metric-val { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; }
   .proj-metric-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); }
 
-  .cs-index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; margin: 32px 0; }
+  .cs-index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 16px; margin: 32px 0; }
   .cs-index-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 22px; box-shadow: var(--shadow); cursor: pointer; transition: border-color .2s, transform .2s; }
   .cs-index-card:hover { border-color: var(--primary); transform: translateY(-2px); }
   .cs-index-card .tag-row { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
@@ -158,7 +151,7 @@
   .cs-index-card p { font-size: .85rem; color: var(--text-secondary); line-height: 1.6; }
 
   /* Supporting case-study card — real skill-card top-accent language, full weight content */
-  .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 32px 0; }
+  .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px; margin: 32px 0; }
   .support-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 26px; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: transform .2s, box-shadow .2s; }
   .support-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
   .support-card.blue::before   { background: linear-gradient(90deg,#2563EB,#60A5FA); }
@@ -204,7 +197,7 @@
     border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow);
   }
   .form-field textarea { resize: vertical; font-family: var(--font-body); }
-  .service-check-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 10px; }
+  .service-check-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 10px; }
   .service-check {
     display: flex; align-items: center; gap: 10px; padding: 12px 14px;
     background: #fff; border: 1.5px solid var(--border); border-radius: 10px;
@@ -254,3 +247,12 @@
   .tl-date { font-family: var(--font-mono); font-size: 11px; color: var(--primary); letter-spacing: .05em; margin-bottom: 4px; }
   .tl-role { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; }
   .tl-org { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* Mobile overrides — kept last so they always win the cascade regardless of where the base rule for a selector is defined above */
+  @media (max-width: 600px) {
+    .content-section { padding: 56px 20px; }
+    .hero { padding: 80px 20px 48px !important; }
+    .section-heading { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+    .form-row { grid-template-columns: 1fr; }
+    .service-check-grid { grid-template-columns: 1fr; }
+  }

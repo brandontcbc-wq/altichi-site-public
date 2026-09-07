@@ -56,7 +56,7 @@
             <span class="lbl">Problem</span>
             <span class="txt">A monolithic application needed to be decomposed into independently deployable services with automated delivery pipelines.</span>
           </div>
-          <div class="project-desc">Containerized services deployed to <strong>Amazon ECS with Fargate</strong> using <strong>ARM64 Graviton</strong> for cost-optimized serverless compute. Implemented fully automated CI/CD via <strong>AWS CodePipeline and CodeDeploy</strong> with a blue/green deployment strategy, backed by <strong>Amazon RDS MySQL</strong> in private subnets.</div>
+          <div class="project-desc">Containerized services deployed to <strong>Amazon ECS with Fargate</strong> using <strong>ARM64 Graviton</strong> for cost-optimized serverless compute. Implemented fully automated CI/CD via <strong>AWS CodePipeline and CodeDeploy</strong> with a blue/green deployment strategy, backed by <strong>Amazon RDS MySQL</strong> in private subnets. A monolithic EC2 deployment was considered and rejected for limited scalability and tight component coupling. Single-AZ RDS was chosen over Multi-AZ to control cost within project scope, a deliberate trade-off rather than an oversight.</div>
           <div class="project-tags">
             <span class="tag tag-blue">ECS Fargate</span>
             <span class="tag tag-indigo">CI/CD</span>
@@ -65,7 +65,7 @@
           </div>
         </div>
         <div class="proj-metrics blue">
-          <div><div class="proj-metric-val" style="color:#1D4ED8;">$87</div><div class="proj-metric-tag">Monthly Infra Cost</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:78%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#1D4ED8;">$87</div><div class="proj-metric-tag">Est. Monthly Infra Cost</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:78%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
           <div><div class="proj-metric-val" style="color:#1D4ED8;">0-DT</div><div class="proj-metric-tag">Zero-Downtime Deploys</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
           <div><div class="proj-metric-val" style="color:#1D4ED8;">100%</div><div class="proj-metric-tag">Fault Isolation / Service</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
         </div>
@@ -76,7 +76,7 @@
       <div class="support-card blue">
         <div class="support-card-tag-row"><span class="tag tag-blue">Cloud</span><span class="tag tag-blue">AWS</span></div>
         <div class="support-card-title">Fault-Tolerant AWS Admissions Architecture</div>
-        <div class="support-card-desc">Designed and deployed a fault-tolerant architecture for a university admissions application across two Availability Zones. EC2 instances run in private subnets behind an Application Load Balancer, with Auto Scaling validated to four instances under simulated peak traffic and Amazon RDS Multi-AZ synchronous replication providing database high availability.</div>
+        <div class="support-card-desc"><strong>Problem:</strong> a university application needed production-grade cloud infrastructure capable of surviving component failures without downtime, with no existing AWS architecture in place to build from. Designed and deployed a fault-tolerant architecture across two Availability Zones. EC2 instances run in private subnets behind an Application Load Balancer, with Auto Scaling validated to four instances under simulated peak traffic and Amazon RDS Multi-AZ synchronous replication providing database high availability.</div>
         <div class="support-card-metrics">
           <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">2 AZ</div><div class="support-metric-label">Fault Tolerant</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:90%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
           <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">4x</div><div class="support-metric-label">Auto Scaling Validated</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:75%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
@@ -99,14 +99,14 @@
           </div>
         </div>
         <div class="support-card-metrics">
-          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">PHMSA</div><div class="support-metric-label">Regulatory Compliance</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">8&#8594;5 mo</div><div class="support-metric-label">Cycle Compressed for Filing Deadlines</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:90%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
           <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">8</div><div class="support-metric-label">Cross-Functional Squad Size</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:70%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
         </div>
       </div>
       <div class="support-card blue">
         <div class="support-card-tag-row"><span class="tag tag-blue">Integrations</span><span class="tag tag-indigo">Jira</span></div>
         <div class="support-card-title">LMS &amp; Data Integration Programs</div>
-        <div class="support-card-desc">Led a strategic vendor integration program on the Canvas LMS platform, used across hundreds of universities and colleges worldwide, coordinating directly with third-party vendors to deliver integrations (Turnitin, Power BI, SMS) aligned to institutional priorities and roadmap planning, managed and tracked through Jira.</div>
+        <div class="support-card-desc"><strong>Problem:</strong> Canvas LMS operated in isolation from key institutional tools, leaving academic integrity, reporting, and student communications as manual, disconnected processes. Led a strategic vendor integration program on the Canvas LMS platform, used across hundreds of universities and colleges worldwide, coordinating directly with third-party vendors to deliver integrations (Turnitin, Power BI, SMS) aligned to institutional priorities and roadmap planning, managed and tracked through Jira.</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
           <div onclick="acOpenModal('info','lms-canvas')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid #7C3AED;border-radius:6px;padding:8px 12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #7C3AED22'" onmouseout="this.style.transform='';this.style.boxShadow=''">
             <span style="font-size:14px;">&#127891;</span><span style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:#6D28D9;">Canvas LMS &#8250;</span>
@@ -118,6 +118,15 @@
         <div class="support-card-metrics">
           <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">3</div><div class="support-metric-label">Vendor Integrations Shipped</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:65%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
           <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">Global</div><div class="support-metric-label">Platform Scale (Canvas LMS)</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:85%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+        </div>
+      </div>
+      <div class="support-card blue">
+        <div class="support-card-tag-row"><span class="tag tag-blue">Ansible</span><span class="tag tag-indigo">IaC</span></div>
+        <div class="support-card-title">Configuration Automation with Ansible</div>
+        <div class="support-card-desc">Extended a Terraform-provisioned infrastructure with a full Ansible configuration layer: four parameterized roles handling user and group provisioning with SSH key generation, data disk partitioning, and load-balanced Apache web server deployment across three Linux VMs. The Terraform provisioner triggers the Ansible playbook automatically, combining infrastructure provisioning and configuration into one non-interactive <code>terraform apply</code>. Troubleshooting included repointing end-of-life CentOS repositories to the archive mirror and resolving firewall configuration gaps blocking HTTP traffic.</div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">4</div><div class="support-metric-label">Parameterized Roles</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:70%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#1D4ED8;">3 VMs</div><div class="support-metric-label">Non-Interactive Deploy</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:75%;background:linear-gradient(90deg,#2563EB,#60A5FA);"></div></div></div>
         </div>
       </div>
     </div>
@@ -180,7 +189,7 @@
       <div class="support-card cyan">
         <div class="support-card-tag-row"><span class="tag tag-cyan">MFA / SSO</span><span class="tag tag-cyan">Payments</span></div>
         <div class="support-card-title">Secure Portal &amp; Authentication Enhancements</div>
-        <div class="support-card-desc">Implemented Multi-Factor Authentication and Single Sign-On across enterprise portals, and led the integration of a secure payment API with CIBC, one of Canada's largest Schedule I chartered banks, enabling students to transact directly within institutional platforms. Production security work, not a simulated environment.</div>
+        <div class="support-card-desc">Implemented Multi-Factor Authentication and Single Sign-On across enterprise portals, and led the integration of a secure payment API with CIBC, one of Canada's largest Schedule I chartered banks, enabling students to transact directly within institutional platforms. Coordinated across security, engineering, and banking vendor teams, with the full payment flow validated through Figma prototyping before build. Production security work, not a simulated environment.</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
           <div onclick="acOpenModal('info','sec-auth')" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:#ECFEFF;border:1px solid #A5F3FC;border-left:3px solid #0891B2;border-radius:6px;padding:8px 12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 3px 10px #0891B222'" onmouseout="this.style.transform='';this.style.boxShadow=''">
             <span style="font-size:14px;">&#128272;</span><span style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:#0E7490;">MFA &amp; SSO &#8250;</span>
@@ -213,18 +222,19 @@
             <span class="lbl" style="color:#7C3AED;">Problem</span>
             <span class="txt">Document question-answering needs grounded, source-cited answers, not fluent-sounding guesses.</span>
           </div>
-          <div class="project-desc">Built a 15-document research corpus, indexed embeddings in <strong>Chroma</strong>, and developed a <code>search_knowledge_base</code> retrieval tool. Added <strong>multi-query rewriting</strong> to improve retrieval coverage and <strong>citation-grounded generation</strong> to reduce hallucination. Evaluated with an LLM-as-judge faithfulness evaluator.</div>
+          <div class="project-desc">Built a 15-document research corpus, indexed embeddings in <strong>Chroma</strong>, and developed a <code>search_knowledge_base</code> retrieval tool. Added <strong>multi-query rewriting</strong> to improve retrieval coverage and <strong>citation-grounded generation</strong> to reduce hallucination. Evaluated with an LLM-as-judge faithfulness evaluator. Extended with a solo adversarial red-team module testing prompt-injection resistance, out-of-scope refusal, citation-forgery detection, and contradictory-context handling, passing all four controlled test categories.</div>
           <div class="project-tags">
             <span class="tag tag-violet">RAG</span>
             <span class="tag tag-violet">Chroma</span>
             <span class="tag tag-violet">Multi-Query</span>
             <span class="tag tag-violet">LLM Eval</span>
+            <span class="tag tag-indigo">Red-Team</span>
           </div>
         </div>
         <div class="proj-metrics violet">
           <div><div class="proj-metric-val" style="color:#4C1D95;">1.00</div><div class="proj-metric-tag">Avg. Faithfulness Score</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+          <div><div class="proj-metric-val" style="color:#4C1D95;">4/4</div><div class="proj-metric-tag">Red-Team Categories Passed</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
           <div><div class="proj-metric-val" style="color:#4C1D95;">15</div><div class="proj-metric-tag">Document Corpus</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:70%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
-          <div><div class="proj-metric-val" style="color:#4C1D95;">100%</div><div class="proj-metric-tag">Cited Generation</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
         </div>
       </div>
 
@@ -263,12 +273,21 @@
         </div>
       </div>
       <div class="support-card violet">
-        <div class="support-card-tag-row"><span class="tag tag-violet">ML</span><span class="tag tag-violet">XGBoost</span></div>
-        <div class="support-card-title">Imbalanced-Data Fraud Detection</div>
-        <div class="support-card-desc">Built a machine learning pipeline for credit card fraud detection on a highly imbalanced dataset, where fraud represented roughly 0.17% of transactions. Compared logistic regression and XGBoost across multiple imbalance-handling techniques, with threshold tuning on the precision-recall curve delivering the strongest practical tradeoff between catching fraud and limiting false alerts.</div>
+        <div class="support-card-tag-row"><span class="tag tag-violet">RAG</span><span class="tag tag-cyan">AWS Bedrock</span></div>
+        <div class="support-card-title">Intelligent Document Q&amp;A System</div>
+        <div class="support-card-desc">Built a second, separate RAG pipeline on AWS: a Bedrock Knowledge Base with S3 Vectors for retrieval, Claude Sonnet 4.6 for grounded generation, and Titan embeddings, backed by Lambda, API Gateway, and DynamoDB for per-session conversation history, all provisioned through Terraform. Built to cloud security fundamentals from the start: least-privilege IAM roles, blocked public access on the source bucket, and scoped service-to-service trust relationships. Verified end-to-end via direct API calls, not just console testing, and confirmed the system correctly declines out-of-scope questions rather than hallucinating. Infrastructure was torn down immediately after testing to avoid ongoing charges.</div>
         <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#6D28D9;">S3 Vectors</div><div class="support-metric-label">Bedrock Knowledge Base</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:80%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+          <div class="support-metric"><div class="support-metric-val" style="color:#6D28D9;">0</div><div class="support-metric-label">Hallucinated Out-of-Scope Answers</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:100%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
+        </div>
+      </div>
+      <div class="support-card violet">
+        <div class="support-card-tag-row"><span class="tag tag-violet">ML</span><span class="tag tag-violet">XGBoost</span></div>
+        <div class="support-card-title">Binary Classification: Churn &amp; Fraud Detection</div>
+        <div class="support-card-desc">Applied the same supervised-learning and imbalance-handling lens to two different rare-outcome business problems: telecom customer churn (roughly 26.5% positive class) and credit card fraud (roughly 0.17% positive class). Compared Logistic Regression and XGBoost across class weighting, SMOTE, undersampling, and threshold tuning for both. For fraud specifically, threshold-tuned XGBoost was selected as the practical business-balanced model: recall improved from 75.5% to 85.7% (missed fraud cases dropped from 12 to 7), trading precision down to 71.2% (false positives rose from 1 to 17), a deliberate, quantified trade-off rather than an unqualified win.</div>
+        <div class="support-card-metrics">
+          <div class="support-metric"><div class="support-metric-val" style="color:#6D28D9;">75.5%&#8594;85.7%</div><div class="support-metric-label">Fraud Recall, Threshold-Tuned</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:86%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
           <div class="support-metric"><div class="support-metric-val" style="color:#6D28D9;">0.17%</div><div class="support-metric-label">Fraud Rate in Dataset</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:15%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
-          <div class="support-metric"><div class="support-metric-val" style="color:#6D28D9;">XGBoost</div><div class="support-metric-label">Strongest Tradeoff</div><div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:88%;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div></div>
         </div>
       </div>
     </div>
